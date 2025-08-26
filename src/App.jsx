@@ -4,11 +4,16 @@ import { Route, Routes } from 'react-router-dom'
 import PrivacyPolicy from './pages/Legal/PrivacyPolicy'
 import TermsOfService from './pages/Legal/TermsOfService'
 import FAQ from './pages/FAQ'
+import Header from './Header'
 
 function App() {
 
   return (
     <>
+      <header>
+        <Header />
+      </header>
+
       <main className='container-app'>
         <Routes>
           <Route path='/privacy' element={<PrivacyPolicy />} />

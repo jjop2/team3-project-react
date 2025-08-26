@@ -1,3 +1,15 @@
 .legalContent {
-  padding: 0.3rem 1rem 0;
+  padding: 1rem 1rem 0;
+}
+
+.legalContent > ul {
+  padding: 1rem 2.3rem;
+}
+
+.legalContent > ul > li > ul {
+  padding: 0 1rem;
+}
+
+.legalContent p {
+  padding: 1rem;
 }
