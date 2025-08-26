@@ -9,7 +9,7 @@ function App() {
 
   return (
     <>
-      <main className='container'>
+      <main className='container-app'>
         <Routes>
           <Route path='/privacy' element={<PrivacyPolicy />} />
           <Route path='/term' element={<TermsOfService />} />
