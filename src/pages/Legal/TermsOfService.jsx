@@ -54,7 +54,7 @@ const TermsOfService = () => {
         <h4>제8조 (기타)</h4>
         <p>
           본 약관에 명시되지 않은 사항은 관련 법령 또는 관례에 따릅니다.  
-          문의: <a href="mailto:사이트이메일주소">사이트이메일주소</a>
+          문의: contact@gamehub.com
         </p>
       </div>
 

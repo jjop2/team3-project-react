@@ -2,7 +2,7 @@ import './LegalPages.css'
 
 const PrivacyPolicy = () => {
   return (
-    <div className>
+    <div>
       <div className='legalTitle'>
         <h1>개인정보처리방침</h1>
         <p>마지막 업데이트: 2025년 8월 26일</p>
@@ -49,13 +49,13 @@ const PrivacyPolicy = () => {
 
         <h4>5. 이용자의 권리</h4>
         <p>
-          이용자는 언제든지 자신의 개인정보 열람, 정정, 삭제, 처리 정지 요청이 가능합니다.  
-          요청 및 문의: <a href="mailto:사이트이메일주소">사이트이메일주소</a>
+          이용자는 언제든지 자신의 개인정보 열람, 정정, 삭제, 처리 정지 요청이 가능합니다.<br/>  
+          요청 및 문의: contact@gamehub.com
         </p>
 
         <h4>6. 쿠키 및 로그</h4>
         <p>
-          사이트 최적화와 통계 분석을 위해 쿠키 및 접속 로그를 수집합니다.  
+          사이트 최적화와 통계 분석을 위해 쿠키 및 접속 로그를 수집합니다.<br/>
           브라우저 설정에서 쿠키 수집을 거부할 수 있습니다.
         </p>
 
@@ -63,7 +63,7 @@ const PrivacyPolicy = () => {
         <p>
           시행일자: 2025년 9월 5일<br/>
           개인정보 보호 책임자: 사이트 운영자<br/>
-          문의: <a href="mailto:사이트이메일주소">사이트이메일주소</a>
+          문의: contact@gamehub.com
         </p>
       </div>
     </div>

@@ -6,8 +6,8 @@ import Header from './Header.jsx'
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
-  <Header>
+  
     <App />
-    </Header>
+    
   </BrowserRouter>,
 )
