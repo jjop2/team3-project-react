@@ -1,11 +1,26 @@
-import { useState } from 'react'
 import './App.css'
+import Footer from './components/Footer'
+import { Route, Routes } from 'react-router-dom'
+import PrivacyPolicy from './pages/Legal/PrivacyPolicy'
+import TermsOfService from './pages/Legal/TermsOfService'
+import FAQ from './pages/FAQ'
 
 function App() {
 
   return (
     <>
-      
+      <main className='container'>
+        <Routes>
+          <Route path='/privacy' element={<PrivacyPolicy />} />
+          <Route path='/term' element={<TermsOfService />} />
+          <Route path='/faq' element={<FAQ />} />
+        </Routes>
+      </main>
+
+      <footer>
+        <Footer />
+      </footer>
+
     </>
   )
 }
