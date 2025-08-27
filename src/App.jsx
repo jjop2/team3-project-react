@@ -1,3 +1,4 @@
+import Survey from './pages/Survey'
 import './App.css'
 import Footer from './components/Footer'
 import { Route, Routes } from 'react-router-dom'
@@ -7,7 +8,6 @@ import FAQ from './pages/FAQ'
 import Header from './Header'
 
 function App() {
-
   return (
     <>
       <header>
@@ -19,6 +19,7 @@ function App() {
           <Route path='/privacy' element={<PrivacyPolicy />} />
           <Route path='/term' element={<TermsOfService />} />
           <Route path='/faq' element={<FAQ />} />
+          <Route path='survey' element= {<Survey />}></Route>
         </Routes>
       </main>
 
