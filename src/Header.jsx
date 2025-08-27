@@ -37,7 +37,7 @@ function Header(){
                 </div>
                  <div className="navbar-icons">
                         <h4 onClick={()=>{
-                            navigate('/main1')
+                            navigate('/survey')
                         }}className="text1">💖성향분석 테스트</h4>
 
                         <h4 onClick={()=>{

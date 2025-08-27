@@ -1,0 +1,7 @@
+.Survey-container {
+  margin: auto;
+  height: 100%;
+  width: 600px;
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+}

@@ -1,0 +1,40 @@
+.Question-container {
+  padding: 10px;
+  margin: 5px;
+}
+
+.Question-item {
+  display: flex;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 30px;
+  font-size: 20px;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+
+}
+
+.btn-container .btn1{
+  padding: 10px;
+  font-size: 16px;
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  border: 0px;
+  cursor: pointer;
+}
+
+.btn-container .btn2{
+  padding: 10px;
+  font-size: 16px;
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  border: 0px;
+  cursor: pointer;
+}

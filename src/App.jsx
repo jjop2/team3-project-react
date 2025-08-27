@@ -1,5 +1,7 @@
 import Login from "./pages/Login/Login"
 import Signup from './pages/Signup/Signup'
+import Survey from './pages/Survey'
+import './App.css'
 import Footer from './components/Footer'
 import { Route, Routes } from 'react-router-dom'
 import PrivacyPolicy from './pages/Legal/PrivacyPolicy'
@@ -8,7 +10,6 @@ import FAQ from './pages/FAQ'
 import Header from './Header'
 
 function App() {
-
   return (
     <>
       <header>
@@ -22,6 +23,7 @@ function App() {
           <Route path='/faq' element={<FAQ />} />
           <Route path='/login' element={<Login /> } />
           <Route path='/signup' element={<Signup />} />
+          <Route path='survey' element= {<Survey />}></Route>
         </Routes>
       </main>
 
