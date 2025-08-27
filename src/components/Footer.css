@@ -1,0 +1,23 @@
+.footer {
+  margin-top: 2rem;
+  background: #ffffff;
+  padding: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.footerMenu {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.footerMenu p {
+  cursor: pointer;
+}
+
+.footerMenu p:hover {
+  color: #030213;
+}
