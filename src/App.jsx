@@ -1,25 +1,34 @@
-import { useState } from 'react'
-import './App.css'
-import { Route, Routes } from 'react-router-dom'
 import Login from "./login"
-
-import Header from './Header'
 import Signup from './Signup'
-
-
+import Footer from './components/Footer'
+import { Route, Routes } from 'react-router-dom'
+import PrivacyPolicy from './pages/Legal/PrivacyPolicy'
+import TermsOfService from './pages/Legal/TermsOfService'
+import FAQ from './pages/FAQ'
+import Header from './Header'
 
 function App() {
 
   return (
     <>
+      <header>
+        <Header />
+      </header>
 
-      <Header />
-      <Routes>
+      <main className='container-app'>
+        <Routes>
+          <Route path='/privacy' element={<PrivacyPolicy />} />
+          <Route path='/term' element={<TermsOfService />} />
+          <Route path='/faq' element={<FAQ />} />
+          <Route path='/login' element={<Login /> } />
+          <Route path='/signup' element={<Signup />} />
+        </Routes>
+      </main>
 
-        <Route path='/login' element={<Login /> } />
-        <Route path='/signup' element={<Signup />} />
+      <footer>
+        <Footer />
+      </footer>
 
-      </Routes>
     </>
   )
 }
