@@ -1,9 +1,10 @@
 import { useState } from "react";
 import './Question.css'
 import { useNavigate } from "react-router-dom";
+import useNavi from "../hooks/useNavi";
 
-const Question = () =>{
-
+const Question = ({setTopTwoGenres}) =>{
+const {goHome, goTo} = useNavi();
 const QuestionList = [
   {
     id: 1,
@@ -128,7 +129,7 @@ const QuestionList = [
     question: "보통 게임을 할 때 플레이 시간은 어느 정도인가요? ⏰",
     options: [
       { text: "30분 이하", genre: "Racing"},
-      { text: "30분~1시간", genre: "Sport"},
+      { text: "30분~1시간", genre: "Sports"},
       { text: "1~2시간", genre: "Action"},
       { text: "3~4시간", genre: "Simulation" },
       { text: "4시간 이상, 몰입해서 플레이", genre: "RPG" },
@@ -142,14 +143,36 @@ const QuestionList = [
   const [current, setCurrent] = useState(0);
   const [selected, setSelected] = useState("");
   const [answers, setAnswers] = useState({});
+  
+    const countGenres = (answers) => {
+    const genreCount = {};
+
+    // 장르별 카운터
+    Object.values(answers).forEach((answer) => {
+      const genre = answer.genre;
+      if (genre) {
+        genreCount[genre] = (genreCount[genre] || 0) + 1;
+      }
+    });
+
+    return genreCount;
+  };
+
 
     const handleNext = () => {
     if (!selected) {
       alert("하나를 선택해주세요!");
       return;
     }
-     setAnswers({ ...answers, [QuestionList[current].id]:
-      { text: selected, genre: QuestionList[current].options.find(o => o.text === selected).genre}});
+
+    const updatedAnswers = {
+    ...answers,
+      [QuestionList[current].id]: {
+      text: selected,
+      genre: QuestionList[current].options.find(o => o.text === selected).genre,
+    },
+  };
+  setAnswers(updatedAnswers);
      setSelected("");
 
     // 다음질문
@@ -158,8 +181,17 @@ const QuestionList = [
     } else {
       alert("설문이 완료되었습니다!");
 
+      // 장르별 카운트
+      const genreCount = countGenres(updatedAnswers);
+
+      // 2개 장르 뽑기
+      const sorted = Object.entries(genreCount).sort((a, b) => b[1] - a[1]);
+      const topGenres = sorted.slice(0, 2).map(item => item[0]);
+      setTopTwoGenres(topGenres);
+      goTo('/surveyresult');
     }
   };
+
     const handlePrev = () => {
 
     // 이전질문
@@ -169,8 +201,7 @@ const QuestionList = [
       navigate('/');
     }
   };
-  // 선택 답변 저장
-  console.log("사용자 답변:", answers);
+
 
   return(
     <div className="Question-container">
