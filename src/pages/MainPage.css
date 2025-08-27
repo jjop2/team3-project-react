@@ -1,0 +1,199 @@
+/* MainPage.css 파일의 전체 내용 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-align: center;
+}
+li {
+  list-style: none;
+  margin-top: 20px;
+}
+#main_wrap {
+  width: 80%;
+  margin: 0 auto;
+}
+/* ✅ .main_contents는 제외하고 나머지 섹션에만 초기 스타일 적용 */
+.main_text,
+.main_type {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+/* 스크롤 시 'visible' 클래스가 추가되었을 때의 스타일 */
+.main_text.visible,
+.main_type.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ✅ .main_contents 안의 텍스트에만 별도 애니메이션 규칙 적용 */
+.main_contents h1,
+.main_contents .subtitle {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.main_contents h1.visible,
+.main_contents .subtitle.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.main_contents .subtitle.visible {
+  transition-delay: 0.3s;
+}
+
+/* main_contents 부분 - 항상 보이게 둡니다 */
+.main_contents {
+  width: 100%;
+  height: 800px;
+  background-size: cover;
+  color: white;
+  padding-top: 150px;
+}
+.main_contents h1 {
+  font-size: 3rem;
+  text-shadow: 3px 3px 5px rgb(0, 0, 0);
+}
+.subtitle {
+  font-size: 2rem;
+  margin-top: 35px;
+}
+.main_box_content {
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+}
+.main_box_content div:first-child {
+  margin-right: 20px;
+}
+.main_box {
+  border-radius: 10px;
+  width: 200px;
+  height: 110px;
+  background-color: hsla(0, 0%, 53%, 0.322);
+  box-shadow: 3px 3px 5px rgba(32, 32, 32, 0.541);
+}
+.main_box h2 {
+  font-size: 3rem;
+}
+.test_start {
+  width: 210px;
+  height: 55px;
+  border-radius: 10px;
+  border: none;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  padding-right: 5px;
+}
+.test_start:hover {
+  background-color: #ffe600;
+  cursor: pointer;
+  font-weight: 600;
+}
+.test_start img {
+  width: 40px;
+  height: 40px;
+  margin-top: 8px;
+}
+.test_start p {
+  line-height: 55px;
+  margin-left: 5px;
+  font-size: 1rem;
+}
+/* main_text 부분 */
+.main_text {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-around;
+}
+.main_text_box {
+  border: 1px solid rgb(182, 182, 182);
+  border-radius: 12px;
+  width: 220px;
+  padding: 20px;
+}
+.main_text_box h3 {
+  margin: 5px 0;
+}
+.main_text_box img {
+  width: 70px;
+}
+/* main_type 부분 */
+.main_type {
+  margin: 50px 0;
+}
+.type_title_box {
+  margin-bottom: 50px;
+}
+/* type_box 호버 트랜지션 */
+.type_box {
+  width: 100%;
+  height: 150px;
+  background-position: center;
+  background-size: 100%;
+  padding-top: 50px;
+  transition: background-size 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+.type_box:hover {
+  background-size: 130%;
+  transform: scale(1.1);
+}
+.box01 {
+  background-image: url(../images/type01bg.png);
+}
+.box02 {
+  background-image: url(../images/type01bg.png);
+}
+.box03 {
+  background-image: url(../images/type01bg.png);
+}
+.box04 {
+  background-image: url(../images/type01bg.png);
+}
+.box05 {
+  background-image: url(../images/type01bg.png);
+}
+/* type_box_list 내부 li 요소에 순차적 애니메이션 적용 */
+.type_box_list li {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+.main_type.visible .type_box_list li {
+  opacity: 1;
+  transform: translateY(0);
+  transition: 0.5s;
+}
+@media (max-width: 767px) {
+  #main_wrap {
+    width: 100%;
+  }
+  .main_contents h1 {
+    font-size: 2.2rem;
+  }
+  .subtitle {
+    font-size: 1.5rem;
+  }
+  .main_box_content {
+    flex-flow: column;
+    padding: 0 20px;
+  }
+  .main_box {
+    width: 100%;
+    margin-top: 15px;
+  }
+  .main_box:first-child {
+    margin-top: 0px;
+  }
+  .main_text {
+    padding: 0 20px;
+    flex-flow: column;
+  }
+  .main_text_box {
+    width: 100%;
+    margin-top: 15px;
+  }
+}

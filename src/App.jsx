@@ -1,3 +1,5 @@
+
+import MainPage from './pages/MainPage';
 import Login from "./pages/Login/Login"
 import Signup from './pages/Signup/Signup'
 import Survey from './pages/Survey'
@@ -12,27 +14,28 @@ import Header from './Header'
 function App() {
   return (
     <>
+      
       <header>
         <Header />
       </header>
 
-      <main className='container-app'>
+      <main className="container-app">
         <Routes>
-          <Route path='/privacy' element={<PrivacyPolicy />} />
-          <Route path='/term' element={<TermsOfService />} />
-          <Route path='/faq' element={<FAQ />} />
-          <Route path='/login' element={<Login /> } />
-          <Route path='/signup' element={<Signup />} />
-          <Route path='survey' element= {<Survey />}></Route>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/term" element={<TermsOfService />} />
+          <Route path="/faq" element={<FAQ />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="survey" element={<Survey />}></Route>
         </Routes>
       </main>
 
       <footer>
         <Footer />
       </footer>
-
     </>
-  )
+  );
 }
 
 export default App
