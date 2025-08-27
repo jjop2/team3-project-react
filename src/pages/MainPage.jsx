@@ -6,6 +6,7 @@ import main_icon01 from "../images/main_icon01.png";
 import main_icon02 from "../images/main_icon02.png";
 import main_icon03 from "../images/main_icon03.png";
 import type01bg from "../images/type01bg.png";
+import useNavi from "../hooks/useNavi";
 
 function MainPage() {
     const sectionRefs = useRef([]);
@@ -14,6 +15,7 @@ function MainPage() {
     // ✅ 텍스트 애니메이션을 위한 새로운 ref와 상태를 추가합니다.
     const textRef = useRef(null);
     const [isTextVisible, setIsTextVisible] = useState(false);
+    const {goHome, goTo} = useNavi();
 
     useEffect(() => {
       // 텍스트 ref의 가시성만 확인하는 로직
@@ -78,13 +80,15 @@ function MainPage() {
             </p>
             <div className="main_box_content">
               <div className="main_box">
-                <h2>0</h2> <p>개의질문</p>
+                <h2>12</h2> <p>개의질문</p>
               </div>
               <div className="main_box">
-                <h2>8</h2> <p>가지의 게이머 유형</p>
+                <h2>5</h2> <p>가지의 게이머 유형</p>
               </div>
             </div>
-            <button className="test_start">
+            <button className="test_start" onClick={()=>{
+              goTo('/survey')
+            }}>
               <img src="../src/images/Brains.png" alt="" srcset="" />
               <p>게임성향 테스트시작</p>
             </button>

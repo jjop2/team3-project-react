@@ -1,0 +1,115 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+.login-form-container, .signup-form-container {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 8px;
+  background-color: #f4f6f8;
+  box-shadow: 0 4px 10px rgba(219, 214, 214, 0.1);
+}
+
+.form-title {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #222;
+}
+
+.input-group {
+  margin-bottom: 1.2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group label {
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+  color: #555;
+}
+
+.input-group input {
+  padding: 0.5rem 0.7rem;
+  border: 1.5px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.button-signup {
+  text-align: center;
+}
+
+.button-group button {
+  background-color: #899df7;
+  color: rgb(7, 7, 7);
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.button-group button:hover {
+  background-color: #9fd0f1;
+}
+
+.group-button button,
+.button-signup button,
+.to-Signup-page button,
+.to-login-page button {
+  font-weight: 600;
+  border-radius: 5px;
+  border: 1.5px solid #6c757d; /* 중간 회색톤 */
+  background-color: white;
+  color: #495057; /* 어두운 회색 */
+  cursor: pointer;
+  padding: 6px 12px;
+  font-size: 13px;
+  min-width: 90px;
+  box-shadow: none;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  margin-bottom: 12px; /* 버튼간 충분한 간격 */
+  display: inline-block;
+}
+
+/* 버튼 호버 효과 */
+.group-button button:hover,
+.button-signup button:hover,
+.to-Signup-page button:hover,
+.to-login-page button:hover {
+  background-color: #6c757d;
+  color: white;
+  border-color: #6c757d;
+}
+
+/* 로그인 버튼 오른쪽 정렬 */
+.group-button {
+  text-align: right;
+}
+
+/* 회원가입 및 로그인 창 이동 버튼은 기본 왼쪽 정렬 유지 */
+.to-Signup-page,
+.to-login-page {
+  margin-top: 40px;
+  text-align: left;
+}
+
+/* 버튼들 사이 간격 좀 더 넓히기 (선택사항) */
+.to-Signup-page button,
+.to-login-page button {
+  margin-bottom: 0;
+}
