@@ -1,5 +1,5 @@
-import Login from "./login"
-import Signup from './Signup'
+import Login from "./pages/Login/Login"
+import Signup from './pages/Signup/Signup'
 import Footer from './components/Footer'
 import { Route, Routes } from 'react-router-dom'
 import PrivacyPolicy from './pages/Legal/PrivacyPolicy'

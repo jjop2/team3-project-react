@@ -1,11 +1,12 @@
 import { useState } from "react"
-import './Login.css'
-import './Buttongroup.css';
-import { useNavigate } from "react-router-dom";
+import '../Login/Login.css';
+import '../Login/Buttongroup.css';
+import useNavi from "../../hooks/useNavi";
+
 
 
 const Signup = () => {
-  const navigate = useNavigate();
+  const {goHome, goTo} = useNavi();
   const [member, setMember] = useState({
     username : '',
     password : '',
@@ -56,7 +57,7 @@ const Signup = () => {
 
       <div className="to-login-page"> 
         <button onClick={ () => {
-          navigate('/login')
+          goTo('/login')
         }}>로그인 창으로 이동하기</button>
       </div>
     
