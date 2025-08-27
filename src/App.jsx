@@ -1,3 +1,5 @@
+import Login from "./pages/Login/Login"
+import Signup from './pages/Signup/Signup'
 import Survey from './pages/Survey'
 import './App.css'
 import Footer from './components/Footer'
@@ -19,6 +21,8 @@ function App() {
           <Route path='/privacy' element={<PrivacyPolicy />} />
           <Route path='/term' element={<TermsOfService />} />
           <Route path='/faq' element={<FAQ />} />
+          <Route path='/login' element={<Login /> } />
+          <Route path='/signup' element={<Signup />} />
           <Route path='survey' element= {<Survey />}></Route>
         </Routes>
       </main>
