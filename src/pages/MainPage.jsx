@@ -89,7 +89,7 @@ function MainPage() {
             <button className="test_start" onClick={()=>{
               goTo('/survey')
             }}>
-              <img src="../src/images/Brains.png" alt="" srcset="" />
+              <img src="../src/images/Brains.png"/>
               <p>게임성향 테스트시작</p>
             </button>
           </section>
@@ -99,21 +99,21 @@ function MainPage() {
           >
             <div className="main_text_box">
               <div className="text_box_img">
-                <img src="../src/images/main_icon01.png" alt="" srcset="" />
+                <img src="../src/images/main_icon01.png"/>
                 <h3>정확한 분석</h3>
                 <p>7개의 과학적으로 설계된 질문으로 당신의 게임 성향을 정확하게 분석합니다.</p>
               </div>
             </div>
             <div className="main_text_box">
               <div className="text_box_img">
-                <img src="../src/images/main_icon02.png" alt="" srcset="" />
+                <img src="../src/images/main_icon02.png"/>
                 <h3>맞춤 추천</h3>
                 <p>6가지 게이머 유형 중 당신에게 맞는 유형을 찾아 최적의 게임을 추천합니다.</p>
               </div>
             </div>
             <div className="main_text_box">
               <div className="text_box_img">
-                <img src="../src/images/main_icon03.png" alt="" srcset="" />
+                <img src="../src/images/main_icon03.png"/>
                 <h3>결과 공유</h3>
                 <p>친구들과 테스트 결과를 공유하고 함께 게임을 즐겨보세요.</p>
               </div>

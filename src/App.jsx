@@ -10,8 +10,12 @@ import PrivacyPolicy from './pages/Legal/PrivacyPolicy'
 import TermsOfService from './pages/Legal/TermsOfService'
 import FAQ from './pages/FAQ'
 import Header from './Header'
+import { useState } from 'react';
+import SurveyResult from './pages/SurveyResult';
 
 function App() {
+  
+  const [topTwoGenres , setTopTwoGenres] = useState([]);
   return (
     <>
       
@@ -27,7 +31,8 @@ function App() {
           <Route path="/faq" element={<FAQ />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="survey" element={<Survey />}></Route>
+          <Route path="/survey" element={<Survey setTopTwoGenres={setTopTwoGenres}/>}/>
+          <Route path="/surveyresult" element={<SurveyResult topTwoGenres={topTwoGenres} />} />
         </Routes>
       </main>
 
