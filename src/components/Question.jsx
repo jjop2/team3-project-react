@@ -94,8 +94,8 @@ useEffect(() => {
        {
         age : age,
         gender : gender,
-        preferGenre1: topGenresWithNumber[0].value,
-        preferGenre2: topGenresWithNumber[1].value
+        preferGenre1: {"id" : topGenresWithNumber[0].value},
+        preferGenre2: {"id" : topGenresWithNumber[1].value}
        })
       .then(response => {
         console.log(response);
