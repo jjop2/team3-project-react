@@ -2,6 +2,7 @@ import { useState } from "react"
 import '../Login/Login.css';
 import '../Login/Buttongroup.css';
 import useNavi from "../../hooks/useNavi";
+import axios from "axios";
 
 
 
@@ -21,12 +22,21 @@ const Signup = () => {
   }
 
   const handleSignup = () => {
+    console.log(member)
     if (!member.username || !member.password || !member.email) {
       alert('모든 항목을 입력해 주세요')
       return;
       }
-    console.log('회원가입 시도', member)
-    // 추후 연동 
+    axios.post(`${import.meta.env.VITE_SERVER_URL}/signup`, member)
+      .then(response=>{
+        console.log(response)
+        alert(response.data);
+
+        goTo('/');
+      }).catch(error=>{
+        console.log('Axios Error',error);
+        alert('회원가입 실패')
+      })
 
   }
   
