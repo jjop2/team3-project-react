@@ -1,10 +1,12 @@
 import { Link, useNavigate } from "react-router-dom";
 import './Header.css'
+import useNavi from "./hooks/useNavi";
 
 
 
 function Header(){
  const navigate = useNavigate();
+   const {goHome, goTo} = useNavi();
 
     return(
         <>
@@ -32,6 +34,11 @@ function Header(){
                         <a className="navbar-button" onClick={()=>{
                             navigate('/signup')
                         }}>회원가입</a>
+
+                        <a className="navbar-my" onClick={()=>{
+                            goTo('/mypage')
+                        }}>마이페이지</a>
+                        
                    </div>
  
                 </div>

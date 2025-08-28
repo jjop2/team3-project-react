@@ -9,6 +9,7 @@ import PrivacyPolicy from './pages/Legal/PrivacyPolicy'
 import TermsOfService from './pages/Legal/TermsOfService'
 import FAQ from './pages/FAQ'
 import Header from './Header'
+import MyPage from './pages/Mypage/Mypage';
 import { useState } from 'react';
 import Survey from './pages/Survey/Survey';
 import SurveyResult from './pages/Survey/SurveyResult';
@@ -32,6 +33,8 @@ function App() {
           <Route path="/faq" element={<FAQ />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="survey" element={<Survey />}></Route>
+          <Route path="/mypage" element={<MyPage />}></Route>
           <Route path="/survey" element={<Survey setTopTwoGenres={setTopTwoGenres}/>}/>
           <Route path="/surveyresult" element={<SurveyResult topTwoGenres={topTwoGenres} />} />
         </Routes>
