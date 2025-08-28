@@ -39,6 +39,14 @@ const Login = ( {setAuth} ) => {
           goHome();
         }
       }).catch(error => {
+        /* 
+          로그인 인증 실패 시 401이 status에 담겨서 반환됨
+          로그인 인증이 필요한 경우 아래 참고
+          
+          기본 멘트 : "인증이 필요합니다" (.response.data.message)
+          (.response.data : json 형식 반환시켰으므로 확인 바람)
+          스프링 security패키지 - AuthEntryPoint 참고
+        */
         if(error.response && error.response.status == 401) {
           setErrorMsg("아이디가 존재하지 않거나 비밀번호가 틀렸습니다");
         } else {
