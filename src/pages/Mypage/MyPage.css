@@ -1,11 +1,13 @@
+수정된 MyPage.css
+css/* Reset 스타일 */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-
-.login-form-container, .signup-form-container {
+/* MyPage 전용 컨테이너 */
+.mypage-form-container {
   max-width: 400px;
   margin: 2rem auto;
   padding: 2rem;
@@ -14,7 +16,7 @@
   box-shadow: 0 4px 10px rgba(219, 214, 214, 0.1);
 }
 
-.form-title {
+.mypage-form-title {
   text-align: center;
   margin-bottom: 1.5rem;
   font-weight: 700;
@@ -22,19 +24,19 @@
   color: #222;
 }
 
-.input-group {
+.mypage-input-group {
   margin-bottom: 1.2rem;
   display: flex;
   flex-direction: column;
 }
 
-.input-group label {
+.mypage-input-group label {
   margin-bottom: 0.3rem;
   font-weight: 600;
   color: #555;
 }
 
-.input-group input {
+.mypage-input-group input {
   padding: 0.5rem 0.7rem;
   border: 1.5px solid #ccc;
   border-radius: 4px;
@@ -42,80 +44,59 @@
   transition: border-color 0.3s;
 }
 
-.input-group input:focus {
+.mypage-input-group input:focus {
   border-color: #007bff;
   outline: none;
 }
 
-.button-signup {
-  text-align: center;
+/* 버튼 그룹 */
+.mypage-group-button {
+  display: flex;
+  justify-content: center; /* 중앙 정렬 */
+  gap: 15px; /* 버튼 간 간격 */
+  padding: 20px;
+  background-color: #f5f6fa;
 }
 
-.button-group button {
-  background-color: #899df7;
-  color: rgb(7, 7, 7);
-  padding: 0.6rem 1.2rem;
+.mypage-group-button button {
+  padding: 10px 20px;
   border: none;
-  border-radius: 5px;
+  background-color: #3498db;
+  color: white;
+  border-radius: 4px;
   cursor: pointer;
-  font-weight: 700;
-  font-size: 1rem;
+  font-size: 14px;
   transition: background-color 0.3s;
-  
 }
 
-.button-group button:hover {
-  background-color: #9fd0f1;
+.mypage-group-button button:hover {
+  background-color: #2980b9;
 }
 
-.group-button button,
-.button-signup button,
-.to-Signup-page button,
-.to-login-page button {
+/* HOME 이동 버튼 */
+.mypage-to-home-page {
+  margin-top: 40px;
+  text-align: left;
+}
+
+.mypage-to-home-page button {
   font-weight: 600;
   border-radius: 5px;
-  border: 1.5px solid #6c757d; /* 중간 회색톤 */
+  border: 1.5px solid #6c757d;
   background-color: white;
-  color: #495057; /* 어두운 회색 */
+  color: #495057;
   cursor: pointer;
   padding: 6px 12px;
   font-size: 13px;
   min-width: 90px;
   box-shadow: none;
   transition: background-color 0.25s ease, color 0.25s ease;
-  margin-bottom: 12px; /* 버튼간 충분한 간격 */
+  margin-bottom: 12px;
   display: inline-block;
 }
 
-/* 버튼 호버 효과 */
-.group-button button:hover,
-.button-signup button:hover,
-.to-Signup-page button:hover,
-.to-login-page button:hover {
+.mypage-to-home-page button:hover {
   background-color: #6c757d;
   color: white;
   border-color: #6c757d;
-}
-
-/* 로그인 버튼 오른쪽 정렬 */
-.group-button {
-  text-align: right;
-}
-
-/* 회원가입 및 로그인 창 이동 버튼은 기본 왼쪽 정렬 유지 */
-.to-Signup-page,
-.to-login-page {
-  margin-top: 40px;
-  text-align: left;
-}
-
-/* 버튼들 사이 간격 좀 더 넓히기 (선택사항) */
-.to-Signup-page button,
-.to-login-page button {
-  margin-bottom: 0;
-}
-
-.group-button{
-    display: flex;
-    justify-content: center;
 }
