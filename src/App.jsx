@@ -10,6 +10,7 @@ import PrivacyPolicy from './pages/Legal/PrivacyPolicy'
 import TermsOfService from './pages/Legal/TermsOfService'
 import FAQ from './pages/FAQ'
 import Header from './Header'
+import MyPage from './pages/Mypage/Mypage';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="survey" element={<Survey />}></Route>
+          <Route path="/mypage" element={<MyPage />}></Route>
         </Routes>
       </main>
 
