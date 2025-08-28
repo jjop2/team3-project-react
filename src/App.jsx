@@ -33,7 +33,6 @@ function App() {
           <Route path="/faq" element={<FAQ />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="survey" element={<Survey />}></Route>
           <Route path="/mypage" element={<MyPage />}></Route>
           <Route path="/survey" element={<Survey setTopTwoGenres={setTopTwoGenres}/>}/>
           <Route path="/surveyresult" element={<SurveyResult topTwoGenres={topTwoGenres} />} />
