@@ -113,3 +113,10 @@
 .to-login-page button {
   margin-bottom: 0;
 }
+
+/* 로그인 시도 실패 시 안내 메시지 */
+.loginError {
+  color: red;
+  font-size: 14px;
+  padding-bottom: 10px;
+}
