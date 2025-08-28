@@ -55,3 +55,7 @@ cursor: pointer; /* 마우스 커서 변경 */
 .text1:hover{
     background-color: #e0e0e0;
 }
+.navbar-my:hover{
+     background-color: #e0e0e0;
+     cursor: pointer;
+}

@@ -1,0 +1,19 @@
+.items-container {
+  margin: auto;
+  margin-top: 30px;
+  width: 600px;
+  height: 100%;
+}
+
+.items-container .btn-container {
+  display: flex;
+  justify-content: space-between;
+}
+.items-container .items {
+  margin: 10px;
+}
+
+.items-container .items > img {
+  width: 400px;
+  height: 100%;
+}
