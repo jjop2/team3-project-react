@@ -22,14 +22,12 @@ const Signup = () => {
   }
 
   const handleSignup = () => {
-    console.log(member)
     if (!member.username || !member.password || !member.email) {
       alert('모든 항목을 입력해 주세요')
       return;
       }
     axios.post(`${import.meta.env.VITE_SERVER_URL}/signup`, member)
       .then(response=>{
-        console.log(response)
         alert(response.data);
 
         goTo('/');

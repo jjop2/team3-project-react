@@ -4,9 +4,16 @@ import useNavi from "./hooks/useNavi";
 
 
 
-function Header(){
- const navigate = useNavigate();
-   const {goHome, goTo} = useNavi();
+function Header( {auth, setAuth, userInfo, setUserInfo} ){
+ const { goHome, goTo } = useNavi();
+
+ const logout = () => {
+    sessionStorage.clear('jwt');
+    setAuth(false);
+    setUserInfo(false);
+    alert('로그아웃 되었습니다');
+    goHome();
+ }
 
     return(
         <>
@@ -15,7 +22,10 @@ function Header(){
             <div className="navbar">
                 <div className="navbar-left">
                     <div className="logo">
-                        <img src="/icons8-brain.gif" alt="Brain Logo" />
+                        <Link to="/">
+                            <img src="/icons8-brain.gif" alt="Brain 
+                            Logo" />
+                        </Link>
                     </div>
                     <div className="content">
                         <Link className="navbar-title" to="/">
@@ -27,32 +37,39 @@ function Header(){
                 </div>
 
                     <div className="navbar-right">
-                        <a className="navbar-button" onClick={()=>{
-                            navigate('/login')
-                        }}>로그인</a>
+                        {
+                            auth
+                            ? <a className="navbar-button navbar-username" onClick={()=>{
+                                goTo('/mypage')
+                            }}>🙍‍♀️{userInfo.username}</a>
+                            : <a className="navbar-button" onClick={()=>{
+                                goTo('/login')
+                            }}>로그인</a>
+                        }
 
-                        <a className="navbar-button" onClick={()=>{
-                            navigate('/signup')
-                        }}>회원가입</a>
-
-                        <a className="navbar-my" onClick={()=>{
-                            goTo('/mypage')
-                        }}>마이페이지</a>
+                        {
+                            auth
+                            ? <a className="navbar-button" onClick={logout}>로그아웃</a>
+                            : <a className="navbar-button" onClick={()=>{
+                                goTo('/signup')
+                            }}>회원가입</a>
+                        }
                         
+
                    </div>
  
                 </div>
                  <div className="navbar-icons">
                         <h4 onClick={()=>{
-                            navigate('/survey')
+                            goTo('/survey')
                         }}className="text1">💖성향분석 테스트</h4>
 
                         <h4 onClick={()=>{
-                            navigate('/main2')
+                            goTo('/main2')
                         }}className="text1">⭐맞춤형 게임 추천</h4>
 
                        <h4 onClick={()=>{
-                        navigate('/main3')
+                            goTo('/main3')
                        }}className="text1">💬결과 공유하기</h4>
                     </div>
             </div>

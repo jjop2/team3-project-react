@@ -9,20 +9,51 @@ import PrivacyPolicy from './pages/Legal/PrivacyPolicy'
 import TermsOfService from './pages/Legal/TermsOfService'
 import FAQ from './pages/FAQ'
 import Header from './Header'
+import { useEffect, useState } from 'react';
+import axiosInstance from './axiosInstance';
 import MyPage from './pages/Mypage/Mypage';
-import { useState } from 'react';
 import Survey from './pages/Survey/Survey';
 import SurveyResult from './pages/Survey/SurveyResult';
 
-
 function App() {
-  
+  const [auth, setAuth] = useState();
+  const [userInfo, setUserInfo] = useState();
   const [topTwoGenres , setTopTwoGenres] = useState([]);
+
+  useEffect(() => {
+    if(sessionStorage.getItem('jwt') != null)
+      setAuth('true');
+  }, [])
+
+  /* 
+    userInfo : 현재 로그인한 유저의 정보
+    id, username, email, role 들어 있음
+    스프링 UserDTO 참고
+  */
+  useEffect(() => {
+    if(auth) {
+      axiosInstance.get('/userinfo')
+        .then(response => {
+          setUserInfo(response.data)
+        }).catch(error => {
+          console.error(error);
+        })
+    }
+  }, [auth]);
+
+  if(auth && !userInfo)
+    return <div>로딩 중...</div>
+
   return (
     <>
       
       <header>
-        <Header />
+        <Header
+          auth={auth}
+          setAuth={setAuth}
+          userInfo={userInfo}
+          setUserInfo={setUserInfo}
+        />
       </header>
 
       <main className="container-app">
@@ -31,7 +62,7 @@ function App() {
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/term" element={<TermsOfService />} />
           <Route path="/faq" element={<FAQ />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login setAuth={setAuth} />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/mypage" element={<MyPage />}></Route>
           <Route path="/survey" element={<Survey setTopTwoGenres={setTopTwoGenres}/>}/>
