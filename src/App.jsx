@@ -2,7 +2,6 @@
 import MainPage from './pages/MainPage';
 import Login from "./pages/Login/Login"
 import Signup from './pages/Signup/Signup'
-import Survey from './pages/Survey'
 import './App.css'
 import Footer from './components/Footer'
 import { Route, Routes } from 'react-router-dom'
@@ -11,8 +10,14 @@ import TermsOfService from './pages/Legal/TermsOfService'
 import FAQ from './pages/FAQ'
 import Header from './Header'
 import MyPage from './pages/Mypage/Mypage';
+import { useState } from 'react';
+import Survey from './pages/Survey/Survey';
+import SurveyResult from './pages/Survey/SurveyResult';
+
 
 function App() {
+  
+  const [topTwoGenres , setTopTwoGenres] = useState([]);
   return (
     <>
       
@@ -30,6 +35,8 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="survey" element={<Survey />}></Route>
           <Route path="/mypage" element={<MyPage />}></Route>
+          <Route path="/survey" element={<Survey setTopTwoGenres={setTopTwoGenres}/>}/>
+          <Route path="/surveyresult" element={<SurveyResult topTwoGenres={topTwoGenres} />} />
         </Routes>
       </main>
 

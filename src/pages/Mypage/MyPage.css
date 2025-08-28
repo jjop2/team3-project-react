@@ -1,13 +1,11 @@
-수정된 MyPage.css
-css/* Reset 스타일 */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* MyPage 전용 컨테이너 */
-.mypage-form-container {
+
+.mypage-profile-container {
   max-width: 400px;
   margin: 2rem auto;
   padding: 2rem;
@@ -16,7 +14,7 @@ css/* Reset 스타일 */
   box-shadow: 0 4px 10px rgba(219, 214, 214, 0.1);
 }
 
-.mypage-form-title {
+.mypage-profile-title {
   text-align: center;
   margin-bottom: 1.5rem;
   font-weight: 700;
@@ -24,19 +22,19 @@ css/* Reset 스타일 */
   color: #222;
 }
 
-.mypage-input-group {
+.mypage-profile-input-group {
   margin-bottom: 1.2rem;
   display: flex;
   flex-direction: column;
 }
 
-.mypage-input-group label {
+.mypage-profile-input-group label {
   margin-bottom: 0.3rem;
   font-weight: 600;
   color: #555;
 }
 
-.mypage-input-group input {
+.mypage-profile-input-group input {
   padding: 0.5rem 0.7rem;
   border: 1.5px solid #ccc;
   border-radius: 4px;
@@ -44,21 +42,21 @@ css/* Reset 스타일 */
   transition: border-color 0.3s;
 }
 
-.mypage-input-group input:focus {
+.mypage-profile-input-group input:focus {
   border-color: #007bff;
   outline: none;
 }
 
-/* 버튼 그룹 */
-.mypage-group-button {
+
+.mypage-action-group-button {
   display: flex;
-  justify-content: center; /* 중앙 정렬 */
-  gap: 15px; /* 버튼 간 간격 */
+  justify-content: center;
+  gap: 15px;
   padding: 20px;
   background-color: #f5f6fa;
 }
 
-.mypage-group-button button {
+.mypage-action-group-button button {
   padding: 10px 20px;
   border: none;
   background-color: #3498db;
@@ -69,17 +67,17 @@ css/* Reset 스타일 */
   transition: background-color 0.3s;
 }
 
-.mypage-group-button button:hover {
+.mypage-action-group-button button:hover {
   background-color: #2980b9;
 }
 
 /* HOME 이동 버튼 */
-.mypage-to-home-page {
+.mypage-action-to-home-page {
   margin-top: 40px;
   text-align: left;
 }
 
-.mypage-to-home-page button {
+.mypage-action-to-home-page button {
   font-weight: 600;
   border-radius: 5px;
   border: 1.5px solid #6c757d;
@@ -95,7 +93,7 @@ css/* Reset 스타일 */
   display: inline-block;
 }
 
-.mypage-to-home-page button:hover {
+.mypage-action-to-home-page button:hover {
   background-color: #6c757d;
   color: white;
   border-color: #6c757d;
