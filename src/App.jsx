@@ -2,7 +2,6 @@
 import MainPage from './pages/MainPage';
 import Login from "./pages/Login/Login"
 import Signup from './pages/Signup/Signup'
-import Survey from './pages/Survey'
 import './App.css'
 import Footer from './components/Footer'
 import { Route, Routes } from 'react-router-dom'
@@ -11,7 +10,9 @@ import TermsOfService from './pages/Legal/TermsOfService'
 import FAQ from './pages/FAQ'
 import Header from './Header'
 import { useState } from 'react';
-import SurveyResult from './pages/SurveyResult';
+import Survey from './pages/Survey/Survey';
+import SurveyResult from './pages/Survey/SurveyResult';
+
 
 function App() {
   
