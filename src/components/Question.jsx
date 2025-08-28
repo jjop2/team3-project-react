@@ -83,13 +83,12 @@ useEffect(() => {
       // 2개 장르 뽑기
       const sorted = Object.entries(genreCount).sort((a, b) => b[1] - a[1]);
       const topGenres = sorted.slice(0, 2).map(item => item[0]);
-
+      setTopTwoGenres(topGenres);
       // 뽑은 2개장르 숫자 변환
       const topGenresWithNumber = topGenres.map(genre => ({
         genre,
         value: genresNumbers[genre]}));
-      setTopTwoGenres(topGenres);
-
+      
       //서버로 전송하기
       axios.post(`${import.meta.env.VITE_SERVER_URL}/surveyresult`,
        {
