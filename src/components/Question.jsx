@@ -7,22 +7,39 @@ import QuestionList from "./QuestionList.js";
 const Question = ({setTopTwoGenres}) =>{
 const {goHome, goTo} = useNavi();
 
-
   const [current, setCurrent] = useState(0);
   const [selected, setSelected] = useState("");
   const [answers, setAnswers] = useState({});
   const [age , setAge] = useState("");
   const [gender, setGender] = useState("");
 
+  const genresNumbers = {
+    Action: 1,
+    Simulation: 2,
+    Racing: 3,
+    Sports: 4,
+    RPG: 5,
+  };
+
+
   // 선택된 나이 및 성별 추출하기
-  useEffect(()=> {
-    if(answers[1]) {
+useEffect(() => {
+  if (answers[1]) {
+    if (answers[1].text === "선택하지 않음") {
+      setAge(null);
+    } else {
       setAge(answers[1].text);
     }
-    if(answers[2]) {
+  }
+
+  if (answers[2]) {
+    if (answers[2].text === "선택하지 않음") {
+      setGender(null);
+    } else {
       setGender(answers[2].text);
     }
-  },[answers]);
+  }
+}, [answers]);
 
     // 장르별 카운터
     const countGenres = (answers) => {
@@ -67,13 +84,18 @@ const {goHome, goTo} = useNavi();
       const sorted = Object.entries(genreCount).sort((a, b) => b[1] - a[1]);
       const topGenres = sorted.slice(0, 2).map(item => item[0]);
       setTopTwoGenres(topGenres);
+      // 뽑은 2개장르 숫자 변환
+      const topGenresWithNumber = topGenres.map(genre => ({
+        genre,
+        value: genresNumbers[genre]}));
       
       //서버로 전송하기
-      axios.post(`${import.meta.env.VITE_SERVER_URL}/survey`,
+      axios.post(`${import.meta.env.VITE_SERVER_URL}/surveyresult`,
        {
         age : age,
         gender : gender,
-        topGenres: topGenres
+        preferGenre1: {"id" : topGenresWithNumber[0].value},
+        preferGenre2: {"id" : topGenresWithNumber[1].value}
        })
       .then(response => {
         console.log(response);
