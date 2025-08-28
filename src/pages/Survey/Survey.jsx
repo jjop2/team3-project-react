@@ -1,4 +1,4 @@
-import Question from "../components/Question";
+import Question from "../../components/Question";
 import './Survey.css'
 const Survey = ({setTopTwoGenres}) =>{
 
