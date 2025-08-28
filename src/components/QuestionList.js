@@ -16,6 +16,7 @@ const QuestionList = [
       { text: "20대"},
       { text: "30대"},
       { text: "40대 이상"},
+      { text: "선택하지 않음"}
     ],
   },
    {
