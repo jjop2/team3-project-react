@@ -26,17 +26,17 @@ const {goHome, goTo} = useNavi();
 useEffect(() => {
   if (answers[1]) {
     if (answers[1].text === "선택하지 않음") {
-      setAge(null);
+      setGender(null);
     } else {
-      setAge(answers[1].text);
+      setGender(answers[1].text);
     }
   }
 
   if (answers[2]) {
     if (answers[2].text === "선택하지 않음") {
-      setGender(null);
+      setAge(null);
     } else {
-      setGender(answers[2].text);
+      setAge(answers[2].text);
     }
   }
 }, [answers]);
