@@ -4,7 +4,7 @@ import useNavi from "../hooks/useNavi";
 import axios from "axios";
 import QuestionList from "./QuestionList.js";
 
-const Question = ({setTopTwoGenres}) =>{
+const Question = ({setTopTwoGenres, selectGenre}) =>{
 const {goHome, goTo} = useNavi();
 
   const [current, setCurrent] = useState(0);
@@ -14,11 +14,11 @@ const {goHome, goTo} = useNavi();
   const [gender, setGender] = useState("");
 
   const genresNumbers = {
-    Action: 1,
-    Simulation: 2,
-    Racing: 3,
-    Sports: 4,
-    RPG: 5,
+    Action: 9001,
+    Simulation: 9002,
+    Racing: 9003,
+    Sports: 9004,
+    RPG: 9005,
   };
 
 
@@ -88,14 +88,15 @@ useEffect(() => {
       const topGenresWithNumber = topGenres.map(genre => ({
         genre,
         value: genresNumbers[genre]}));
-      
+
       //서버로 전송하기
       axios.post(`${import.meta.env.VITE_SERVER_URL}/surveyresult`,
        {
         age : age,
         gender : gender,
         preferGenre1: {"id" : topGenresWithNumber[0].value},
-        preferGenre2: {"id" : topGenresWithNumber[1].value}
+        preferGenre2: {"id" : topGenresWithNumber[1].value},
+        combinationGenre :  selectGenre.title
        })
       .then(response => {
         console.log(response);

@@ -1,8 +1,11 @@
+import { useEffect, useState } from "react";
 import useNavi from "../../hooks/useNavi";
 import './SurveyResult.css';
-const SurveyResult = ({topTwoGenres}) =>{
+const SurveyResult = ({topTwoGenres, setSelectGenre}) =>{
 
    const { goTo } = useNavi();
+
+
   const genreCombinations = {
   "Action+Simulation": {
     title: "총질 마스터",
@@ -53,6 +56,10 @@ const SurveyResult = ({topTwoGenres}) =>{
     : null;
 
   const result = genreCombinations[combinationKey];
+  
+  useEffect(()=>{
+    setSelectGenre(result);
+  }, [])
 
   return(
     <div className="items-container">

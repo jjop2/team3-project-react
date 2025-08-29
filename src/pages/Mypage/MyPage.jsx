@@ -1,35 +1,33 @@
+import { useState } from "react";
 import "./MyPage.css";
+import TabContents from "../../components/TabContents";
 
 function MyPage() {
+
+  const [tabNumber ,setTabNumber] = useState();
+
   return (
     <>
-      <section className="mypage-profile-container">
-        <h1 className="mypage-profile-title">👨‍👦 마이페이지</h1>
-
-        <div className="mypage-profile-input-group">
-          <label htmlFor="mypage-username">아이디 :</label>
-          <input id="mypage-username" type="text" name="username" placeholder="" required /> <br />
+      <div className="mypage-container">
+        <div className="left-menu">
+          <div className="tabs" onClick={()=>{
+            setTabNumber(0);
+          }}>나의 선호 장르</div>
+          <div className="tabs" onClick={()=>{
+            setTabNumber(1);
+          }}>찜 목록</div>
+          <div className="tabs" onClick={()=>{
+          }}>회원 정보 수정/탈퇴</div>
         </div>
-
-        <div className="mypage-profile-input-group">
-          <label htmlFor="mypage-password">비밀번호 :</label>
-          <input id="mypage-password" type="text" name="password" placeholder="" required /> <br />
+        <div className="right-menu">
+          <div className="profile">
+            <h2>홍길동님 환영합니다.</h2>
+          </div>
+            <div className="tab-contents">
+              <TabContents tabNumber={tabNumber}/>
+            </div>
         </div>
-
-        <div className="mypage-profile-input-group">
-          <label htmlFor="mypage-email">email :</label>
-          <input id="mypage-email" type="text" name="email" placeholder="" required /> <br />
-        </div>
-
-        <div className="mypage-action-group-button">
-          <button>수정</button>
-          <button>탈퇴</button>
-        </div>
-
-        <div className="mypage-action-to-home-page">
-          <button>HOME 이동하기</button>
-        </div>
-      </section>
+      </div>
     </>
   );
 }
