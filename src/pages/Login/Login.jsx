@@ -4,6 +4,8 @@ import './Buttongroup.css';
 
 import useNavi from '../../hooks/useNavi';
 import axiosInstance from '../../axiosInstance';
+import Kakao from '../../components/auth/KaKao';
+import Google from '../../components/auth/Google';
 
 const Login = ( {setAuth} ) => {
   const { goHome, goTo} = useNavi();
@@ -79,23 +81,13 @@ return (
 </div>
 
  <section className="social-login-group">
-    <button className="social-button kakao-button">
-       <img
-          src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_small.png"
-          alt="Kakao icon"
-          className="social-icon"
-        />
-      <span>카카오 로그인</span>
-    </button>
+    <div>
+      <Kakao setAuth={setAuth} />
+    </div>
     
-    <button className="social-button google-button">
-        <img
-            src="https://developers.google.com/identity/images/g-logo.png"
-            alt="Google icon"
-            className="social-icon"
-        />
-      <span>Google 로그인</span>
-    </button>
+    <div>
+      <Google setAuth={setAuth} />
+    </div>
     </section>
 
 <div className='to-Signup-page'>
