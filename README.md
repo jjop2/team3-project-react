@@ -1,5 +1,5 @@
 # 프로젝트 설명
-나중에 씁시다
+장르 추천 사이트
 
 # Springboot + React + Vite
 
