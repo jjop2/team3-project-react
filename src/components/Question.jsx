@@ -14,11 +14,11 @@ const {goHome, goTo} = useNavi();
   const [gender, setGender] = useState("");
 
   const genresNumbers = {
-    Action: 9001,
-    Simulation: 9002,
-    Racing: 9003,
-    Sports: 9004,
-    RPG: 9005,
+    Action: 1,
+    Simulation: 2,
+    Racing: 3,
+    Sports: 4,
+    RPG: 5,
   };
 
 
