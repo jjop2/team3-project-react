@@ -81,6 +81,7 @@ return (
 </div>
 
  <section className="social-login-group">
+    {/* 소셜 로그인 라이브러리 사용을 위해 css 수정함 */}
     <div>
       <Kakao setAuth={setAuth} />
     </div>
