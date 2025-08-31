@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import './Header.css'
-import useNavi from "./hooks/useNavi";
+import useNavi from "../hooks/useNavi";
 
 
 
@@ -41,7 +41,7 @@ function Header( {auth, setAuth, userInfo, setUserInfo} ){
                             auth
                             ? <a className="navbar-button navbar-username" onClick={()=>{
                                 goTo('/mypage')
-                            }}>🙍‍♀️{userInfo.username}</a>
+                            }}>🙍‍♀️{userInfo.nickname}</a>
                             : <a className="navbar-button" onClick={()=>{
                                 goTo('/login')
                             }}>로그인</a>
