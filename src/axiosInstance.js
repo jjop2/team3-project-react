@@ -10,9 +10,9 @@ const axiosInstance = axios.create({
 // 요청할 때마다 토큰 담아서 요청하도록 함
 function addJwtToRequest(config) {
   const jwt = sessionStorage.getItem('jwt');
-
-  if(jwt)
-    config.headers['Authorization'] = jwt;
+ console.log("Interceptor JWT:", jwt);
+  if(jwt !== null && jwt !== undefined && jwt !== '')
+    config.headers['Authorization'] = `Bearer ${jwt}`;
 
   return config;
 }

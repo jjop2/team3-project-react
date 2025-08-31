@@ -3,6 +3,7 @@ import './Question.css'
 import useNavi from "../hooks/useNavi";
 import axios from "axios";
 import QuestionList from "./QuestionList.js";
+import axiosInstance from "../axiosInstance.js";
 
 const Question = ({setTopTwoGenres}) =>{
 const {goHome, goTo} = useNavi();
@@ -90,7 +91,7 @@ useEffect(() => {
         value: genresNumbers[genre]}));
       
       //서버로 전송하기
-      axios.post(`${import.meta.env.VITE_SERVER_URL}/surveyresult`,
+      axiosInstance.post("/surveyresult",
        {
         age : age,
         gender : gender,
