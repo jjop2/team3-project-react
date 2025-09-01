@@ -10,7 +10,7 @@ function Header( {auth, setAuth, userInfo, setUserInfo} ){
  const logout = () => {
     sessionStorage.clear('jwt');
     setAuth(false);
-    setUserInfo(false);
+    setUserInfo(null); // false -> null로바꿈
     alert('로그아웃 되었습니다');
     goHome();
  }
@@ -40,7 +40,7 @@ function Header( {auth, setAuth, userInfo, setUserInfo} ){
                         {
                             auth
                             ? <a className="navbar-button navbar-username" onClick={()=>{
-                                goTo('/mypage')
+                                goTo('/usermodify')
                             }}>🙍‍♀️{userInfo.username}</a>
                             : <a className="navbar-button" onClick={()=>{
                                 goTo('/login')

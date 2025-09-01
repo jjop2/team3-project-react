@@ -11,9 +11,9 @@ import FAQ from './pages/FAQ'
 import Header from './Header'
 import { useEffect, useState } from 'react';
 import axiosInstance from './axiosInstance';
-import MyPage from './pages/Mypage/Mypage';
 import Survey from './pages/Survey/Survey';
 import SurveyResult from './pages/Survey/SurveyResult';
+import UserModify from './pages/Mypage/UserModify';
 
 function App() {
   const [auth, setAuth] = useState();
@@ -37,6 +37,7 @@ function App() {
           setUserInfo(response.data)
         }).catch(error => {
           console.error(error);
+          
         })
     }
   }, [auth]);
@@ -64,7 +65,7 @@ function App() {
           <Route path="/faq" element={<FAQ />} />
           <Route path="/login" element={<Login setAuth={setAuth} />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/mypage" element={<MyPage />}></Route>
+          <Route path="/usermodify" element={<UserModify userInfo={userInfo} setAuth={setAuth} setUserInfo={setUserInfo}/>}></Route>
           <Route path="/survey" element={<Survey setTopTwoGenres={setTopTwoGenres}/>}/>
           <Route path="/surveyresult" element={<SurveyResult topTwoGenres={topTwoGenres} />} />
         </Routes>
