@@ -4,8 +4,7 @@
   box-sizing: border-box;
 }
 
-
-.mypage-profile-container {
+.UserModify-profile-container {
   max-width: 400px;
   margin: 2rem auto;
   padding: 2rem;
@@ -14,7 +13,7 @@
   box-shadow: 0 4px 10px rgba(219, 214, 214, 0.1);
 }
 
-.mypage-profile-title {
+.UserModify-profile-title {
   text-align: center;
   margin-bottom: 1.5rem;
   font-weight: 700;
@@ -22,19 +21,19 @@
   color: #222;
 }
 
-.mypage-profile-input-group {
+.UserModify-profile-input-group {
   margin-bottom: 1.2rem;
   display: flex;
   flex-direction: column;
 }
 
-.mypage-profile-input-group label {
+.UserModify-profile-input-group label {
   margin-bottom: 0.3rem;
   font-weight: 600;
   color: #555;
 }
 
-.mypage-profile-input-group input {
+.UserModify-profile-input-group input {
   padding: 0.5rem 0.7rem;
   border: 1.5px solid #ccc;
   border-radius: 4px;
@@ -42,13 +41,12 @@
   transition: border-color 0.3s;
 }
 
-.mypage-profile-input-group input:focus {
+.UserModify-profile-input-group input:focus {
   border-color: #007bff;
   outline: none;
 }
 
-
-.mypage-action-group-button {
+.UserModify-action-group-button {
   display: flex;
   justify-content: center;
   gap: 15px;
@@ -56,7 +54,7 @@
   background-color: #f5f6fa;
 }
 
-.mypage-action-group-button button {
+.UserModify-action-group-button button {
   padding: 10px 20px;
   border: none;
   background-color: #3498db;
@@ -67,17 +65,17 @@
   transition: background-color 0.3s;
 }
 
-.mypage-action-group-button button:hover {
+.UserModify-action-group-button button:hover {
   background-color: #2980b9;
 }
 
 /* HOME 이동 버튼 */
-.mypage-action-to-home-page {
+.UserModify-action-to-home-page {
   margin-top: 40px;
   text-align: left;
 }
 
-.mypage-action-to-home-page button {
+.UserModify-action-to-home-page button {
   font-weight: 600;
   border-radius: 5px;
   border: 1.5px solid #6c757d;
@@ -93,7 +91,7 @@
   display: inline-block;
 }
 
-.mypage-action-to-home-page button:hover {
+.UserModify-action-to-home-page button:hover {
   background-color: #6c757d;
   color: white;
   border-color: #6c757d;
