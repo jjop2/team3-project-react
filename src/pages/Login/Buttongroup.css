@@ -12,10 +12,10 @@
   gap: 10px;
   width: 100%;
   max-width: 280px;
-  height: 44px;
+  height: 40px;
   font-size: 14px;
   font-weight: 500;
-  border-radius: 6px;
+  border-radius: 4px;
   border: none;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -36,17 +36,6 @@
 
 .kakao-button:hover {
   background-color: #f7df00;
-}
-
-/* 구글 스타일 */
-.google-button {
-  background-color: white;
-  color: #3c4043;
-  border: 1px solid #dadce0;
-}
-
-.google-button:hover {
-  background-color: #f7f8f8;
 }
 
 /* 아래로 이동 버튼 */
