@@ -8,7 +8,7 @@ const TabContents = ({tabNumber}) => {
         <div>
           <h2>나의 선호 장르</h2>
           <p>
-            {axios.get(`${import.meta.env.VITE_SERVER_URL}/surveyresult`)
+            {axiosinstance.get(`${import.meta.env.VITE_SERVER_URL}/surveyresult`)
             .then(response =>{
               console.log(response.data)
             }).catch(error =>{

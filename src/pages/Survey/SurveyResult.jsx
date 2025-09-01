@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import useNavi from "../../hooks/useNavi";
 import './SurveyResult.css';
-const SurveyResult = ({topTwoGenres, setSelectGenre}) =>{
+import axiosInstance from "../../axiosInstance";
+const SurveyResult = ({topTwoGenres, surveyResultInfo}) =>{
 
    const { goTo } = useNavi();
 
@@ -57,8 +58,23 @@ const SurveyResult = ({topTwoGenres, setSelectGenre}) =>{
 
   const result = genreCombinations[combinationKey];
   
-  useEffect(()=>{
-    setSelectGenre(result);
+  useEffect(()=>{ 
+      axiosInstance.post(`${import.meta.env.VITE_SERVER_URL}/surveyresult`,
+       {
+        age : surveyResultInfo.age,
+        gender : surveyResultInfo.gender,
+        preferGenre1ID: surveyResultInfo.preferGenre1,
+        preferGenre2ID: surveyResultInfo.preferGenre2,
+        combinationGenre : result.title
+       })
+      .then(response => {
+        console.log(response);
+        goTo('/surveyresult');
+      }) .catch(error =>{
+        console.error(error)
+        alert('서버에 전송하지 못했습니다.');
+      })
+    ;
   }, [])
 
   return(
