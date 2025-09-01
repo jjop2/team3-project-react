@@ -14,6 +14,8 @@ import axiosInstance from './axiosInstance';
 import Survey from './pages/Survey/Survey';
 import SurveyResult from './pages/Survey/SurveyResult';
 import UserModify from './pages/Mypage/UserModify';
+import Board from './pages/Board/Board';
+import BoardWrite from './pages/Board/BoardWrite';
 
 function App() {
   const [auth, setAuth] = useState();
@@ -71,6 +73,8 @@ function App() {
           <Route path="/usermodify" element={<UserModify userInfo={userInfo} setAuth={setAuth} setUserInfo={setUserInfo}/>}></Route>
           <Route path="/survey" element={<Survey setTopTwoGenres={setTopTwoGenres}/>}/>
           <Route path="/surveyresult" element={<SurveyResult topTwoGenres={topTwoGenres} />} />
+          <Route path='/board' element={<Board />} />
+          <Route path='/write' element={<BoardWrite userInfo={userInfo} />} />
         </Routes>
       </main>
 

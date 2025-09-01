@@ -4,8 +4,8 @@ import './Buttongroup.css';
 
 import useNavi from '../../hooks/useNavi';
 import axiosInstance from '../../axiosInstance';
-import Kakao from '../../components/auth/KaKao';
 import Google from '../../components/auth/Google';
+import Kakao from '../../components/auth/Kakao';
 
 const Login = ( {setAuth} ) => {
   const { goHome, goTo} = useNavi();

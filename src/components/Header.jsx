@@ -70,7 +70,7 @@ function Header( {auth, setAuth, userInfo, setUserInfo} ){
                         }}className="text1">⭐맞춤형 게임 추천</h4>
 
                        <h4 onClick={()=>{
-                            goTo('/main3')
+                            goTo('/board')
                        }}className="text1">💬결과 공유하기</h4>
                     </div>
             </div>
