@@ -19,6 +19,7 @@ function Kakao( {setAuth} ) {
   */
 
   const responseKakao = (response) => {
+    
     axiosInstance.post('/login/kakao', {
       username : "kakao_" + response.profile.id,
       nickname : response.profile.properties.nickname,

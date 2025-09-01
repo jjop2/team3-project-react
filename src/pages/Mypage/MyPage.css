@@ -1,10 +1,3 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-
 .mypage-container {
   width: 1000px;
   height: 100%;
@@ -32,10 +25,6 @@
   width: 700px;
   height: 300px;
   margin: 2rem;
-  padding: 2rem;
-  border-radius: 8px;
-  background-color: #f4f6f8;
-  box-shadow: 0 4px 10px rgba(219, 214, 214, 0.1);
 }
 
 .mypage-container .right-menu .tab-contents {
@@ -47,4 +36,3 @@
   background-color: #f4f6f8;
   box-shadow: 0 4px 10px rgba(219, 214, 214, 0.1);
 }
-

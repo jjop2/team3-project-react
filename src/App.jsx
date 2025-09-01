@@ -14,6 +14,7 @@ import axiosInstance from './axiosInstance';
 import Survey from './pages/Survey/Survey';
 import SurveyResult from './pages/Survey/SurveyResult';
 import MyPage from './pages/Mypage/MyPage';
+import UserModify from './pages/Mypage/UserModify';
 
 function App() {
   const [auth, setAuth] = useState();
@@ -44,6 +45,7 @@ function App() {
           setUserInfo(response.data)
         }).catch(error => {
           console.error(error);
+          
           setAuth(false);
           if(sessionStorage.getItem('jwt') != null)
             sessionStorage.removeItem('jwt');
@@ -77,6 +79,7 @@ function App() {
           <Route path="/mypage" element={<MyPage />}></Route>
           <Route path="/survey" element={<Survey setTopTwoGenres={setTopTwoGenres} setSurveyResultInfo={setSurveyResultInfo}/>}/>
           <Route path="/surveyresult" element={<SurveyResult topTwoGenres={topTwoGenres} surveyResultInfo={surveyResultInfo}/>} />
+          <Route path="/usermodify" element={<UserModify userInfo={userInfo} setAuth={setAuth} setUserInfo={setUserInfo}/>}></Route>
         </Routes>
       </main>
 
