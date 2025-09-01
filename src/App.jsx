@@ -20,7 +20,12 @@ function App() {
   const [userInfo, setUserInfo] = useState();
   const [topTwoGenres , setTopTwoGenres] = useState([]);
   const [selectGenre , setSelectGenre] = useState("");
-
+  const [surveyResultInfo, setSurveyResultInfo] = useState({
+    age: "",
+    gender: "",
+    preferGenre1: "",
+    preferGenre2: "",
+  })
 
   useEffect(() => {
     if(sessionStorage.getItem('jwt') != null)
@@ -67,8 +72,8 @@ function App() {
           <Route path="/login" element={<Login setAuth={setAuth} />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/mypage" element={<MyPage />}></Route>
-          <Route path="/survey" element={<Survey setTopTwoGenres={setTopTwoGenres} selectGenre={selectGenre}/>}/>
-          <Route path="/surveyresult" element={<SurveyResult topTwoGenres={topTwoGenres} setSelectGenre={setSelectGenre}/>} />
+          <Route path="/survey" element={<Survey setTopTwoGenres={setTopTwoGenres} selectGenre={selectGenre} setSurveyResultInfo={setSurveyResultInfo}/>}/>
+          <Route path="/surveyresult" element={<SurveyResult topTwoGenres={topTwoGenres} setSelectGenre={setSelectGenre} surveyResultInfo={surveyResultInfo}/>} />
         </Routes>
       </main>
 

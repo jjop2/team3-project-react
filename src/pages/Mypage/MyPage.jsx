@@ -1,11 +1,12 @@
 import { useState } from "react";
 import "./MyPage.css";
 import TabContents from "../../components/TabContents";
+import useNavi from "../../hooks/useNavi";
 
 function MyPage() {
 
   const [tabNumber ,setTabNumber] = useState();
-
+  const { goTo } = useNavi();
   return (
     <>
       <div className="mypage-container">
@@ -17,6 +18,7 @@ function MyPage() {
             setTabNumber(1);
           }}>찜 목록</div>
           <div className="tabs" onClick={()=>{
+            goTo('/usermodify')
           }}>회원 정보 수정/탈퇴</div>
         </div>
         <div className="right-menu">

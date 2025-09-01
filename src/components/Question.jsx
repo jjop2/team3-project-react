@@ -5,7 +5,7 @@ import axios from "axios";
 import QuestionList from "./QuestionList.js";
 import axiosInstance from "../axiosInstance.js";
 
-const Question = ({setTopTwoGenres, selectGenre}) =>{
+const Question = ({setTopTwoGenres, selectGenre, setSurveyResultInfo}) =>{
 const {goHome, goTo} = useNavi();
 
   const [current, setCurrent] = useState(0);
@@ -89,23 +89,31 @@ useEffect(() => {
       const topGenresWithNumber = topGenres.map(genre => ({
         genre,
         value: genresNumbers[genre]}));
+        setSurveyResultInfo({
+          age: age,
+          gender: gender,
+          preferGenre1: {"id" : topGenresWithNumber[0].value},
+          preferGenre2: {"id" : topGenresWithNumber[1].value},
+        })
+        goTo('/surveyresult');
+
 
       //서버로 전송하기
-      axiosInstance.post(`${import.meta.env.VITE_SERVER_URL}/surveyresult`,
-       {
-        age : age,
-        gender : gender,
-        preferGenre1: {"id" : topGenresWithNumber[0].value},
-        preferGenre2: {"id" : topGenresWithNumber[1].value},
-        combinationGenre : selectGenre.title
-       })
-      .then(response => {
-        console.log(response);
-        goTo('/surveyresult');
-      }) .catch(error =>{
-        console.error(error)
-        alert('서버에 전송하지 못했습니다.');
-      })
+      // axiosInstance.post(`${import.meta.env.VITE_SERVER_URL}/surveyresult`,
+      //  {
+      //   age : age,
+      //   gender : gender,
+      //   preferGenre1: {"id" : topGenresWithNumber[0].value},
+      //   preferGenre2: {"id" : topGenresWithNumber[1].value},
+      //   combinationGenre : selectGenre.title
+      //  })
+      // .then(response => {
+      //   console.log(response);
+      //   goTo('/surveyresult');
+      // }) .catch(error =>{
+      //   console.error(error)
+      //   alert('서버에 전송하지 못했습니다.');
+      // })
     }
   };
     const handlePrev = () => {

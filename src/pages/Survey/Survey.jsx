@@ -1,10 +1,10 @@
 import Question from "../../components/Question";
 import './Survey.css'
-const Survey = ({setTopTwoGenres, selectGenre}) =>{
+const Survey = ({setTopTwoGenres, setSurveyResultInfo}) =>{
 
   return(
     <div className="Survey-container">
-      <Question setTopTwoGenres={setTopTwoGenres} selectGenre={selectGenre}/>
+      <Question setTopTwoGenres={setTopTwoGenres} setSurveyResultInfo={setSurveyResultInfo}/>
     </div>
   )
 }
