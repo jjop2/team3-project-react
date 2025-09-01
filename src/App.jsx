@@ -8,7 +8,7 @@ import { Route, Routes } from 'react-router-dom'
 import PrivacyPolicy from './pages/Legal/PrivacyPolicy'
 import TermsOfService from './pages/Legal/TermsOfService'
 import FAQ from './pages/FAQ'
-import Header from './Header'
+import Header from './components/Header'
 import { useEffect, useState } from 'react';
 import axiosInstance from './axiosInstance';
 import Survey from './pages/Survey/Survey';
@@ -24,12 +24,12 @@ function App() {
 
   useEffect(() => {
     if(sessionStorage.getItem('jwt') != null)
-      setAuth('true');
+      setAuth(true);
   }, [])
 
   /* 
     userInfo : 현재 로그인한 유저의 정보
-    id, username, email, role 들어 있음
+    id, username, nickname, email, role, oauth 들어 있음
     스프링 UserDTO 참고
   */
   useEffect(() => {
@@ -39,6 +39,9 @@ function App() {
           setUserInfo(response.data)
         }).catch(error => {
           console.error(error);
+          setAuth(false);
+          if(sessionStorage.getItem('jwt') != null)
+            sessionStorage.removeItem('jwt');
         })
     }
   }, [auth]);
