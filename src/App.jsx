@@ -18,7 +18,7 @@ import UserModify from './pages/Mypage/UserModify';
 
 function App() {
   const [auth, setAuth] = useState();
-  const [userInfo, setUserInfo] = useState();
+  const [userInfo, setUserInfo] = useState("");
   const [topTwoGenres , setTopTwoGenres] = useState([]);
   const [surveyResultInfo, setSurveyResultInfo] = useState({
     age: "",
@@ -26,7 +26,6 @@ function App() {
     preferGenre1: "",
     preferGenre2: "",
   })
-  console.log(surveyResultInfo)
  
   useEffect(() => {
     if(sessionStorage.getItem('jwt') != null)
@@ -76,7 +75,7 @@ function App() {
           <Route path="/faq" element={<FAQ />} />
           <Route path="/login" element={<Login setAuth={setAuth} />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/mypage" element={<MyPage />}></Route>
+          <Route path="/mypage" element={<MyPage  userInfo={userInfo}/>}></Route>
           <Route path="/survey" element={<Survey setTopTwoGenres={setTopTwoGenres} setSurveyResultInfo={setSurveyResultInfo}/>}/>
           <Route path="/surveyresult" element={<SurveyResult topTwoGenres={topTwoGenres} surveyResultInfo={surveyResultInfo}/>} />
           <Route path="/usermodify" element={<UserModify userInfo={userInfo} setAuth={setAuth} setUserInfo={setUserInfo}/>}></Route>

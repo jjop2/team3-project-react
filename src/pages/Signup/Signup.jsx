@@ -28,7 +28,6 @@ const Signup = () => {
       return;
       }
       
-      console.log("Signup Request:", member); // 요청
     axios.post(`${import.meta.env.VITE_SERVER_URL}/signup`, member)
       .then(response=>{
         alert(response.data);

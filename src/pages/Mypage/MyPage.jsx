@@ -3,9 +3,9 @@ import "./MyPage.css";
 import TabContents from "../../components/TabContents";
 import useNavi from "../../hooks/useNavi";
 
-function MyPage() {
+function MyPage({userInfo}) {
 
-  const [tabNumber ,setTabNumber] = useState();
+  const [tabNumber ,setTabNumber] = useState(0);
   const { goTo } = useNavi();
   return (
     <>
@@ -23,7 +23,7 @@ function MyPage() {
         </div>
         <div className="right-menu">
           <div className="profile">
-            <h2>홍길동님 환영합니다.</h2>
+            <h2>{userInfo.nickname}님 환영합니다.</h2>
           </div>
             <div className="tab-contents">
               <TabContents tabNumber={tabNumber}/>
