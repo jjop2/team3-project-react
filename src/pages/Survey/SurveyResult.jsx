@@ -63,8 +63,8 @@ const SurveyResult = ({topTwoGenres, surveyResultInfo}) =>{
        {
         age : surveyResultInfo.age,
         gender : surveyResultInfo.gender,
-        preferGenre1ID: surveyResultInfo.preferGenre1,
-        preferGenre2ID: surveyResultInfo.preferGenre2,
+        preferGenre1Id: surveyResultInfo.preferGenre1,
+        preferGenre2Id: surveyResultInfo.preferGenre2,
         combinationGenre : result.title
        })
       .then(response => {
