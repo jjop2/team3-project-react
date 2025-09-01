@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import useNavi from "../../hooks/useNavi";
-import "./UserModify.css";
 import axios from "axios";
 import axiosInstance from "../../axiosInstance";
-
+import './UserModify.css'
 function UserModify({userInfo, setAuth, setUserInfo}) {
 
   const {goHome,goTo} =useNavi();

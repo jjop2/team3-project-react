@@ -1,8 +1,12 @@
+import { useEffect, useState } from "react";
 import useNavi from "../../hooks/useNavi";
 import './SurveyResult.css';
-const SurveyResult = ({topTwoGenres}) =>{
+import axiosInstance from "../../axiosInstance";
+const SurveyResult = ({topTwoGenres, surveyResultInfo}) =>{
 
    const { goTo } = useNavi();
+
+
   const genreCombinations = {
   "Action+Simulation": {
     title: "총질 마스터",
@@ -53,6 +57,25 @@ const SurveyResult = ({topTwoGenres}) =>{
     : null;
 
   const result = genreCombinations[combinationKey];
+  
+  useEffect(()=>{ 
+      axiosInstance.post(`${import.meta.env.VITE_SERVER_URL}/surveyresult`,
+       {
+        age : surveyResultInfo.age,
+        gender : surveyResultInfo.gender,
+        preferGenre1Id: surveyResultInfo.preferGenre1,
+        preferGenre2Id: surveyResultInfo.preferGenre2,
+        combinationGenre : result.title
+       })
+      .then(response => {
+        console.log(response);
+        goTo('/surveyresult');
+      }) .catch(error =>{
+        console.error(error)
+        alert('서버에 전송하지 못했습니다.');
+      })
+    ;
+  }, [])
 
   return(
     <div className="items-container">

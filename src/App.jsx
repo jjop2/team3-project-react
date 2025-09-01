@@ -13,13 +13,20 @@ import { useEffect, useState } from 'react';
 import axiosInstance from './axiosInstance';
 import Survey from './pages/Survey/Survey';
 import SurveyResult from './pages/Survey/SurveyResult';
+import MyPage from './pages/Mypage/MyPage';
 import UserModify from './pages/Mypage/UserModify';
 
 function App() {
   const [auth, setAuth] = useState();
-  const [userInfo, setUserInfo] = useState();
+  const [userInfo, setUserInfo] = useState("");
   const [topTwoGenres , setTopTwoGenres] = useState([]);
-
+  const [surveyResultInfo, setSurveyResultInfo] = useState({
+    age: "",
+    gender: "",
+    preferGenre1: "",
+    preferGenre2: "",
+  })
+ 
   useEffect(() => {
     if(sessionStorage.getItem('jwt') != null)
       setAuth(true);
@@ -68,9 +75,10 @@ function App() {
           <Route path="/faq" element={<FAQ />} />
           <Route path="/login" element={<Login setAuth={setAuth} />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/mypage" element={<MyPage  userInfo={userInfo}/>}></Route>
+          <Route path="/survey" element={<Survey setTopTwoGenres={setTopTwoGenres} setSurveyResultInfo={setSurveyResultInfo}/>}/>
+          <Route path="/surveyresult" element={<SurveyResult topTwoGenres={topTwoGenres} surveyResultInfo={surveyResultInfo}/>} />
           <Route path="/usermodify" element={<UserModify userInfo={userInfo} setAuth={setAuth} setUserInfo={setUserInfo}/>}></Route>
-          <Route path="/survey" element={<Survey setTopTwoGenres={setTopTwoGenres}/>}/>
-          <Route path="/surveyresult" element={<SurveyResult topTwoGenres={topTwoGenres} />} />
         </Routes>
       </main>
 
