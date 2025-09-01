@@ -21,10 +21,15 @@ function App() {
   const [auth, setAuth] = useState();
   const [userInfo, setUserInfo] = useState();
   const [topTwoGenres , setTopTwoGenres] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    if(sessionStorage.getItem('jwt') != null)
+    if(sessionStorage.getItem('jwt') != null) {
       setAuth(true);
+    } else {
+      // 토큰이 없으면 로딩을 즉시 완료
+      setIsLoading(false);
+    }
   }, [])
 
   /* 
@@ -39,11 +44,14 @@ function App() {
           setUserInfo(response.data)
         }).catch(error => {
           console.error(error);
-          
           setAuth(false);
           if(sessionStorage.getItem('jwt') != null)
             sessionStorage.removeItem('jwt');
+        }).finally(() => {
+          setIsLoading(false);
         })
+    } else {
+      setIsLoading(false);
     }
   }, [auth]);
 
@@ -74,7 +82,11 @@ function App() {
           <Route path="/survey" element={<Survey setTopTwoGenres={setTopTwoGenres}/>}/>
           <Route path="/surveyresult" element={<SurveyResult topTwoGenres={topTwoGenres} />} />
           <Route path='/board' element={<Board />} />
-          <Route path='/write' element={<BoardWrite userInfo={userInfo} />} />
+          <Route path='/write' element={<BoardWrite
+            userInfo={userInfo}
+            isLoading={isLoading}
+            setIsLoading={setIsLoading}
+          />} />
         </Routes>
       </main>
 
