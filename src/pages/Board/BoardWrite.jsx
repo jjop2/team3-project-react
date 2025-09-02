@@ -3,6 +3,7 @@ import useAuthCheck from "../../hooks/useAuthCheck";
 import useNavi from "../../hooks/useNavi";
 import axiosInstance from "../../axiosInstance";
 import './BoardWrite.css'
+import axios from "axios";
 
 const BoardWrite = ( {userInfo, isLoading} ) => {
   useAuthCheck({ userInfo, isLoading });
@@ -14,8 +15,10 @@ const BoardWrite = ( {userInfo, isLoading} ) => {
     // useAuthCheck 실행 전 userInfo를 불러오기가 먼저 실행되어서 에러 뜸
     // 에러 방지용으로 삼항 연산자로 처리
     writer : userInfo ? userInfo.nickname : '',
-    img : null
+    file : null
   })
+
+
 
   // 이미지 미리보기용 URL 저장
   const [imgPreviewUrl, setImgPreviewUrl] =  useState(null);
@@ -23,7 +26,7 @@ const BoardWrite = ( {userInfo, isLoading} ) => {
   const onChangeHandler = (e) => {
     const targetName = e.target.name;
     
-    if(targetName !== 'img') {
+    if(targetName !== 'file') {
       setData({
         ...data,
         [targetName] : e.target.value
@@ -47,14 +50,18 @@ const BoardWrite = ( {userInfo, isLoading} ) => {
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
-
+    const formData = new FormData();
+    formData.append("title", data.title);
+    formData.append("content", data.content);
+    formData.append("writer", data.writer);
+    formData.append("file", data.file);
     if(!data.title) {
       alert('제목을 입력해 주세요');
       return;
     } else if(!data.content) {
       alert('내용을 입력해 주세요');
       return;
-    } else if(!data.img) {
+    } else if(!data.file) {
       alert('이미지를 등록해 주세요');
       return;
     }
@@ -68,17 +75,14 @@ const BoardWrite = ( {userInfo, isLoading} ) => {
         img: 선택한 이미지 정보(name("galio.jpg"), size(25486), type("image/jpeg") 등)
       }
     */
-
-    axiosInstance.post('/board', data, {
-      headers : {
-        "Content-Type" : "multipart/form-data"
-      }
-    }).then(response => {
+console.log(data)
+    axios.post('http://localhost:8888/upload', formData)
+    .then(response => {
       alert(response.data);
       goTo('/board');
     }).catch(error => console.error(error));
   }
-  
+   
   return (
     <>
       <div className="boardWrite">
@@ -87,8 +91,8 @@ const BoardWrite = ( {userInfo, isLoading} ) => {
         <form className="boardForm" onSubmit={onSubmitHandler}>
           <span>제목</span>
           <input type="text" id="title" name="title" onChange={onChangeHandler} /><br/>
-          <textarea name="content" id="content" onChange={onChangeHandler}></textarea><br/>
-          <input type="file" id="imgUpload" name="img" onChange={onChangeHandler} style={{'display':'none'}} accept="image/*" />
+          <input name="content" id="content" onChange={onChangeHandler} /><br/>
+          <input type="file" id="imgUpload" name="file" onChange={onChangeHandler} style={{'display':'none'}} accept="image/*" />
           <label htmlFor="imgUpload">
             파일 업로드
           </label>
@@ -99,7 +103,7 @@ const BoardWrite = ( {userInfo, isLoading} ) => {
           )}
           <button onClick={(e) => {
             e.preventDefault();
-            setData({...data, img : null});
+            setData({...data, file : null});
             setImgPreviewUrl(null);
             // input file의 value를 초기화하여 같은 파일을 다시 선택할 수 있게 함
             document.getElementById('imgUpload').value = '';

@@ -20,6 +20,10 @@ const Board = () => {
     return <div>게시글 목록 불러오는 중...</div>
 
 
+  if(!list)
+    return <div>등록된 게시물이 없습니다.</div>
+
+
   // 게시글 카드
   function boardCard(board) {
     return (
