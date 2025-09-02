@@ -10,22 +10,22 @@ const TabContents = ({tabNumber}) => {
   useEffect(()=>{
      axiosInstance.get(`${import.meta.env.VITE_SERVER_URL}/surveyresult`)
       .then(response =>{
-        console.log(response.data.combinationGenre)
-        setGenre(response.data.combinationGenre)
+        console.log(response.data[0])
+        setGenre(response.data[0].combinationGenre)
        }).catch(error =>{
         console.error(error);
       })
   },[])
 
-
   return(
     <>
  {[
         <div key="genre">
-          <h2>나의 선호 장르</h2>
+          <h2>나의 선호 장르</h2> <br />
+          <h3>{genre}</h3>
           <p>
             {genre ? (
-              <img src={`/images/${genre}.PNG`} alt={genre} style={{ width: "200px" }} />
+              <img src={`../src/images/${genre}.PNG`} alt={genre} style={{width:"100%"}}/>
             ) : (
               "아직 결과가 없습니다. 성향테스트를 진행해주세요."
             )}

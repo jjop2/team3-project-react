@@ -1,0 +1,42 @@
+.recommendGameList-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3열 */
+  align-items: center;
+  margin-top: 20px;
+}
+
+.recommendGameList-container .game-card {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin: 20px;
+}
+
+.game-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.recommendGameList-container .game-card .gameimg {
+  cursor: pointer;
+}
+
+.gameinfo h3 {
+  font-size: 24px;
+  margin: 0 0 4px 0;
+}
+
+@media (max-width: 900px) {
+  .recommendGameList-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .recommendGameList-container {
+    grid-template-columns: 1fr;
+  }
+}

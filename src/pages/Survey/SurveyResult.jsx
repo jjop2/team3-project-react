@@ -2,10 +2,9 @@ import { useEffect, useState } from "react";
 import useNavi from "../../hooks/useNavi";
 import './SurveyResult.css';
 import axiosInstance from "../../axiosInstance";
-const SurveyResult = ({topTwoGenres, surveyResultInfo}) =>{
+const SurveyResult = ({topTwoGenres, surveyResultInfo, userInfo}) =>{
 
    const { goTo } = useNavi();
-
 
   const genreCombinations = {
   "Action+Simulation": {
@@ -94,6 +93,7 @@ const SurveyResult = ({topTwoGenres, surveyResultInfo}) =>{
         }}>처음으로 돌아가기</button>
 
           <button className="btn2" onClick={() => {
+            goTo(`/recommendgame/${userInfo.id}`)
           }}>내게 맞는 게임 보기</button>
         </div>
     </div>
