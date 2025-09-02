@@ -1,11 +1,13 @@
+.board h1 {
+  padding: 10px;
+}
+
 .boardList {
   display: grid;
   grid-template-columns: repeat(auto-fill, 300px);
   gap: 20px;
   justify-content: center;
   padding: 20px 0;
-
-  background: pink;
 }
 
 .boardCard {
@@ -48,4 +50,10 @@
   overflow: hidden;
   text-overflow: ellipsis;
   text-align: left;
+}
+
+@media (max-width: 767px) {
+  .boardList {
+    display: none;
+  }
 }
