@@ -71,7 +71,7 @@ function Header( {auth, setAuth, userInfo, setUserInfo} ){
 
                        <h4 onClick={()=>{
                             goTo('/board')
-                       }}className="text1">💬결과 공유하기</h4>
+                       }}className="text1">💬자유 게시판</h4>
                     </div>
             </div>
         </div>
