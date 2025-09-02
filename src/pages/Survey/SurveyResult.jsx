@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import useNavi from "../../hooks/useNavi";
 import './SurveyResult.css';
 import axiosInstance from "../../axiosInstance";
+import ResultSharePanel from "./ResultSharePanel";
 const SurveyResult = ({topTwoGenres, surveyResultInfo}) =>{
 
    const { goTo } = useNavi();
