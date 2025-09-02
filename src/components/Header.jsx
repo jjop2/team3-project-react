@@ -66,7 +66,7 @@ function Header( {auth, setAuth, userInfo, setUserInfo} ){
                         }}className="text1">💖성향분석 테스트</h4>
 
                         <h4 onClick={()=>{
-                            goTo('/main2')
+                            goTo(`/recommendgame/${userInfo.id}`)
                         }}className="text1">⭐맞춤형 게임 추천</h4>
 
                        <h4 onClick={()=>{

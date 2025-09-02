@@ -15,10 +15,11 @@ import Survey from './pages/Survey/Survey';
 import SurveyResult from './pages/Survey/SurveyResult';
 import MyPage from './pages/Mypage/MyPage';
 import UserModify from './pages/Mypage/UserModify';
+import RecommendGame from './pages/Recommendgame/RecommendGame';
 
 function App() {
   const [auth, setAuth] = useState();
-  const [userInfo, setUserInfo] = useState("");
+  const [userInfo, setUserInfo] = useState(null);
   const [topTwoGenres , setTopTwoGenres] = useState([]);
   const [surveyResultInfo, setSurveyResultInfo] = useState({
     age: "",
@@ -26,12 +27,11 @@ function App() {
     preferGenre1: "",
     preferGenre2: "",
   })
- 
+
   useEffect(() => {
     if(sessionStorage.getItem('jwt') != null)
       setAuth(true);
   }, [])
-
   /* 
     userInfo : 현재 로그인한 유저의 정보
     id, username, nickname, email, role, oauth 들어 있음
@@ -77,8 +77,9 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/mypage" element={<MyPage  userInfo={userInfo}/>}></Route>
           <Route path="/survey" element={<Survey setTopTwoGenres={setTopTwoGenres} setSurveyResultInfo={setSurveyResultInfo}/>}/>
-          <Route path="/surveyresult" element={<SurveyResult topTwoGenres={topTwoGenres} surveyResultInfo={surveyResultInfo}/>} />
+          <Route path="/surveyresult" element={<SurveyResult topTwoGenres={topTwoGenres} surveyResultInfo={surveyResultInfo} userInfo={userInfo}/>} />
           <Route path="/usermodify" element={<UserModify userInfo={userInfo} setAuth={setAuth} setUserInfo={setUserInfo}/>}></Route>
+          <Route path="/recommendgame/*" element={<RecommendGame userInfo={userInfo} topTwoGenres={topTwoGenres}/>}/>
         </Routes>
       </main>
 
