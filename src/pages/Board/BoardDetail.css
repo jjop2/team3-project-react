@@ -1,0 +1,50 @@
+.boardDetailWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.boardDetail {
+  width: 800px;
+  padding: 30px;
+}
+
+.boardDetail h2,
+.boardDetail p {
+  text-align: start;
+  padding: 0 0 10px;
+}
+
+.boardDetail p:first-of-type {
+  border-bottom: 1px solid lightgray;
+}
+
+.boardDetail img {
+  max-width: 30rem;
+  padding: 10px 0;
+}
+
+.BoardButtonGroup button {
+  padding: 7px 15px;
+  font-size: 16px;
+  color: white;
+  border-radius: 5px;
+  border: 0px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.toListBtn {
+  background-color: black;
+}
+
+.toListBtn:hover {
+  background-color: #333;
+}
+
+.deleteBoardBtn {
+  background-color: rgb(255, 45, 45);
+}
+
+.deleteBoardBtn:hover {
+  background-color: rgb(255, 85, 85);
+}

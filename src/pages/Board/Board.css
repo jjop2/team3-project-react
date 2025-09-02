@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, 300px);
   gap: 20px;
+  justify-content: center;
   padding: 20px 0;
 
   background: pink;
@@ -13,7 +14,8 @@
   padding: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  align-items: center;
   border: 1px solid lightgray;
   background-color: #fff;
   border-radius: 5px;
@@ -21,7 +23,7 @@
 }
 
 .boardCard:hover {
-  background-color: #f1f1f1;
+  background-color: #f0f0f0;
 }
 
 .boardImg {
@@ -35,16 +37,15 @@
   padding: 10px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   width: 100%;
 }
 
 .boardText h3,
 .boardText p {
-  padding: 0;
-  margin: 0;
+  padding: 5px 0 0;
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-align: left;
 }

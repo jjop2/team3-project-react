@@ -11,7 +11,9 @@ const BoardWrite = ( {userInfo, isLoading} ) => {
   const [data, setData] = useState({
     title : '',
     content : '',
-    writer : userInfo,
+    // useAuthCheck 실행 전 userInfo를 불러오기가 먼저 실행되어서 에러 뜸
+    // 에러 방지용으로 삼항 연산자로 처리
+    writer : userInfo ? userInfo.nickname : '',
     img : null
   })
 
@@ -62,7 +64,7 @@ const BoardWrite = ( {userInfo, isLoading} ) => {
       {
         title: 제목,
         content: 내용,
-        writer: 로그인한 사용자 정보(userInfo = id, nickname, username, email, role, oauth),
+        writer: 로그인한 사용자의 닉네임
         img: 선택한 이미지 정보(name("galio.jpg"), size(25486), type("image/jpeg") 등)
       }
     */
@@ -77,14 +79,13 @@ const BoardWrite = ( {userInfo, isLoading} ) => {
     }).catch(error => console.error(error));
   }
   
-
   return (
     <>
       <div className="boardWrite">
         <h1>게시글 작성</h1>
 
-        <form onSubmit={onSubmitHandler}>
-          <p>제목</p>
+        <form className="boardForm" onSubmit={onSubmitHandler}>
+          <span>제목</span>
           <input type="text" id="title" name="title" onChange={onChangeHandler} /><br/>
           <textarea name="content" id="content" onChange={onChangeHandler}></textarea><br/>
           <input type="file" id="imgUpload" name="img" onChange={onChangeHandler} style={{'display':'none'}} accept="image/*" />
