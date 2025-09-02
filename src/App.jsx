@@ -13,16 +13,24 @@ import { useEffect, useState } from 'react';
 import axiosInstance from './axiosInstance';
 import Survey from './pages/Survey/Survey';
 import SurveyResult from './pages/Survey/SurveyResult';
+import MyPage from './pages/Mypage/MyPage';
 import UserModify from './pages/Mypage/UserModify';
+import RecommendGame from './pages/Recommendgame/RecommendGame';
 import Board from './pages/Board/Board';
 import BoardWrite from './pages/Board/BoardWrite';
 import BoardDetail from './pages/Board/BoardDetail';
 
 function App() {
   const [auth, setAuth] = useState();
-  const [userInfo, setUserInfo] = useState();
+  const [userInfo, setUserInfo] = useState(null);
   const [topTwoGenres , setTopTwoGenres] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [surveyResultInfo, setSurveyResultInfo] = useState({
+    age: "",
+    gender: "",
+    preferGenre1: "",
+    preferGenre2: "",
+  })
 
   useEffect(() => {
     if(sessionStorage.getItem('jwt') != null) {
@@ -32,7 +40,6 @@ function App() {
       setIsLoading(false);
     }
   }, [])
-
   /* 
     userInfo : 현재 로그인한 유저의 정보
     id, username, nickname, email, role, oauth 들어 있음
@@ -78,9 +85,11 @@ function App() {
           <Route path="/term" element={<TermsOfService />} />
           <Route path="/login" element={<Login setAuth={setAuth} />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/mypage" element={<MyPage  userInfo={userInfo}/>}></Route>
+          <Route path="/survey" element={<Survey setTopTwoGenres={setTopTwoGenres} setSurveyResultInfo={setSurveyResultInfo}/>}/>
+          <Route path="/surveyresult" element={<SurveyResult topTwoGenres={topTwoGenres} surveyResultInfo={surveyResultInfo} userInfo={userInfo}/>} />
           <Route path="/usermodify" element={<UserModify userInfo={userInfo} setAuth={setAuth} setUserInfo={setUserInfo}/>}></Route>
-          <Route path="/survey" element={<Survey setTopTwoGenres={setTopTwoGenres}/>}/>
-          <Route path="/surveyresult" element={<SurveyResult topTwoGenres={topTwoGenres} />} />
+          <Route path="/recommendgame/*" element={<RecommendGame userInfo={userInfo} topTwoGenres={topTwoGenres}/>}/>
           <Route path='/board' element={<Board />} />
           <Route path='/board/write' element={<BoardWrite
             userInfo={userInfo}
