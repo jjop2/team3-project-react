@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './login.css'
 import './Buttongroup.css';
+import Kakao from '../../components/auth/Kakao';
 
 import useNavi from '../../hooks/useNavi';
 import axiosInstance from '../../axiosInstance';
-import Kakao from '../../components/auth/KaKao';
 import Google from '../../components/auth/Google';
 
 const Login = ( {setAuth} ) => {
@@ -14,6 +14,8 @@ const Login = ( {setAuth} ) => {
    'username' : '',
    'password' : ''
   });
+
+  
 
   const [errorMsg, setErrorMsg] = useState();
 
@@ -57,7 +59,8 @@ const Login = ( {setAuth} ) => {
 
       })
 
-  }
+    }
+    
 
 return (
 
@@ -72,7 +75,7 @@ return (
 
 <div className="input-group">
   <label htmlFor='password'>비밀번호 : </label>
-  <input id="password" type='text' name='password'  onChange={onChangeHanlder} placeholder='비밀번호를 입력하세요' required/> <br />
+  <input id="password" type='password' name='password'  onChange={onChangeHanlder} placeholder='비밀번호를 입력하세요' required/> <br />
 </div>
 
 <div className='group-button'>
