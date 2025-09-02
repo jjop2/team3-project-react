@@ -1,0 +1,50 @@
+.boardList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 300px);
+  gap: 20px;
+  padding: 20px 0;
+
+  background: pink;
+}
+
+.boardCard {
+  width: 300px;
+  overflow: hidden;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid lightgray;
+  background-color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.boardCard:hover {
+  background-color: #f1f1f1;
+}
+
+.boardImg {
+  height: 300px;
+  width: 100%;
+  background-size: cover;
+  background-position: center center;
+}
+
+.boardText {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.boardText h3,
+.boardText p {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
