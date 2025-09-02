@@ -1,12 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./MyPage.css";
 import TabContents from "../../components/TabContents";
 import useNavi from "../../hooks/useNavi";
+import axiosInstance from "../../axiosInstance";
 
 function MyPage({userInfo}) {
 
   const [tabNumber ,setTabNumber] = useState(0);
   const { goTo } = useNavi();
+  const[genre, setGenre] = useState("");
+  
+    useEffect(()=>{
+     axiosInstance.get(`${import.meta.env.VITE_SERVER_URL}/surveyresult`)
+      .then(response =>{
+        console.log(response.data[0])
+        setGenre(response.data[0].combinationGenre)
+       }).catch(error =>{
+        console.error(error);
+      })
+  },[])
+
   return (
     <>
       <div className="mypage-container">
@@ -23,7 +36,7 @@ function MyPage({userInfo}) {
         </div>
         <div className="right-menu">
           <div className="profile">
-            <h2>{userInfo.nickname}님 환영합니다.</h2>
+            <h2>{genre} {userInfo.nickname}님 환영합니다.</h2>
           </div>
             <div className="tab-contents">
               <TabContents tabNumber={tabNumber}/>
