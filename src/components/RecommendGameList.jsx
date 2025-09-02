@@ -2,19 +2,15 @@ import { useEffect, useState } from "react";
 import axiosInstance from "../axiosInstance";
 import './RecommendGameList.css'
 import useNavi from "../hooks/useNavi";
-import { Link } from "react-router-dom";
 
-const RecommendGameList = ({userInfo}) =>{
+
+const RecommendGameList = ({userInfo, topTwoGenres}) =>{
   const { goTo } = useNavi();
   const [gameList, setGameList] = useState([]);
-  //   useEffect(()=>{
-  //    axiosInstance.get(`${import.meta.env.VITE_SERVER_URL}/surveyresult`)
-  //     .then(response =>{
-  //       console.log(response.data)
-  //      }).catch(error =>{
-  //       console.error(error);
-  //     })
-  // },[])
+  const [visibleCount, setVisibleCount] = useState(6);
+  const handleLoadMore = () => {
+  setVisibleCount(prev => prev + 3); // 3개씩 늘리기
+};
   
   useEffect(()=>{
     if (!userInfo?.id) return;
@@ -29,11 +25,16 @@ const RecommendGameList = ({userInfo}) =>{
   },[userInfo])
     
   return(
-    <>
-    <h1>추천 게임</h1>
+  <div>
+    {gameList.length > 0 ? (
+     <h1 style={{marginTop:"20px"}}>{topTwoGenres.join(" + ")} 장르를 좋아하는 당신을 위한 게임 추천</h1>
+     ): (
+       <div></div>
+      )}
+
     <div className="recommendGameList-container">
       {gameList.length > 0 ? (
-        gameList.map((game, i) => (
+        gameList.slice(0, visibleCount).map((game, i) => (
           <div key={i} className="game-card">
             <div className="gameimg">
               <img onClick={()=>{
@@ -42,9 +43,6 @@ const RecommendGameList = ({userInfo}) =>{
             </div>
             <div className="gameinfo">
               <h3>{game.name}</h3>
-              {game.genres?.length > 0 && (
-                <p>{game.genres.map((g) => g.description).join(", ")}</p>
-              )}
             </div>
           </div>
         ))
@@ -52,7 +50,14 @@ const RecommendGameList = ({userInfo}) =>{
         <p>추천 게임이 없습니다.</p>
       )}
     </div>
-    </>
+    
+    {visibleCount < gameList.length && (
+      <div className="visiblebtn">
+        <button className="btn" 
+         onClick={handleLoadMore}>더보기</button>
+     </div>
+  )}
+  </div>
   )
 }
 

@@ -25,7 +25,7 @@ const TabContents = ({tabNumber}) => {
           <h3>{genre}</h3>
           <p>
             {genre ? (
-              <img src={`../src/images/${genre}.PNG`} alt={genre} style={{width:"100%"}}/>
+              <img src={`../src/images/${genre}.PNG`} alt={genre} style={{width:"100%", margin:"auto"}}/>
             ) : (
               "아직 결과가 없습니다. 성향테스트를 진행해주세요."
             )}

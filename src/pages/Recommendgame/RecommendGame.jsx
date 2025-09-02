@@ -1,10 +1,10 @@
 import RecommendGameList from "../../components/RecommendGameList";
 
-const RecommendGame = ({userInfo}) =>{
+const RecommendGame = ({userInfo, topTwoGenres}) =>{
 
   return(
     <div>
-      <RecommendGameList userInfo={userInfo}/>
+      <RecommendGameList userInfo={userInfo} topTwoGenres={topTwoGenres}/>
     </div>
   )
 }

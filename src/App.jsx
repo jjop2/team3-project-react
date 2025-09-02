@@ -27,6 +27,7 @@ function App() {
     preferGenre1: "",
     preferGenre2: "",
   })
+
   useEffect(() => {
     if(sessionStorage.getItem('jwt') != null)
       setAuth(true);
@@ -78,7 +79,7 @@ function App() {
           <Route path="/survey" element={<Survey setTopTwoGenres={setTopTwoGenres} setSurveyResultInfo={setSurveyResultInfo}/>}/>
           <Route path="/surveyresult" element={<SurveyResult topTwoGenres={topTwoGenres} surveyResultInfo={surveyResultInfo} userInfo={userInfo}/>} />
           <Route path="/usermodify" element={<UserModify userInfo={userInfo} setAuth={setAuth} setUserInfo={setUserInfo}/>}></Route>
-          <Route path="/recommendgame/*" element={<RecommendGame userInfo={userInfo}/>}/>
+          <Route path="/recommendgame/*" element={<RecommendGame userInfo={userInfo} topTwoGenres={topTwoGenres}/>}/>
         </Routes>
       </main>
 

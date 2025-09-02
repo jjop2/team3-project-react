@@ -94,7 +94,7 @@ const SurveyResult = ({topTwoGenres, surveyResultInfo, userInfo}) =>{
 
           <button className="btn2" onClick={() => {
             goTo(`/recommendgame/${userInfo.id}`)
-          }}>내게 맞는 게임 보기</button>
+          }}>맞춤형 게임 추천</button>
         </div>
     </div>
   )
