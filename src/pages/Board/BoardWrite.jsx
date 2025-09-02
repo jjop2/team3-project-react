@@ -50,11 +50,13 @@ const BoardWrite = ( {userInfo, isLoading} ) => {
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
+    
     const formData = new FormData();
     formData.append("title", data.title);
     formData.append("content", data.content);
     formData.append("writer", data.writer);
     formData.append("file", data.file);
+
     if(!data.title) {
       alert('제목을 입력해 주세요');
       return;
@@ -75,7 +77,7 @@ const BoardWrite = ( {userInfo, isLoading} ) => {
         img: 선택한 이미지 정보(name("galio.jpg"), size(25486), type("image/jpeg") 등)
       }
     */
-console.log(data)
+
     axios.post('http://localhost:8888/upload', formData)
     .then(response => {
       alert(response.data);
