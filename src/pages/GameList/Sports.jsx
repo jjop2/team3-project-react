@@ -10,7 +10,7 @@ const Sports = () =>{
     useEffect(()=>{
     if (!gameList) return;
 
-    axiosInstance.get(`${import.meta.env.VITE_SERVER_URL}/recommendgame/sports`)
+    axiosInstance.get(`${import.meta.env.VITE_SERVER_URL}/recommendgame/4`)
     .then(response =>{
       console.log(response.data)
       setGameList(response.data)
