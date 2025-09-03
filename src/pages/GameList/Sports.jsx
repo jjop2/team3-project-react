@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axiosInstance from "../../axiosInstance";
 
 const Sports = () =>{
     const [gameList, setGameList] = useState([]);

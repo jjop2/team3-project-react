@@ -130,31 +130,31 @@ function MainPage() {
             <div className="type_box_list">
               <ul>
                 <li className="type_box box01" onClick={() =>{
-                  goTo('/recommend/action')
+                  goTo('/recommendgame/action')
                 }}>
                   <h3>Action</h3>
                   <p>속도와 기술로 한계를 넘는 질주의 세계</p>
                 </li>
                 <li className="type_box box02" onClick={() =>{
-                  goTo('/recommend/simulation')
+                  goTo('/recommendgame/simulation')
                 }}>
                   <h3>Simulation</h3>
                   <p>현실을 조작하며 세상을 직접 설계</p>
                 </li>
                 <li className="type_box box03" onClick={() =>{
-                  goTo('/recommend/racing')
+                  goTo('/recommendgame/racing')
                 }}>
                   <h3>Racing</h3>
                   <p>속도와 기술로 한계를 넘는 질주의 세계</p>
                 </li>
                 <li className="type_box box04" onClick={() =>{
-                  goTo('/recommend/sports')
+                  goTo('/recommendgame/sports')
                 }}>
                   <h3>Sports</h3>
                   <p>전략과 컨트롤로 승부를 겨루는 e-스포츠의 정수</p>
                 </li>
                 <li className="type_box box05" onClick={() =>{
-                  goTo('/recommend/rpg')
+                  goTo('/recommendgame/rpg')
                 }}>
                   <h3>RPG</h3>
                   <p>캐릭터와 함께 성장하며 서사를 이끄는 모험</p>

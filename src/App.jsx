@@ -7,7 +7,6 @@ import Footer from './components/Footer'
 import { Route, Routes } from 'react-router-dom'
 import PrivacyPolicy from './pages/Legal/PrivacyPolicy'
 import TermsOfService from './pages/Legal/TermsOfService'
-import FAQ from './pages/FAQ'
 import Header from './components/Header'
 import { useEffect, useState } from 'react';
 import axiosInstance from './axiosInstance';
@@ -23,6 +22,7 @@ import Action from './pages/GameList/Action';
 import Simulation from './pages/GameList/Simulation';
 import Sports from './pages/GameList/Sports';
 import Racing from './pages/GameList/Racing';
+import RPG from './pages/GameList/RPG';
 
 function App() {
   const [auth, setAuth] = useState();
@@ -93,7 +93,7 @@ function App() {
           <Route path="/survey" element={<Survey setTopTwoGenres={setTopTwoGenres} setSurveyResultInfo={setSurveyResultInfo}/>}/>
           <Route path="/surveyresult" element={<SurveyResult topTwoGenres={topTwoGenres} surveyResultInfo={surveyResultInfo} userInfo={userInfo}/>} />
           <Route path="/usermodify" element={<UserModify userInfo={userInfo} setAuth={setAuth} setUserInfo={setUserInfo}/>}></Route>
-          <Route path="/recommendgame/*" element={<RecommendGame userInfo={userInfo} topTwoGenres={topTwoGenres}/>}/>
+          <Route path="/recommendgame/:genre" element={<RecommendGame userInfo={userInfo} topTwoGenres={topTwoGenres}/>}/>
           <Route path='/board' element={<Board />} />
           <Route path='/board/write' element={<BoardWrite
             userInfo={userInfo}
@@ -101,11 +101,11 @@ function App() {
             setIsLoading={setIsLoading}
           />} />
           <Route path='/board/:id' element={<BoardDetail userInfo={userInfo} />} />
-          <Route path='/action' element ={<Action />} />
-          <Route path='/action' element ={<Simulation />} />
-          <Route path='/action' element ={<Sports />} />
-          <Route path='/action' element ={<Racing />} />
-          <Route path='/action' element ={<Sports />} />
+          <Route path='/recommendgame/action' element ={<Action />} />
+          <Route path='/recommendgame/simulation' element ={<Simulation />} />
+          <Route path='/recommendgame/racing' element ={<Racing />} />
+          <Route path='/recommendgame/sports' element ={<Sports />} />
+          <Route path='/recommendgame/rpg' element ={<RPG />} />
         </Routes>
       </main>
 

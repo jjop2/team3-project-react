@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axiosInstance from "../../axiosInstance";
 
 const Action = () =>{
     const [gameList, setGameList] = useState([]);
@@ -23,7 +24,7 @@ const Action = () =>{
     {gameList.length > 0 ? (
      <h1 style={{marginTop:"20px"}}>Action 장르를 좋아하는 당신을 위한 게임 추천</h1>
      ): (
-       <div></div>
+       ""
       )}
 
     <div className="recommendGameList-container">
