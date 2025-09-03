@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import useNavi from "./useNavi";
 
-const useAuthCheck = ({ userInfo, isLoading }) => {
+const useAuthCheck = (userInfo, isLoading) => {
   const {goTo} = useNavi();
 
   useEffect(() => {
@@ -9,8 +9,9 @@ const useAuthCheck = ({ userInfo, isLoading }) => {
       alert('로그인이 필요합니다');
       goTo('/login');
     }
-  }, [userInfo, goTo]);
-
+  }, [userInfo,isLoading, goTo]);
+  
+  return !isLoading && !userInfo;
 }
 
 export default useAuthCheck;

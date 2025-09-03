@@ -6,7 +6,7 @@ import './BoardWrite.css'
 import axios from "axios";
 
 const BoardWrite = ( {userInfo, isLoading} ) => {
-  useAuthCheck({ userInfo, isLoading });
+  useAuthCheck(userInfo, isLoading);
   const {goTo} = useNavi();
 
   if(!userInfo)

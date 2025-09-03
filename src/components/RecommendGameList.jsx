@@ -17,7 +17,6 @@ const RecommendGameList = ({userInfo, topTwoGenres}) =>{
 
     axiosInstance.get(`${import.meta.env.VITE_SERVER_URL}/recommendgame/${userInfo.id}`)
     .then(response =>{
-      console.log(response.data)
       setGameList(response.data)
     }).catch(error=>{
       console.error(error);
