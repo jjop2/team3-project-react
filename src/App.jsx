@@ -19,6 +19,7 @@ import RecommendGame from './pages/Recommendgame/RecommendGame';
 import Board from './pages/Board/Board';
 import BoardWrite from './pages/Board/BoardWrite';
 import BoardDetail from './pages/Board/BoardDetail';
+import BoardUpdate from './pages/Board/BoardUpdate';
 
 
 
@@ -94,20 +95,22 @@ function App() {
           <Route path="/login" element={<Login setAuth={setAuth} />} />
           <Route path="/" element={<MainPage userInfo={userInfo} isLoading={isLoading} />}/>
           <Route path="/signup" element={<Signup setAuth={setAuth} userInfo={userInfo}/>} />
-          
+
           <Route path="/mypage" element={<MyPage  userInfo={userInfo}/>}></Route>
-          <Route path="/survey" element={<Survey setTopTwoGenres={setTopTwoGenres} setSurveyResultInfo={setSurveyResultInfo}/>}/>
+          <Route path="/survey" element={<Survey setTopTwoGenres={setTopTwoGenres} setSurveyResultInfo={setSurveyResultInfo} userInfo={userInfo} isLoading={isLoading} />}/>
           <Route path="/surveyresult" element={<SurveyResult topTwoGenres={topTwoGenres} surveyResultInfo={surveyResultInfo} userInfo={userInfo}/>} />
           <Route path="/usermodify" element={<UserModify userInfo={userInfo} setAuth={setAuth} setUserInfo={setUserInfo}/>}></Route>
-          <Route path="/recommendgame/*" element={<RecommendGame userInfo={userInfo} topTwoGenres={topTwoGenres}/>}/>
+          <Route path="/recommendgame" element={<RecommendGame userInfo={userInfo} topTwoGenres={topTwoGenres} isLoading={isLoading} />}/>
           <Route path='/board' element={<Board />} />
           <Route path='/board/write' element={<BoardWrite
             userInfo={userInfo}
             isLoading={isLoading}
-            setIsLoading={setIsLoading}
           />} />
           <Route path='/board/:id' element={<BoardDetail userInfo={userInfo} />} />
-        
+          <Route path='/board/:id/update' element={<BoardUpdate
+            userInfo={userInfo}
+            isLoading={isLoading}
+          />} />
         </Routes>
       </main>
 

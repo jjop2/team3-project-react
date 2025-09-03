@@ -4,10 +4,8 @@ import useNavi from "../hooks/useNavi";
 import useAuthCheck from "../hooks/useAuthCheck";
 import { useEffect, useState } from "react";
 
-function Header({auth, setAuth, userInfo, setUserInfo ,setisLoading,isLoading}) {
+function Header({auth, setAuth, userInfo, setUserInfo, isLoading}) {
   const { goHome, goTo } = useNavi();
-
-  const isNotAuthenticated = useAuthCheck({userInfo, isLoading});
   
   const logout = () => {
     sessionStorage.clear('jwt');
@@ -17,17 +15,6 @@ function Header({auth, setAuth, userInfo, setUserInfo ,setisLoading,isLoading}) 
     goHome();
  }
 
- const handleProtectedRoute =(path)=>{
-  if(isNotAuthenticated){
-    alert('로그인이 필요합니다');
-    goTo('/login')
-    
-  }else{
-    goTo(path);
-  }
- };
-
- 
 
   return (
     <>
@@ -72,7 +59,7 @@ function Header({auth, setAuth, userInfo, setUserInfo ,setisLoading,isLoading}) 
           <div className="navbar-icons">
             <h4
               onClick={() => {
-                handleProtectedRoute('/survey');
+                goTo('/survey')
               }}
               className="text1"
             >
@@ -81,7 +68,7 @@ function Header({auth, setAuth, userInfo, setUserInfo ,setisLoading,isLoading}) 
 
             <h4
               onClick={() => {
-                handleProtectedRoute(`/recommendgame/${userInfo.id}`);
+                goTo(`/recommendgame`)
               }}
               className="text1"
             >

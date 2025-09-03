@@ -58,7 +58,7 @@ const SurveyResult = ({topTwoGenres, surveyResultInfo, userInfo}) =>{
   const result = genreCombinations[combinationKey];
   
   useEffect(()=>{ 
-      axiosInstance.post(`${import.meta.env.VITE_SERVER_URL}/surveyresult`,
+      axiosInstance.post(`/surveyresult`,
        {
         age : surveyResultInfo.age,
         gender : surveyResultInfo.gender,
@@ -67,7 +67,6 @@ const SurveyResult = ({topTwoGenres, surveyResultInfo, userInfo}) =>{
         combinationGenre : result.title
        })
       .then(response => {
-        console.log(response);
         goTo('/surveyresult');
       }) .catch(error =>{
         console.error(error)
@@ -93,7 +92,7 @@ const SurveyResult = ({topTwoGenres, surveyResultInfo, userInfo}) =>{
         }}>처음으로 돌아가기</button>
 
           <button className="btn2" onClick={() => {
-            goTo(`/recommendgame/${userInfo.id}`)
+            goTo(`/recommendgame`)
           }}>맞춤형 게임 추천</button>
         </div>
     </div>
