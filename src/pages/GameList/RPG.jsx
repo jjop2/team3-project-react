@@ -10,7 +10,7 @@ const RPG = () =>{
     useEffect(()=>{
     if (!gameList) return;
 
-    axiosInstance.get(`${import.meta.env.VITE_SERVER_URL}/recommendgame/5`)
+    axiosInstance.get(`${import.meta.env.VITE_SERVER_URL}/recommendgame/genre/5`)
     .then(response =>{
       console.log(response.data)
       setGameList(response.data)

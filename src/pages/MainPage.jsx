@@ -83,7 +83,7 @@ function MainPage() {
                 <h2>12</h2> <p>개의질문</p>
               </div>
               <div className="main_box">
-                <h2>5</h2> <p>가지의 게이머 유형</p>
+                <h2>10</h2> <p>가지의 게이머 유형</p>
               </div>
             </div>
             <button className="test_start" onClick={()=>{
