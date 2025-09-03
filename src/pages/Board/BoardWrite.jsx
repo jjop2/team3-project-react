@@ -8,17 +8,16 @@ import axios from "axios";
 const BoardWrite = ( {userInfo, isLoading} ) => {
   useAuthCheck({ userInfo, isLoading });
   const {goTo} = useNavi();
+
+  if(!userInfo)
+    return <div>로딩 중...</div>
   
   const [data, setData] = useState({
     title : '',
     content : '',
-    // useAuthCheck 실행 전 userInfo를 불러오기가 먼저 실행되어서 에러 뜸
-    // 에러 방지용으로 삼항 연산자로 처리
-    writer : userInfo ? userInfo.nickname : '',
+    writer : userInfo.nickname,
     file : null
   })
-
-
 
   // 이미지 미리보기용 URL 저장
   const [imgPreviewUrl, setImgPreviewUrl] =  useState(null);
@@ -74,11 +73,11 @@ const BoardWrite = ( {userInfo, isLoading} ) => {
         title: 제목,
         content: 내용,
         writer: 로그인한 사용자의 닉네임
-        img: 선택한 이미지 정보(name("galio.jpg"), size(25486), type("image/jpeg") 등)
+        file: 선택한 이미지 정보(name("galio.jpg"), size(25486), type("image/jpeg") 등)
       }
     */
 
-    axios.post('http://localhost:8888/upload', formData)
+    axios.post(`${import.meta.env.VITE_SERVER_URL}/upload`, formData)
     .then(response => {
       alert(response.data);
       goTo('/board');

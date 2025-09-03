@@ -41,6 +41,14 @@
   background-color: #333;
 }
 
+.updateBoardBtn {
+  background-color: rgb(45, 45, 255);
+}
+
+.updateBoardBtn:hover {
+  background-color: rgb(85, 85, 255);
+}
+
 .deleteBoardBtn {
   background-color: rgb(255, 45, 45);
 }

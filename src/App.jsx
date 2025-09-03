@@ -19,6 +19,7 @@ import RecommendGame from './pages/Recommendgame/RecommendGame';
 import Board from './pages/Board/Board';
 import BoardWrite from './pages/Board/BoardWrite';
 import BoardDetail from './pages/Board/BoardDetail';
+import BoardUpdate from './pages/Board/BoardUpdate';
 
 function App() {
   const [auth, setAuth] = useState();
@@ -94,9 +95,12 @@ function App() {
           <Route path='/board/write' element={<BoardWrite
             userInfo={userInfo}
             isLoading={isLoading}
-            setIsLoading={setIsLoading}
           />} />
           <Route path='/board/:id' element={<BoardDetail userInfo={userInfo} />} />
+          <Route path='/board/:id/update' element={<BoardUpdate
+            userInfo={userInfo}
+            isLoading={isLoading}
+          />} />
         </Routes>
       </main>
 
