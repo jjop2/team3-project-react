@@ -101,14 +101,14 @@ function MainPage() {
               <div className="text_box_img">
                 <img src="../src/images/main_icon01.png"/>
                 <h3>정확한 분석</h3>
-                <p>7개의 과학적으로 설계된 질문으로 당신의 게임 성향을 정확하게 분석합니다.</p>
+                <p>12개의 과학적으로 설계된 질문으로 당신의 게임 성향을 정확하게 분석합니다.</p>
               </div>
             </div>
             <div className="main_text_box">
               <div className="text_box_img">
                 <img src="../src/images/main_icon02.png"/>
                 <h3>맞춤 추천</h3>
-                <p>6가지 게이머 유형 중 당신에게 맞는 유형을 찾아 최적의 게임을 추천합니다.</p>
+                <p>10가지 게이머 유형 중 당신에게 맞는 유형을 찾아 최적의 게임을 추천합니다.</p>
               </div>
             </div>
             <div className="main_text_box">
@@ -124,30 +124,40 @@ function MainPage() {
             className={`main_type ${visibleSections.includes(1) ? "visible" : ""}`}
           >
             <div  className="type_title_box">
-              <h2>어떤 게이머 유형이 있을까요?</h2>
-              <p>다양한 게이머 유형을 미리 확인해 보세요.</p>
+              <h2>장르별로 어떤 게임이 있을까요?</h2>
+              <p>장르별 다양한 게임을 미리 확인해 보세요.</p>
             </div>
             <div className="type_box_list">
               <ul>
-                <li className="type_box box01">
-                  <h3>RPG 마니아</h3>
-                  <p>깊이 있는 스토리와 캐릭터 성장을 즐김</p>
+                <li className="type_box box01" onClick={() =>{
+                  goTo('/recommend/action')
+                }}>
+                  <h3>Action</h3>
+                  <p>속도와 기술로 한계를 넘는 질주의 세계</p>
                 </li>
-                <li className="type_box box02">
-                  <h3>RPG 마니아</h3>
-                  <p>깊이 있는 스토리와 캐릭터 성장을 즐김</p>
+                <li className="type_box box02" onClick={() =>{
+                  goTo('/recommend/simulation')
+                }}>
+                  <h3>Simulation</h3>
+                  <p>현실을 조작하며 세상을 직접 설계</p>
                 </li>
-                <li className="type_box box03">
-                  <h3>RPG 마니아</h3>
-                  <p>깊이 있는 스토리와 캐릭터 성장을 즐김</p>
+                <li className="type_box box03" onClick={() =>{
+                  goTo('/recommend/racing')
+                }}>
+                  <h3>Racing</h3>
+                  <p>속도와 기술로 한계를 넘는 질주의 세계</p>
                 </li>
-                <li className="type_box box04">
-                  <h3>RPG 마니아</h3>
-                  <p>깊이 있는 스토리와 캐릭터 성장을 즐김</p>
+                <li className="type_box box04" onClick={() =>{
+                  goTo('/recommend/sports')
+                }}>
+                  <h3>Sports</h3>
+                  <p>전략과 컨트롤로 승부를 겨루는 e-스포츠의 정수</p>
                 </li>
-                <li className="type_box box05">
-                  <h3>RPG 마니아</h3>
-                  <p>깊이 있는 스토리와 캐릭터 성장을 즐김</p>
+                <li className="type_box box05" onClick={() =>{
+                  goTo('/recommend/rpg')
+                }}>
+                  <h3>RPG</h3>
+                  <p>캐릭터와 함께 성장하며 서사를 이끄는 모험</p>
                 </li>
               </ul>
             </div>

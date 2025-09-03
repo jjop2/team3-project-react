@@ -19,6 +19,10 @@ import RecommendGame from './pages/Recommendgame/RecommendGame';
 import Board from './pages/Board/Board';
 import BoardWrite from './pages/Board/BoardWrite';
 import BoardDetail from './pages/Board/BoardDetail';
+import Action from './pages/GameList/Action';
+import Simulation from './pages/GameList/Simulation';
+import Sports from './pages/GameList/Sports';
+import Racing from './pages/GameList/Racing';
 
 function App() {
   const [auth, setAuth] = useState();
@@ -97,6 +101,11 @@ function App() {
             setIsLoading={setIsLoading}
           />} />
           <Route path='/board/:id' element={<BoardDetail userInfo={userInfo} />} />
+          <Route path='/action' element ={<Action />} />
+          <Route path='/action' element ={<Simulation />} />
+          <Route path='/action' element ={<Sports />} />
+          <Route path='/action' element ={<Racing />} />
+          <Route path='/action' element ={<Sports />} />
         </Routes>
       </main>
 
