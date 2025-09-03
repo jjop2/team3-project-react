@@ -20,8 +20,10 @@ import Board from './pages/Board/Board';
 import BoardWrite from './pages/Board/BoardWrite';
 import BoardDetail from './pages/Board/BoardDetail';
 
+
+
 function App() {
-  const [auth, setAuth] = useState();
+  const [auth, setAuth] = useState(false);
   const [userInfo, setUserInfo] = useState(null);
   const [topTwoGenres , setTopTwoGenres] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -33,13 +35,16 @@ function App() {
   })
 
   useEffect(() => {
-    if(sessionStorage.getItem('jwt') != null) {
+    if (sessionStorage.getItem('jwt') != null) {
       setAuth(true);
     } else {
-      // 토큰이 없으면 로딩을 즉시 완료
+      setAuth(false);
+      setUserInfo(null);
       setIsLoading(false);
+      
     }
-  }, [])
+  }, []);
+
   /* 
     userInfo : 현재 로그인한 유저의 정보
     id, username, nickname, email, role, oauth 들어 있음
@@ -63,6 +68,8 @@ function App() {
     }
   }, [auth]);
 
+  
+
   if(auth && !userInfo)
     return <div>로딩 중...</div>
 
@@ -75,16 +82,19 @@ function App() {
           setAuth={setAuth}
           userInfo={userInfo}
           setUserInfo={setUserInfo}
+          setIsLoading={setIsLoading}
+          isLoading={isLoading}
         />
       </header>
 
       <main className="container-app">
         <Routes>
-          <Route path="/" element={<MainPage />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/term" element={<TermsOfService />} />
           <Route path="/login" element={<Login setAuth={setAuth} />} />
-          <Route path="/signup" element={<Signup />} />
+          <Route path="/" element={<MainPage userInfo={userInfo} isLoading={isLoading} />}/>
+          <Route path="/signup" element={<Signup setAuth={setAuth} userInfo={userInfo}/>} />
+          
           <Route path="/mypage" element={<MyPage  userInfo={userInfo}/>}></Route>
           <Route path="/survey" element={<Survey setTopTwoGenres={setTopTwoGenres} setSurveyResultInfo={setSurveyResultInfo}/>}/>
           <Route path="/surveyresult" element={<SurveyResult topTwoGenres={topTwoGenres} surveyResultInfo={surveyResultInfo} userInfo={userInfo}/>} />
@@ -97,6 +107,7 @@ function App() {
             setIsLoading={setIsLoading}
           />} />
           <Route path='/board/:id' element={<BoardDetail userInfo={userInfo} />} />
+        
         </Routes>
       </main>
 

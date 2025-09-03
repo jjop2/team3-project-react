@@ -30,7 +30,7 @@ const Board = () => {
       <div className="boardCard" onClick={() => {
         goTo(`/board/${board.id}`);
       }}>
-        <div className="boardImg" style={{'backgroundImage':`url(${import.meta.env.VITE_SERVER_URL}/upload/${board.img})`}}></div>
+        <div className="boardImg" style={{'backgroundImage':`url/(${import.meta.env.VITE_SERVER_URL}/upload/${board.img})`}}></div>
         <div className="boardText">
           <h3>{board.title}</h3>
           <p>{board.writer}</p>

@@ -7,16 +7,18 @@ import main_icon02 from "../images/main_icon02.png";
 import main_icon03 from "../images/main_icon03.png";
 import type01bg from "../images/type01bg.png";
 import useNavi from "../hooks/useNavi";
+import useAuthCheck from "../hooks/useAuthCheck";
 
-function MainPage() {
+function MainPage(userInfo,isLoading) {
     const sectionRefs = useRef([]);
     const [visibleSections, setVisibleSections] = useState([]);
-
     // ✅ 텍스트 애니메이션을 위한 새로운 ref와 상태를 추가합니다.
     const textRef = useRef(null);
     const [isTextVisible, setIsTextVisible] = useState(false);
     const {goHome, goTo} = useNavi();
-
+    // hook userAuthcheck 호출
+    const isNotAuthenticated = useAuthCheck(userInfo, isLoading);
+    
     useEffect(() => {
       // 텍스트 ref의 가시성만 확인하는 로직
       if (textRef.current) {
@@ -67,6 +69,18 @@ function MainPage() {
         window.removeEventListener("scroll", handleScroll);
       };
     }, []);
+
+      // 비로그인 시 로그인페이지 이동구현
+    const handleProtectedRoute = (path)=>{
+      if(isNotAuthenticated){
+        alert('로그인이 필요합니다')
+        goTo('/login');
+      }else{
+        goTo(path)
+      }
+    }
+
+
   return (
     <>
       <div id="main_wrap">
@@ -87,7 +101,8 @@ function MainPage() {
               </div>
             </div>
             <button className="test_start" onClick={()=>{
-              goTo('/survey')
+              
+              handleProtectedRoute('/survey')
             }}>
               <img src="../src/images/Brains.png"/>
               <p>게임성향 테스트시작</p>
