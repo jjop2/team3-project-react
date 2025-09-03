@@ -8,10 +8,9 @@ import main_icon03 from "../images/main_icon03.png";
 import type01bg from "../images/type01bg.png";
 import useNavi from "../hooks/useNavi";
 
-function MainPage() {
+function MainPage({userInfo}) {
     const sectionRefs = useRef([]);
     const [visibleSections, setVisibleSections] = useState([]);
-
     // ✅ 텍스트 애니메이션을 위한 새로운 ref와 상태를 추가합니다.
     const textRef = useRef(null);
     const [isTextVisible, setIsTextVisible] = useState(false);
@@ -67,6 +66,7 @@ function MainPage() {
         window.removeEventListener("scroll", handleScroll);
       };
     }, []);
+
   return (
     <>
       <div id="main_wrap">

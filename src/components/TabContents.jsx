@@ -10,7 +10,6 @@ const TabContents = ({tabNumber}) => {
   useEffect(()=>{
      axiosInstance.get(`${import.meta.env.VITE_SERVER_URL}/surveyresult`)
       .then(response =>{
-        console.log(response.data[0])
         setGenre(response.data[0].combinationGenre)
        }).catch(error =>{
         console.error(error);
