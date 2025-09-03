@@ -15,7 +15,7 @@ const BoardWrite = ( {userInfo, isLoading} ) => {
   const [data, setData] = useState({
     title : '',
     content : '',
-    writer : userInfo.nickname,
+    writer : userInfo,
     file : null
   })
 
@@ -72,10 +72,12 @@ const BoardWrite = ( {userInfo, isLoading} ) => {
       {
         title: 제목,
         content: 내용,
-        writer: 로그인한 사용자의 닉네임
+        writer: 로그인한 사용자 id
         file: 선택한 이미지 정보(name("galio.jpg"), size(25486), type("image/jpeg") 등)
       }
     */
+
+    console.log(data)
 
     axios.post(`${import.meta.env.VITE_SERVER_URL}/upload`, formData)
     .then(response => {
