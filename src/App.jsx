@@ -13,13 +13,26 @@ import { useEffect, useState } from 'react';
 import axiosInstance from './axiosInstance';
 import Survey from './pages/Survey/Survey';
 import SurveyResult from './pages/Survey/SurveyResult';
+import MyPage from './pages/Mypage/MyPage';
 import UserModify from './pages/Mypage/UserModify';
-import ProtectedRoute from './components/ProtectedRoute';
+import RecommendGame from './pages/Recommendgame/RecommendGame';
+import Board from './pages/Board/Board';
+import BoardWrite from './pages/Board/BoardWrite';
+import BoardDetail from './pages/Board/BoardDetail';
+
+
 
 function App() {
   const [auth, setAuth] = useState(false);
   const [userInfo, setUserInfo] = useState(null);
   const [topTwoGenres , setTopTwoGenres] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [surveyResultInfo, setSurveyResultInfo] = useState({
+    age: "",
+    gender: "",
+    preferGenre1: "",
+    preferGenre2: "",
+  })
 
   useEffect(() => {
     if (sessionStorage.getItem('jwt') != null) {
@@ -27,6 +40,8 @@ function App() {
     } else {
       setAuth(false);
       setUserInfo(null);
+      setIsLoading(false);
+      
     }
   }, []);
 
@@ -42,11 +57,14 @@ function App() {
           setUserInfo(response.data)
         }).catch(error => {
           console.error(error);
-          
           setAuth(false);
           if(sessionStorage.getItem('jwt') != null)
             sessionStorage.removeItem('jwt');
+        }).finally(() => {
+          setIsLoading(false);
         })
+    } else {
+      setIsLoading(false);
     }
   }, [auth]);
 
@@ -64,58 +82,32 @@ function App() {
           setAuth={setAuth}
           userInfo={userInfo}
           setUserInfo={setUserInfo}
+          setIsLoading={setIsLoading}
+          isLoading={isLoading}
         />
       </header>
 
       <main className="container-app">
         <Routes>
-          <Route path="/" element={<MainPage />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/term" element={<TermsOfService />} />
-          <Route path="/faq" element={<FAQ />} />
           <Route path="/login" element={<Login setAuth={setAuth} />} />
-          <Route path="/signup" element={<Signup setAuth={setAuth} userInfo={userInfo} />} />
-          <Route
-            path="/usermodify"
-            element={
-              <ProtectedRoute auth={auth}>
-                <UserModify userInfo={userInfo} setAuth={setAuth} setUserInfo={setUserInfo} />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/survey"
-            element={
-              <ProtectedRoute auth={auth}>
-                <Survey setTopTwoGenres={setTopTwoGenres} />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/surveyresult"
-            element={
-              <ProtectedRoute auth={auth}>
-                <SurveyResult topTwoGenres={topTwoGenres} />
-              </ProtectedRoute>
-            }
-          />
-          {/* /main2, /main3은 실제 컴포넌트로 교체 필요 */}
-          <Route
-            path="/main2"
-            element={
-              <ProtectedRoute auth={auth}>
-                <div>Main2 Page</div>
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/main3"
-            element={
-              <ProtectedRoute auth={auth}>
-                <div>Main3 Page</div>
-              </ProtectedRoute>
-            }
-          />
+          <Route path="/" element={<MainPage userInfo={userInfo} isLoading={isLoading} />}/>
+          <Route path="/signup" element={<Signup setAuth={setAuth} userInfo={userInfo}/>} />
+          
+          <Route path="/mypage" element={<MyPage  userInfo={userInfo}/>}></Route>
+          <Route path="/survey" element={<Survey setTopTwoGenres={setTopTwoGenres} setSurveyResultInfo={setSurveyResultInfo}/>}/>
+          <Route path="/surveyresult" element={<SurveyResult topTwoGenres={topTwoGenres} surveyResultInfo={surveyResultInfo} userInfo={userInfo}/>} />
+          <Route path="/usermodify" element={<UserModify userInfo={userInfo} setAuth={setAuth} setUserInfo={setUserInfo}/>}></Route>
+          <Route path="/recommendgame/*" element={<RecommendGame userInfo={userInfo} topTwoGenres={topTwoGenres}/>}/>
+          <Route path='/board' element={<Board />} />
+          <Route path='/board/write' element={<BoardWrite
+            userInfo={userInfo}
+            isLoading={isLoading}
+            setIsLoading={setIsLoading}
+          />} />
+          <Route path='/board/:id' element={<BoardDetail userInfo={userInfo} />} />
+        
         </Routes>
       </main>
 

@@ -1,9 +1,33 @@
 import { Link } from "react-router-dom";
 import './Header.css';
 import useNavi from "../hooks/useNavi";
+import useAuthCheck from "../hooks/useAuthCheck";
+import { useEffect, useState } from "react";
 
-function Header() {
+function Header({auth, setAuth, userInfo, setUserInfo ,setisLoading,isLoading}) {
   const { goHome, goTo } = useNavi();
+
+  const isNotAuthenticated = useAuthCheck({userInfo, isLoading});
+  
+  const logout = () => {
+    sessionStorage.clear('jwt');
+    setAuth(false);
+    setUserInfo(null); // false -> null로바꿈
+    alert('로그아웃 되었습니다');
+    goHome();
+ }
+
+ const handleProtectedRoute =(path)=>{
+  if(isNotAuthenticated){
+    alert('로그인이 필요합니다');
+    goTo('/login')
+    
+  }else{
+    goTo(path);
+  }
+ };
+
+ 
 
   return (
     <>
@@ -25,28 +49,30 @@ function Header() {
             </div>
 
             <div className="navbar-right">
-              <a
-                className="navbar-button"
-                onClick={() => {
-                  goTo('/login');
-                }}
-              >
-                로그인
-              </a>
-              <a
-                className="navbar-button"
-                onClick={() => {
-                  goTo('/signup');
-                }}
-              >
-                회원가입
-              </a>
+              {
+                  auth
+                  ? <a className="navbar-button navbar-username" onClick={()=>{
+                      
+                      goTo('/mypage')
+                  }}>🙍‍♀️{userInfo.nickname}</a>
+                  : <a className="navbar-button" onClick={()=>{
+                      goTo('/login')
+                  }}>로그인</a>
+              }
+
+              {
+                  auth
+                  ? <a className="navbar-button" onClick={logout}>로그아웃</a>
+                  : <a className="navbar-button" onClick={()=>{
+                      goTo('/signup')
+                  }}>회원가입</a>
+              }
             </div>
           </div>
           <div className="navbar-icons">
             <h4
               onClick={() => {
-                goTo('/survey');
+                handleProtectedRoute('/survey');
               }}
               className="text1"
             >
@@ -55,7 +81,7 @@ function Header() {
 
             <h4
               onClick={() => {
-                goTo('/main2');
+                handleProtectedRoute(`/recommendgame/${userInfo.id}`);
               }}
               className="text1"
             >
@@ -64,7 +90,7 @@ function Header() {
 
             <h4
               onClick={() => {
-                goTo('/main3');
+                goTo('/board');
               }}
               className="text1"
             >

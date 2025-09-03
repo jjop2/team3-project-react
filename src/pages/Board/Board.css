@@ -1,0 +1,59 @@
+.board h1 {
+  padding: 10px;
+}
+
+.boardList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 300px);
+  gap: 20px;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.boardCard {
+  width: 300px;
+  overflow: hidden;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid lightgray;
+  background-color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.boardCard:hover {
+  background-color: #f0f0f0;
+}
+
+.boardImg {
+  height: 300px;
+  width: 100%;
+  background-size: cover;
+  background-position: center center;
+}
+
+.boardText {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.boardText h3,
+.boardText p {
+  padding: 5px 0 0;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+
+@media (max-width: 767px) {
+  .boardList {
+    display: none;
+  }
+}

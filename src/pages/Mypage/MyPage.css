@@ -1,0 +1,43 @@
+.mypage-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+}
+
+.mypage-container .left-menu {
+  margin-top: 20px;
+}
+
+.mypage-container .left-menu .tabs {
+  margin: 20px;
+  cursor: pointer;
+}
+
+
+.mypage-container .right-menu {
+  display: flex;
+  flex-direction: column;
+  margin-right: 400px;
+}
+
+.mypage-container .right-menu .profile {
+  width: 600px;
+  height: 150px;
+  margin: 2rem;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: #f4f6f8;
+  box-shadow: 0 4px 10px rgba(219, 214, 214, 0.1);
+}
+
+.mypage-container .right-menu .tab-contents {
+  width: 600px;
+  height: 100%;
+  margin: 2rem;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: #f4f6f8;
+  box-shadow: 0 4px 10px rgba(219, 214, 214, 0.1);
+}
