@@ -4,10 +4,11 @@ import './RecommendGameList.css'
 import useNavi from "../hooks/useNavi";
 
 
-const RecommendGameList = ({userInfo, topTwoGenres}) =>{
+const RecommendGameList = ({userInfo}) =>{
   const { goTo } = useNavi();
   const [gameList, setGameList] = useState([]);
   const [visibleCount, setVisibleCount] = useState(6);
+  const[genre, setGenre] = useState("");
   const handleLoadMore = () => {
   setVisibleCount(prev => prev + 3); // 3개씩 늘리기
 };
@@ -22,11 +23,21 @@ const RecommendGameList = ({userInfo, topTwoGenres}) =>{
       console.error(error);
     })
   },[userInfo])
+
+    useEffect(()=>{
+     axiosInstance.get(`${import.meta.env.VITE_SERVER_URL}/surveyresult`)
+      .then(response =>{
+        setGenre(response.data[0].combinationGenre)
+       }).catch(error =>{
+        console.error(error);
+      })
+  },[])
+
     
   return(
   <div>
     {gameList.length > 0 ? (
-     <h1 style={{marginTop:"20px"}}>{topTwoGenres.join(" + ")} 장르를 좋아하는 당신을 위한 게임 추천</h1>
+     <h1 style={{marginTop:"20px"}}> {genre} {userInfo.nickname}님을 위한 게임 추천</h1>
      ): (
        <div></div>
       )}
