@@ -173,18 +173,23 @@ li {
 }
 .box01 {
   background-image: url(../images/type01bg.png);
+  cursor: pointer;
 }
 .box02 {
   background-image: url(../images/type01bg.png);
+  cursor: pointer;
 }
 .box03 {
   background-image: url(../images/type01bg.png);
+  cursor: pointer;
 }
 .box04 {
   background-image: url(../images/type01bg.png);
+  cursor: pointer;
 }
 .box05 {
   background-image: url(../images/type01bg.png);
+  cursor: pointer;
 }
 /* type_box_list 내부 li 요소에 순차적 애니메이션 적용 */
 .type_box_list li {

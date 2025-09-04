@@ -21,12 +21,14 @@ function Google( {setAuth} ) {
 
   const responseGoogle = (response) => {
     const decode = jwtDecode(response.credential)
+      
 
     axiosInstance.post('login/google', {
       username : "google_" + decode.sub,
       nickname : decode.name,
       email : decode.email
     }).then(response => {
+      
       const jwt = response.headers.authorization;
 
       if(jwt != null) {
@@ -39,6 +41,8 @@ function Google( {setAuth} ) {
 
     
   }
+
+  
 
   return (
     <>

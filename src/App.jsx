@@ -7,7 +7,6 @@ import Footer from './components/Footer'
 import { Route, Routes } from 'react-router-dom'
 import PrivacyPolicy from './pages/Legal/PrivacyPolicy'
 import TermsOfService from './pages/Legal/TermsOfService'
-import FAQ from './pages/FAQ'
 import Header from './components/Header'
 import { useEffect, useState } from 'react';
 import axiosInstance from './axiosInstance';
@@ -19,9 +18,17 @@ import RecommendGame from './pages/Recommendgame/RecommendGame';
 import Board from './pages/Board/Board';
 import BoardWrite from './pages/Board/BoardWrite';
 import BoardDetail from './pages/Board/BoardDetail';
+import Action from './pages/GameList/Action';
+import Simulation from './pages/GameList/Simulation';
+import Sports from './pages/GameList/Sports';
+import Racing from './pages/GameList/Racing';
+import RPG from './pages/GameList/RPG';
+import BoardUpdate from './pages/Board/BoardUpdate';
+
+
 
 function App() {
-  const [auth, setAuth] = useState();
+  const [auth, setAuth] = useState(false);
   const [userInfo, setUserInfo] = useState(null);
   const [topTwoGenres , setTopTwoGenres] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -33,13 +40,16 @@ function App() {
   })
 
   useEffect(() => {
-    if(sessionStorage.getItem('jwt') != null) {
+    if (sessionStorage.getItem('jwt') != null) {
       setAuth(true);
     } else {
-      // 토큰이 없으면 로딩을 즉시 완료
+      setAuth(false);
+      setUserInfo(null);
       setIsLoading(false);
+      
     }
-  }, [])
+  }, []);
+
   /* 
     userInfo : 현재 로그인한 유저의 정보
     id, username, nickname, email, role, oauth 들어 있음
@@ -63,6 +73,8 @@ function App() {
     }
   }, [auth]);
 
+  
+
   if(auth && !userInfo)
     return <div>로딩 중...</div>
 
@@ -75,28 +87,38 @@ function App() {
           setAuth={setAuth}
           userInfo={userInfo}
           setUserInfo={setUserInfo}
+          setIsLoading={setIsLoading}
+          isLoading={isLoading}
         />
       </header>
 
       <main className="container-app">
         <Routes>
-          <Route path="/" element={<MainPage />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/term" element={<TermsOfService />} />
           <Route path="/login" element={<Login setAuth={setAuth} />} />
-          <Route path="/signup" element={<Signup />} />
+          <Route path="/" element={<MainPage userInfo={userInfo} isLoading={isLoading} />}/>
+          <Route path="/signup" element={<Signup setAuth={setAuth} userInfo={userInfo}/>} />
           <Route path="/mypage" element={<MyPage  userInfo={userInfo}/>}></Route>
-          <Route path="/survey" element={<Survey setTopTwoGenres={setTopTwoGenres} setSurveyResultInfo={setSurveyResultInfo}/>}/>
+          <Route path="/survey" element={<Survey setTopTwoGenres={setTopTwoGenres} setSurveyResultInfo={setSurveyResultInfo} userInfo={userInfo} isLoading={isLoading} />}/>
           <Route path="/surveyresult" element={<SurveyResult topTwoGenres={topTwoGenres} surveyResultInfo={surveyResultInfo} userInfo={userInfo}/>} />
           <Route path="/usermodify" element={<UserModify userInfo={userInfo} setAuth={setAuth} setUserInfo={setUserInfo}/>}></Route>
-          <Route path="/recommendgame/*" element={<RecommendGame userInfo={userInfo} topTwoGenres={topTwoGenres}/>}/>
+          <Route path="/recommendgame/" element={<RecommendGame userInfo={userInfo} topTwoGenres={topTwoGenres} isLoading={isLoading} />}/>
           <Route path='/board' element={<Board />} />
           <Route path='/board/write' element={<BoardWrite
             userInfo={userInfo}
             isLoading={isLoading}
-            setIsLoading={setIsLoading}
           />} />
           <Route path='/board/:id' element={<BoardDetail userInfo={userInfo} />} />
+          <Route path='/recommendgame/action' element ={<Action />} />
+          <Route path='/recommendgame/simulation' element ={<Simulation />} />
+          <Route path='/recommendgame/racing' element ={<Racing />} />
+          <Route path='/recommendgame/sports' element ={<Sports />} />
+          <Route path='/recommendgame/rpg' element ={<RPG />} />
+          <Route path='/board/:id/update' element={<BoardUpdate
+            userInfo={userInfo}
+            isLoading={isLoading}
+          />} />
         </Routes>
       </main>
 
