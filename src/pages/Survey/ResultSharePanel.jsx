@@ -1,11 +1,16 @@
-import resultImages from "./resultImages";
+import resultImages, { localImages } from "./resultImages";
+import kakaoIcon from "../../images/kakao.png";
+import linkIcon from "../../images/link.png";
+import downloadIcon from "../../images/download.png";
+import './ResultSharePanel.css';
 
 const ResultSharePanel = ({ title, description, imageUrl, startUrl, resultImages}) => {
   const currentUrl = typeof window !== "undefined" ? window.location.href : "";
   // 브라우저 아닌 환경에서 실행될 때 오류가 안 나도록 안전장치
-    const handleSave =async () => {
+
+    const handleSave = async () => {
       try {
-        const imgUrl = resultImages[title]; 
+        const imgUrl = localImages[title];  
         if (!imgUrl) {
           console.error("이미지 URL을 찾을 수 없습니다:", title);
           return;
@@ -13,17 +18,21 @@ const ResultSharePanel = ({ title, description, imageUrl, startUrl, resultImages
         // 1. fetch + blob 으로 파일을 객체화 
         const response = await fetch(imgUrl);
         const blob = await response.blob();
+
         // 2. 브라우저에서 다운로드 가능한 임시 주소 생성
-        const url = window.URL.createObjectURL("a");
+        const url = window.URL.createObjectURL(blob);
          
         // 3. 다운로드 링크 생성 
         const link = document.createElement("a");
-        link.href = imgUrl;
+        link.href = url;
         link.download = `${title}.png`;  // 저장될 파일명
         
         // 다운로드 실행
         document.body.appendChild(link);
         link.click();
+        // 임시주소 정리
+        document.body.removeChild(link);
+        window.URL.revokeObjectURL(url)
 
       } catch (error) {
         console.error("이미지 저장 실패", error);
@@ -88,10 +97,13 @@ const ResultSharePanel = ({ title, description, imageUrl, startUrl, resultImages
   }
 
    return (
-    <div style={{ display: "grid", gap: 8, marginTop: 16 }}>
-      <button onClick={shareKakao}>카카오톡 공유 🔶</button>
-      <button onClick={copyLink}>링크 복사 🔗</button>
-      <button onClick={handleSave}>이미지 저장하기</button>
+    <div className="share-buttons-group">
+      <button className="share-btn kakao" onClick={shareKakao}>
+        <img src={kakaoIcon} alt="kakao" className="btn-icon"/> 카카오톡 공유 </button>
+      <button className="share-btn link" onClick={copyLink}>
+        <img src={linkIcon} alt="링크 복사"className="btn-icon" />링크 복사 </button>
+      <button className="share-btn download" onClick={handleSave}>
+        <img src={downloadIcon} alt="이미지 저장" className="btn-icon"/>이미지 저장하기 </button>
     </div>
   );
 };

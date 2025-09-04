@@ -4,8 +4,9 @@ import './SurveyResult.css';
 import axiosInstance from "../../axiosInstance";
 import ResultSharePanel from "./ResultSharePanel";
 import resultImages from "./resultImages";
+import SHARE_DESC_MAP from "./SHARE_DESC_MAP";
 
-const SurveyResult = ({topTwoGenres, surveyResultInfo, userInfo}) =>{
+const SurveyResult = ({topTwoGenres, surveyResultInfo}) =>{
 
 
    const { goTo } = useNavi();
@@ -77,7 +78,6 @@ const SurveyResult = ({topTwoGenres, surveyResultInfo, userInfo}) =>{
        })
       .then(response => {
         console.log(response);
-        setInfo(result)
         goTo('/surveyresult');
       }) .catch(error =>{
         console.error(error)

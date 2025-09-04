@@ -12,7 +12,6 @@ const Action = () =>{
 
     axiosInstance.get(`${import.meta.env.VITE_SERVER_URL}/recommendgame/genre/1`)
     .then(response =>{
-      console.log(response.data)
       setGameList(response.data)
     }).catch(error=>{
       console.error(error);
