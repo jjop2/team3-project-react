@@ -1,5 +1,9 @@
-.board h1 {
+.boardTop {
   padding: 10px;
+}
+
+.boardTop h1 {
+  padding-bottom: 20px;
 }
 
 .boardList {
@@ -31,8 +35,8 @@
 .boardImg {
   height: 300px;
   width: 100%;
-  background-size: cover;
-  background-position: center center;
+  object-fit: cover;
+  object-position: center;
 }
 
 .boardText {
@@ -52,11 +56,34 @@
   text-align: left;
 }
 
-@media (max-width: 767px) {
-  .boardList {
-    /* display: none; */
-  }
+.toWriteBtn {
+  padding: 7px 15px;
+  font-size: 16px;
+  color: white;
+  border-radius: 5px;
+  border: 0px;
+  cursor: pointer;
+  margin: 10px;
+  background-color: black;
+}
 
+.toWriteBtn:hover {
+  background-color: #333;
+}
+
+.boardList > p {
+  padding-top: 10px;
+  grid-column: 1 / -1; /* 그리드 전체를 차지하게 함 */
+  text-align: center;
+}
+
+.boardBottom {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 100px;
+}
+
+@media (max-width: 767px) {
   .boardImg {
     height: 200px;
   }

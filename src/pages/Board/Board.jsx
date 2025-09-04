@@ -30,7 +30,11 @@ const Board = () => {
       <div className="boardCard" onClick={() => {
         goTo(`/board/${board.id}`);
       }}>
-        <div className="boardImg" style={{'backgroundImage':`url(${import.meta.env.VITE_SERVER_URL}/upload/file/${board.img})`}}></div>
+        <img
+          src={`${import.meta.env.VITE_SERVER_URL}/upload/file/${board.img}`}
+          
+          className="boardImg"
+        />
         <div className="boardText">
           <h3>{board.title}</h3>
           <p>{board.writer}</p>
@@ -42,8 +46,9 @@ const Board = () => {
   return (
     <>
       <div className="board">
-        <h1>자유 게시판</h1>
-        <button onClick={() => goTo('/board/write')}>게시글 작성</button>
+        <div className="boardTop">
+          <h1>커뮤니티</h1>
+        </div>
 
         <div className="boardList">
           {
@@ -56,17 +61,24 @@ const Board = () => {
                 )
               })
             ) : (
-              <p>등록된 게시물이 없습니다.</p>
+              <p>
+                아무도 게시글을 올리지 않았어요... <br />
+                테스트를 마치고 나만의 유형을 사람들과 공유해 보세요!
+              </p>
             )
           }
+        </div>
 
           {visibleCount < boardList.length && (
             <div>
-              <button onClick={handleLoadMore}>더보기</button>
+              <button className="btn" onClick={handleLoadMore}>더보기</button>
             </div>
           )}
 
-        </div>
+          <div className="boardBottom">
+            <button className="boardPageBtn toWriteBtn" onClick={() => goTo('/board/write')}>게시글 작성</button>
+          </div>
+
       </div>
     </>
   )

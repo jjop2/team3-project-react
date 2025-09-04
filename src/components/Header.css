@@ -66,14 +66,12 @@
     font-size: 2.5rem;
     font-weight: 400;
     letter-spacing: 5px;
-    color: rgb(104, 11, 190);
 }
 .content p{
     font-size: 1rem;
     margin-top: 0;
     font-weight: 100;
     letter-spacing: 1px;
-    color: rgb(59, 59, 59);
 }
 
 .content p:hover{
@@ -116,10 +114,12 @@ cursor: pointer; /* 마우스 커서 변경 */
 }
 
 .logo img{
-    width: 70px;
+    width: 50px;
+    padding-top: 15px;
+    margin-right: 15px;
 }
 
-.navbar-title:hover p{
+.navbar-title:hover {
     color: rgb(104, 11, 190);
 }
 
@@ -148,11 +148,12 @@ cursor: pointer; /* 마우스 커서 변경 */
   padding: 8px 0;
   font-size: 18px;
   cursor: pointer;
+  color: rgb(46, 46, 46);
 }
 
 .dropdown li:hover {
-  background-color: #fffeb1;
   color: rgb(104, 11, 190);
+  font-weight: 600;
 }
 
 @media (max-width: 767px) {

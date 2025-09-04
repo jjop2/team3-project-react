@@ -22,7 +22,7 @@ const BoardDetail = ({ userInfo }) => {
   }, [])
   
   useEffect(() => {
-    if(!userInfo || !board || userInfo.nickname !== board.writer) {
+    if(!userInfo || !board || userInfo.nickname !== board.writerName) {
       setIsWriter(false);
     } else {
       setIsWriter(true);
@@ -41,15 +41,18 @@ const BoardDetail = ({ userInfo }) => {
       <div className="boardDetailWrapper">
         <div className="boardDetail">
           <h2>{board.title}</h2>
-          <p>{board.writer}</p>
+          <p>{board.writerName}</p>
           {
             board.img != null &&
-            <img src={`${import.meta.env.VITE_SERVER_URL}/upload/file/${board.img}`} alt="" />
+            <img
+              src={`${import.meta.env.VITE_SERVER_URL}/upload/file/${board.img}`}
+              alt={board.img}
+            />
           }
           <p>{board.content}</p>
 
           <div className="BoardButtonGroup">
-            <button className="toListBtn" onClick={() => goTo('/board')}>목록</button>
+            <button className="toListBtn" onClick={() => goTo(-1)}>목록</button>
 
             {isWriter &&
               <button className="updateBoardBtn" onClick={() => goTo(`/board/${id}/update`)}>수정</button>
@@ -63,7 +66,7 @@ const BoardDetail = ({ userInfo }) => {
                 axiosInstance.delete(`/upload/${id}`)
                   .then(response => {
                     alert(response.data);
-                    goTo('/board');
+                    goTo(-1);
                   })
                   .catch(error => console.error(error))
               }}>삭제</button>

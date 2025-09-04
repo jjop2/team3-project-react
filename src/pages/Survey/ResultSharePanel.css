@@ -1,0 +1,54 @@
+/* 버튼 전체 묶음 */
+.share-buttons-group {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+/* 공통 버튼 */
+.share-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  color: white;
+  line-height: 1; /* 텍스트와 아이콘 높이 딱 맞춤 */
+}
+
+/* 아이콘 */
+.share-btn img.btn-icon {
+  width: 18px !important;
+  height: 18px !important;
+  flex-shrink: 0;
+  display: inline-block;
+  object-fit: contain;
+}
+
+/* 카카오 버튼 */
+.share-btn.kakao {
+  background-color: #fee500;
+  color: #3c1e1e;
+}
+
+/* 링크 버튼 */
+.share-btn.link {
+  background-color: #4a90e2;
+}
+
+/* 다운로드 버튼 */
+.share-btn.download {
+  background-color: #28a745;
+}
+
+/* hover 효과 */
+.share-btn:hover {
+  opacity: 0.85;
+  transform: translateY(-2px);
+}

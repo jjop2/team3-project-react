@@ -1,14 +1,15 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import axiosInstance from "../axiosInstance";
+import MyBoards from "./MyBoards";
 import "./TabContents.css";
-const TabContents = ({tabNumber}) => {
+
+const TabContents = ({tabNumber, userInfo}) => {
 
   const[genre, setGenre] = useState("");
-  const[likeGame, setLikeGame] = useState("");
 
   useEffect(()=>{
-     axiosInstance.get(`${import.meta.env.VITE_SERVER_URL}/surveyresult`)
+     axiosInstance.get('/surveyresult')
       .then(response =>{
         setGenre(response.data[0].combinationGenre)
        }).catch(error =>{

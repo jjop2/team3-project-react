@@ -30,7 +30,9 @@ function Header({auth, setAuth, userInfo, setUserInfo, isLoading}) {
           <div className="navbar">
             <div className="navbar-left">
               <div className="logo">
-                <Link to="/"></Link>
+                <Link to="/">
+                <img src="../src/images/controll.png" alt="GAMBTI" />
+                </Link>
               </div>
               <div className="content">
                 <Link className="navbar-title" to="/">
@@ -121,7 +123,7 @@ function Header({auth, setAuth, userInfo, setUserInfo, isLoading}) {
               }}
               className="text1"
             >
-              💬자유 게시판
+              💬커뮤니티
             </h4>
           </div>
         </div>
