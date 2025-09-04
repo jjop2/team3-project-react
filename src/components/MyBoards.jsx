@@ -29,12 +29,9 @@ const MyBoards = ({userInfo}) => {
       <div className="myBoardCard" onClick={() => {
         goTo(`/board/${board.id}`);
       }}>
-        <div className="myBoardNum">
-          <h4>{i+1}</h4>
-        </div>
         <div className="myBoardText">
           <p className="myBoardTitle">{board.title}</p>
-          <p className="myBoardContent">{board.writerName}</p>
+          <p className="myBoardName">{board.writerName}</p>
         </div>
       </div>
     )

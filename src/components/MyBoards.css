@@ -5,9 +5,9 @@
 
 .myBoardCard {
   display: flex;
+  justify-content: space-evenly;
   align-items: center;
   padding: 10px;
-  gap: 20px;
   border-bottom: 1px solid lightgray;
   cursor: pointer;
 }
@@ -29,10 +29,11 @@
 }
 
 .myBoardTitle {
-  flex: 5;
+  flex: 4;
+  font-weight: 500;
 }
 
-.myBoardContent {
+.myBoardName {
   flex: 2;
 }
 
