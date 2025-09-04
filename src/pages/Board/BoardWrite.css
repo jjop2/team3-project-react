@@ -1,7 +1,113 @@
+
+.boardWrite {
+  background-color: #f4f6f8;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 50px 20px 50px 20px;
+  font-family: Arial, sans-serif;
+  margin-top: 50px;
+}
+
 .boardWrite h1 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+
+.boardForm {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin: auto;
+  gap: 10px; 
+}
+
+.boardForm span {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block; 
+}
+
+.boardForm input[type="text"],
+.boardForm input[type="submit"] {
+  padding: 10px;
+  border: 1px solid #ccc; 
+  border-radius: 4px;
+}
+
+#content {
+  height: 200px; 
   padding: 10px;
 }
 
-.boardForm > p {
-  color: red;
+
+.boardForm label[for="imgUpload"],
+.boardForm button {
+  padding: 5px 10px; 
+  border: 1px solid #ccc; 
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-block; 
+}
+
+.boardForm label:hover{
+  background-color: rgb(63, 63, 63);
+  color: white;
+}
+.delete_btn:hover{
+  background-color: rgb(63, 63, 63);
+  color: white;
+}
+
+
+.boardForm input[type="file"] {
+  display: none; 
+}
+
+
+.image_preview {
+  display: flex;
+  align-items: center;
+  gap: 10px; 
+  margin-top: 10px;
+}
+
+.image_preview img {
+  max-width: 100px; 
+  height: auto;
+  border: 1px solid #ccc; 
+  border-radius: 4px;
+}
+
+.image_preview{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+
+
+.board_btn{
+  width: 120px;
+  height: 50px;
+  border: none;
+  font-weight: 500;
+  background-color: rgb(223, 223, 223);
+  cursor: pointer;
+}
+
+.inputbutton{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+.board_btn:hover{
+  background-color: rgb(104, 11, 190);
+  color: white;
 }

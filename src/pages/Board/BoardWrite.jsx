@@ -5,40 +5,40 @@ import axiosInstance from "../../axiosInstance";
 import './BoardWrite.css'
 import axios from "axios";
 
-const BoardWrite = ( {userInfo, isLoading} ) => {
+const BoardWrite = ({ userInfo, isLoading }) => {
   useAuthCheck(userInfo, isLoading);
-  const {goTo} = useNavi();
+  const { goTo } = useNavi();
 
-  if(!userInfo)
+  if (!userInfo)
     return <div>로딩 중...</div>
-  
+
   const [data, setData] = useState({
-    title : '',
-    content : '',
-    writer : userInfo.nickname,
-    file : null
+    title: '',
+    content: '',
+    writer: userInfo.nickname,
+    file: null
   })
 
   // 이미지 미리보기용 URL 저장
-  const [imgPreviewUrl, setImgPreviewUrl] =  useState(null);
+  const [imgPreviewUrl, setImgPreviewUrl] = useState(null);
 
   const onChangeHandler = (e) => {
     const targetName = e.target.name;
-    
-    if(targetName !== 'file') {
+
+    if (targetName !== 'file') {
       setData({
         ...data,
-        [targetName] : e.target.value
+        [targetName]: e.target.value
       })
     } else {
       const file = e.target.files[0];
       setData({
         ...data,
-        [targetName] : file
+        [targetName]: file
       });
 
       // 파일이 선택되면 미리보기 URL 생성
-      if(file) {
+      if (file) {
         // URL.createObjectURL : 파일 객체에 대한 임시 URL을 생성
         setImgPreviewUrl(URL.createObjectURL(file));
       } else {
@@ -49,20 +49,20 @@ const BoardWrite = ( {userInfo, isLoading} ) => {
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    
+
     const formData = new FormData();
     formData.append("title", data.title);
     formData.append("content", data.content);
     formData.append("writer", data.writer);
     formData.append("file", data.file);
 
-    if(!data.title) {
+    if (!data.title) {
       alert('제목을 입력해 주세요');
       return;
-    } else if(!data.content) {
+    } else if (!data.content) {
       alert('내용을 입력해 주세요');
       return;
-    } else if(!data.file) {
+    } else if (!data.file) {
       alert('이미지를 등록해 주세요');
       return;
     }
@@ -78,43 +78,55 @@ const BoardWrite = ( {userInfo, isLoading} ) => {
     */
 
     axios.post(`${import.meta.env.VITE_SERVER_URL}/upload`, formData)
-    .then(response => {
-      alert(response.data);
-      goTo('/board');
-    }).catch(error => console.error(error));
+      .then(response => {
+        alert(response.data);
+        goTo('/board');
+      }).catch(error => console.error(error));
   }
-   
+
   return (
     <>
       <div className="boardWrite">
         <h1>게시글 작성</h1>
 
         <form className="boardForm" onSubmit={onSubmitHandler}>
+          <span>작성자</span>
+          <input type="text" id="author" name="author" onChange={onChangeHandler} value={userInfo.nickname} readOnly />
           <span>제목</span>
-          <input type="text" id="title" name="title" onChange={onChangeHandler} /><br/>
-          <input name="content" id="content" onChange={onChangeHandler} /><br/>
-          <input type="file" id="imgUpload" name="file" onChange={onChangeHandler} style={{'display':'none'}} accept="image/*" />
-          <label htmlFor="imgUpload">
-            파일 업로드
-          </label>
-          {imgPreviewUrl && (
-            <div className="image_preview">
-              <img src={imgPreviewUrl} alt="미리보기"  />
-            </div>
-          )}
-          <button onClick={(e) => {
-            e.preventDefault();
-            setData({...data, file : null});
-            setImgPreviewUrl(null);
-            // input file의 value를 초기화하여 같은 파일을 다시 선택할 수 있게 함
-            document.getElementById('imgUpload').value = '';
-          }}>x</button><br/>
-          <input type="submit" value="등록" />
+          <input type="text" id="title" name="title" onChange={onChangeHandler} />
+          <span>내용</span>
+          <input name="content" id="content" onChange={onChangeHandler} />
+          <span>이미지 파일</span>
+          <input type="file" id="imgUpload" name="file" onChange={onChangeHandler} style={{ 'display': 'none' }} accept="image/*" />
+
+          <div className="labelbutton">
+            <label htmlFor="imgUpload">
+              파일 업로드
+            </label>
+            {imgPreviewUrl && (
+              <div className="image_preview">
+                <img src={imgPreviewUrl} alt="미리보기" />
+              </div>
+            )}
+            {imgPreviewUrl && (
+              <button className="delete_btn" onClick={(e) => {
+                e.preventDefault();
+                setData({ ...data, file: null });
+                setImgPreviewUrl(null);
+                // input file의 value를 초기화하여 같은 파일을 다시 선택할 수 있게 함
+                document.getElementById('imgUpload').value = '';
+              }}>업로드 삭제</button>
+            )}
+          </div>
+          <div className="inputbutton">
+            <input className="board_btn input1" type="submit" value="등록" />
+            <button className="board_btn beforebutton" onClick={() => goTo('/board')}>목록으로</button>
+          </div>
         </form>
 
-        <button onClick={()=>goTo('/board')}>목록으로</button>
 
-        
+
+
 
       </div>
     </>
