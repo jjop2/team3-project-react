@@ -61,6 +61,7 @@ function MyPage({userInfo}) {
             <div className="tab-contents">
               <TabContents tabNumber={tabNumber} userInfo={userInfo} />
             </div>
+            {tabNumber === 0 && (
             <div>
               {result? (
                <ResultSharePanel
@@ -75,6 +76,7 @@ function MyPage({userInfo}) {
                 )}
 
             </div>
+            )}
         </div>
       </div>
     </>
