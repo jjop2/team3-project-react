@@ -132,8 +132,8 @@ function MainPage({userInfo}) {
             className={`main_type ${visibleSections.includes(1) ? "visible" : ""}`}
           >
             <div  className="type_title_box">
-              <h2>장르별로 어떤 게임이 있을까요?</h2>
-              <p>장르별 다양한 게임을 미리 확인해 보세요.</p>
+              <h2>어떤 게임이 있을까요?</h2>
+              <p>장르별 추천 게임을 확인해 보세요.</p>
             </div>
             <div className="type_box_list">
               <ul>

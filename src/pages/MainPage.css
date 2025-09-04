@@ -121,6 +121,10 @@ li {
   color: white;
 }
 
+.test_start{
+  transition: 0.5s ease-in-out;
+}
+
 .test_start:hover {
   background-color: hsla(0, 0%, 100%, 0.329);
   cursor: pointer;
@@ -135,7 +139,7 @@ li {
 
 /* main_text 부분 */
 .main_text {
-  margin-top: 50px;
+  margin-top: 100px;
   display: flex;
   justify-content: space-around;
 }
@@ -153,7 +157,7 @@ li {
 }
 /* main_type 부분 */
 .main_type {
-  margin: 50px 0;
+  margin: 150px 0;
 }
 .type_title_box {
   margin-bottom: 50px;

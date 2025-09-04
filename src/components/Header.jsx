@@ -82,7 +82,7 @@ function Header({auth, setAuth, userInfo, setUserInfo, isLoading}) {
 
             <h4
               onClick={() => {
-                goTo(`/recommendgame/${userInfo.id}`);
+                goTo(`/recommendgame`);
               }}
               className="text1"
             >
