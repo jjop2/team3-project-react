@@ -1,11 +1,9 @@
-.board h1 {
+.boardTop {
   padding: 10px;
 }
 
-.boardTop {
-  position: relative;
-  text-align: center;
-  padding: 10px 20px 30px;
+.boardTop h1 {
+  padding-bottom: 20px;
 }
 
 .boardList {
@@ -69,18 +67,11 @@
 }
 
 .toWriteBtn {
-  position: absolute;
-  right: 0;
-  top: 50%;
   background-color: black;
 }
 
 .toWriteBtn:hover {
   background-color: #333;
-}
-
-.loadMoreWrapper {
-  
 }
 
 .toMoreBtn {
@@ -94,5 +85,9 @@
 @media (max-width: 767px) {
   .boardImg {
     height: 200px;
+  }
+
+  .boardPageBtn {
+    font-size: 14px;
   }
 }

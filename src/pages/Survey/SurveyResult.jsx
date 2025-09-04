@@ -58,7 +58,7 @@ const SurveyResult = ({topTwoGenres, surveyResultInfo, userInfo}) =>{
   const result = genreCombinations[combinationKey];
   
   useEffect(()=>{ 
-      axiosInstance.post(`/surveyresult`,
+      axiosInstance.post('/surveyresult',
        {
         age : surveyResultInfo.age,
         gender : surveyResultInfo.gender,

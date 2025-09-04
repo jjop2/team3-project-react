@@ -65,14 +65,14 @@ const Board = () => {
               <p>등록된 게시물이 없습니다.</p>
             )
           }
+        </div>
 
           {visibleCount < boardList.length && (
-            <div className="loadMoreWrapper">
+            <div>
               <button className="boardPageBtn toMoreBtn" onClick={handleLoadMore}>더보기</button>
             </div>
           )}
 
-        </div>
       </div>
     </>
   )
