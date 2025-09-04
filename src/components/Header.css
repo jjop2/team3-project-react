@@ -1,12 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Dongle&family=Gaegu&family=Gamja+Flower&family=Jua&family=Noto+Sans+KR:wght@100..900&display=swap');
+
+@font-face {
+    font-family: 'MitmiFont';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2402_1@1.0/Ownglyph_meetme-Rg.woff2') format('woff2');
+    font-weight: normal;
+    font-display: swap;
+}
 
 #wrap{
     width: 100%;
     margin: 0 auto;
+    position: relative;
+    
 }
+
+.allnavbar{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 99;
+    background-color: white;
+}
+
 .navbar{
+    margin: 0 auto;
+    width: 80%;
+    max-width: 1100px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+    background-color: rgb(255, 255, 255);
     
 }
 
@@ -17,8 +40,13 @@
 .navbar-icons{
     display: flex;
     justify-content: space-around;
-    width: 60%;
-    margin: auto
+    width: 80%;
+    max-width: 1100px;
+    margin: auto;
+    font-family: 'MitmiFont', sans-serif;
+    font-size: 1.3rem;
+    color: rgb(34, 34, 34);
+    padding: 7px 0;
 }
 .navbar-subtitle{
     display: flex;
@@ -30,32 +58,75 @@
 .content{
     display: flex;
     flex-direction: column;
+    font-family: 'Jua', sans-serif;
+    padding: 5px 0;
+}
+
+.content h1{
+    font-size: 2.5rem;
+    font-weight: 400;
+    letter-spacing: 5px;
+}
+.content p{
+    font-size: 1rem;
+    margin-top: 0;
+    font-weight: 100;
+    letter-spacing: 1px;
+}
+
+.content img{
+    height: 70px;
 }
 .navbar-right{
    display: flex;
    gap: 10px;
+   font-family: 'MitmiFont', sans-serif;
+   font-size: 1.3rem;
+   color: rgb(34, 34, 34);
 }
 .text1{
   cursor: pointer; /* 마우스 커서 변경 */
+  font-weight: 100;
 }
+
+.text1:hover{
+    color: rgb(104, 11, 190);
+}
+
 .navbar-button{
 cursor: pointer; /* 마우스 커서 변경 */
+
 }
+
+.navbar-button:hover{
+    font-weight: 400;
+     color: rgb(104, 11, 190);
+}
+
 .navbar-title{
     color: black;
     text-decoration: none;
     font-size: 1.2em;
 }
+
+.logo img{
+    width: 70px;
+}
+
 .navbar-title:hover{
-    color: blueviolet;
+    color: rgb(104, 11, 190);
 }
-.navbar-button:hover{
-    background-color: #e0e0e0;
-}
-.text1:hover{
-    background-color: #e0e0e0;
-}
-.navbar-my:hover{
-     background-color: #e0e0e0;
-     cursor: pointer;
+
+@media (max-width: 767px) {
+  .navbar{
+    width: 100%;
+    padding: 0 10px;
+  }
+  .navbar-icons{
+    width: 100%;
+    justify-content: space-between;
+    padding: 7px 10px;
+  }
+
+
 }

@@ -7,4 +7,14 @@
 .container-app {
   max-width: 1400px;
   margin: 0 auto;
+  padding-top: 170px !important;
 }
+
+@media (max-width: 767px) {
+  .container-app {
+    padding-top: 120px !important;
+  }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@100..900&display=swap');
+

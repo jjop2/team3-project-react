@@ -1,4 +1,5 @@
-/* MainPage.css 파일의 전체 내용 */
+@import url('https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@100..900&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -13,7 +14,7 @@ li {
   width: 80%;
   margin: 0 auto;
 }
-/* ✅ .main_contents는 제외하고 나머지 섹션에만 초기 스타일 적용 */
+/*  .main_contents는 제외하고 나머지 섹션에만 초기 스타일 적용 */
 .main_text,
 .main_type {
   opacity: 0;
@@ -27,7 +28,7 @@ li {
   transform: translateY(0);
 }
 
-/* ✅ .main_contents 안의 텍스트에만 별도 애니메이션 규칙 적용 */
+/*  .main_contents 안의 텍스트에만 별도 애니메이션 규칙 적용 */
 .main_contents h1,
 .main_contents .subtitle {
   opacity: 0;
@@ -43,21 +44,30 @@ li {
   transition-delay: 0.3s;
 }
 
-/* main_contents 부분 - 항상 보이게 둡니다 */
+/*main_contents 부분 - 항상 보이게  */
 .main_contents {
   width: 100%;
   height: 800px;
   background-size: cover;
   color: white;
-  padding-top: 150px;
+  padding-top: 170px;
 }
 .main_contents h1 {
   font-size: 3rem;
-  text-shadow: 3px 3px 5px rgb(0, 0, 0);
+  text-shadow: 2px 2px 4px rgb(0, 0, 0);
+  font-family: jua, sans-serif;
+  font-weight: 100;
+  padding-top: 50px;
+  letter-spacing: 3px;
 }
+
+
 .subtitle {
   font-size: 2rem;
   margin-top: 35px;
+  font-family: jua, sans-serif;
+  font-weight: 100;
+  letter-spacing: 2px;
 }
 .main_box_content {
   display: flex;
@@ -69,7 +79,7 @@ li {
 }
 .main_box {
   border-radius: 10px;
-  width: 200px;
+  width: 230px;
   height: 110px;
   background-color: hsla(0, 0%, 53%, 0.322);
   box-shadow: 3px 3px 5px rgba(32, 32, 32, 0.541);
@@ -77,6 +87,7 @@ li {
 .main_box h2 {
   font-size: 3rem;
 }
+
 .test_start {
   width: 210px;
   height: 55px;
@@ -87,12 +98,16 @@ li {
   justify-content: center;
   margin-top: 50px;
   padding-right: 5px;
+  background-color: hsla(0, 0%, 53%, 0.322);
+  box-shadow: 3px 3px 5px rgba(32, 32, 32, 0.541);
 }
-.test_start:hover {
-  background-color: #ffe600;
-  cursor: pointer;
-  font-weight: 600;
+
+.font_icon {
+  line-height: 65px;
+  color: rgb(255, 255, 255);
 }
+
+
 .test_start img {
   width: 40px;
   height: 40px;
@@ -102,7 +117,22 @@ li {
   line-height: 55px;
   margin-left: 5px;
   font-size: 1rem;
+  font-weight: 600;
+  color: white;
 }
+
+.test_start:hover {
+  background-color: hsla(0, 0%, 100%, 0.329);
+  cursor: pointer;
+  color: yellow;
+}
+
+.test_start:hover .font_icon, .test_start:hover .test_text{
+  color: yellow;
+}
+
+
+
 /* main_text 부분 */
 .main_text {
   margin-top: 50px;
@@ -170,7 +200,12 @@ li {
 @media (max-width: 767px) {
   #main_wrap {
     width: 100%;
+    
   }
+  .main_contents{
+    padding-top: 120px;
+  }
+
   .main_contents h1 {
     font-size: 2.2rem;
   }

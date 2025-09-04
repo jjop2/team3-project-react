@@ -2,28 +2,29 @@
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: space-between;
+  flex-flow: column;
   margin: auto;
+  padding-top: 150px;
 }
 
-.mypage-container .left-menu {
-  margin-top: 20px;
-}
-
-.mypage-container .left-menu .tabs {
-  margin: 20px;
+.left-menu {
+  display: flex;
+  justify-content: center;
   cursor: pointer;
 }
 
 
-.mypage-container .right-menu {
+
+
+.right-menu {
   display: flex;
-  flex-direction: column;
-  margin-right: 400px;
+  flex-flow: column;
+  justify-content: center;
+  margin: 0 auto;
 }
 
 .mypage-container .right-menu .profile {
-  width: 600px;
+  width: 100%;
   height: 150px;
   margin: 2rem;
   padding: 1rem;
@@ -33,7 +34,7 @@
 }
 
 .mypage-container .right-menu .tab-contents {
-  width: 600px;
+  width: 100%;
   height: 100%;
   margin: 2rem;
   padding: 1rem;
