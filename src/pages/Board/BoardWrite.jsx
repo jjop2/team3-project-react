@@ -13,10 +13,10 @@ const BoardWrite = ({ userInfo, isLoading }) => {
     return <div>로딩 중...</div>
 
   const [data, setData] = useState({
-    title: '',
-    content: '',
-    writer: userInfo.nickname,
-    file: null
+    title : '',
+    content : '',
+    writer : userInfo,
+    file : null
   })
 
   // 이미지 미리보기용 URL 저장
@@ -53,7 +53,7 @@ const BoardWrite = ({ userInfo, isLoading }) => {
     const formData = new FormData();
     formData.append("title", data.title);
     formData.append("content", data.content);
-    formData.append("writer", data.writer);
+    formData.append("writerId", userInfo.id);
     formData.append("file", data.file);
 
     if (!data.title) {
@@ -72,7 +72,7 @@ const BoardWrite = ({ userInfo, isLoading }) => {
       {
         title: 제목,
         content: 내용,
-        writer: 로그인한 사용자의 닉네임
+        writer: 로그인한 사용자 id
         file: 선택한 이미지 정보(name("galio.jpg"), size(25486), type("image/jpeg") 등)
       }
     */
