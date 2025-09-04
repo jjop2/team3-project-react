@@ -2,9 +2,15 @@ import { useEffect, useState } from "react";
 import useNavi from "../../hooks/useNavi";
 import './SurveyResult.css';
 import axiosInstance from "../../axiosInstance";
-const SurveyResult = ({topTwoGenres, surveyResultInfo, userInfo}) =>{
+import ResultSharePanel from "./ResultSharePanel";
+import resultImages from "./resultImages";
+import SHARE_DESC_MAP from "./SHARE_DESC_MAP";
+
+const SurveyResult = ({topTwoGenres, surveyResultInfo}) =>{
+
 
    const { goTo } = useNavi();
+   const [resultState, setResultState] = useState({title : "", desc: ""});
 
   const genreCombinations = {
   "Action+Simulation": {
@@ -57,7 +63,11 @@ const SurveyResult = ({topTwoGenres, surveyResultInfo, userInfo}) =>{
 
   const result = genreCombinations[combinationKey];
   
-  useEffect(()=>{ 
+  useEffect(()=>{
+
+      if (result) {
+      setResultState({title : result.title, desc : SHARE_DESC_MAP[result.title] || ""});
+
       axiosInstance.post('/surveyresult',
        {
         age : surveyResultInfo.age,
@@ -67,13 +77,16 @@ const SurveyResult = ({topTwoGenres, surveyResultInfo, userInfo}) =>{
         combinationGenre : result.title
        })
       .then(response => {
+        console.log(response);
         goTo('/surveyresult');
       }) .catch(error =>{
         console.error(error)
         alert('서버에 전송하지 못했습니다.');
-      })
-    ;
+      });
+    }
   }, [])
+
+
 
   return(
     <div className="items-container">
@@ -82,6 +95,12 @@ const SurveyResult = ({topTwoGenres, surveyResultInfo, userInfo}) =>{
             <h2>{result.title}</h2>
             <p>{result.desc}</p>
             <img src={`../src/images/${result.title}.PNG`} alt={result.title} />
+              <ResultSharePanel
+              title={resultState.title}
+              description={resultState.desc}
+              imageUrl={resultImages[resultState.title]}
+              startUrl={window.location.origin + "/"}
+            />
           </div>
         ) : (
           <p>결과를 찾을 수 없습니다. 다시 시도해 주세요.</p>

@@ -6,7 +6,15 @@ import { useEffect, useState } from "react";
 
 function Header({auth, setAuth, userInfo, setUserInfo, isLoading}) {
   const { goHome, goTo } = useNavi();
-  
+  const [genreOpen, setGenreOpen] = useState(false);
+    const genres = [
+    { id: 1, name: "액션" , add: "action" },
+    { id: 2, name: "시뮬레이션", add: "simulation" },
+    { id: 3, name: "레이싱", add: "racing" },
+    { id: 4, name: "스포츠", add: "sports" },
+    { id: 5, name: "RPG", add: "rpg" },
+  ];
+
   const logout = () => {
     sessionStorage.clear('jwt');
     setAuth(false);
@@ -74,6 +82,23 @@ function Header({auth, setAuth, userInfo, setUserInfo, isLoading}) {
             >
               ⭐맞춤형 게임 추천
             </h4>
+
+          <div
+            className="dropdown-wrapper"
+            onMouseEnter={() => setGenreOpen(true)}
+            onMouseLeave={() => setGenreOpen(false)}
+          >
+            <h4 className="text1">📄장르별 게임 추천</h4>
+            {genreOpen && (
+              <ul className="dropdown">
+                {genres.map((g ,i) => (
+                  <li key={i} onClick={() => goTo(`/recommendgame/${g.add}`)}>
+                    {g.name}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
 
             <h4
               onClick={() => {
