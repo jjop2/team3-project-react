@@ -62,17 +62,23 @@ function MyPage({userInfo}) {
               <TabContents tabNumber={tabNumber} userInfo={userInfo} />
             </div>
             <div>
-              {result? (
-               <ResultSharePanel
-                title={resultState.title}
-                description={resultState.desc}
-                imageUrl={resultImages[resultState.title]}
-                startUrl={window.location.origin + "/"}
-                resultImages={resultImages}
-                  /> 
-                ) : (
-                  <p>결과를 불러오는 중입니다.</p>
-                )}
+              {
+                tabNumber === 0 ? (
+                  result? (
+                  <ResultSharePanel
+                    title={resultState.title}
+                    description={resultState.desc}
+                    imageUrl={resultImages[resultState.title]}
+                    startUrl={window.location.origin + "/"}
+                    resultImages={resultImages}
+                      /> 
+                    ) : (
+                      <p>결과를 불러오는 중입니다.</p>
+                    )
+                  ) : (
+                    ''
+                  )
+              }
 
             </div>
         </div>
