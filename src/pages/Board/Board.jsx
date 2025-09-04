@@ -48,7 +48,6 @@ const Board = () => {
       <div className="board">
         <div className="boardTop">
           <h1>커뮤니티</h1>
-          <button className="boardPageBtn toWriteBtn" onClick={() => goTo('/board/write')}>게시글 작성</button>
         </div>
 
         <div className="boardList">
@@ -62,16 +61,23 @@ const Board = () => {
                 )
               })
             ) : (
-              <p>등록된 게시물이 없습니다.</p>
+              <p>
+                아무도 게시글을 올리지 않았어요... <br />
+                테스트를 마치고 나만의 유형을 사람들과 공유해 보세요!
+              </p>
             )
           }
         </div>
 
           {visibleCount < boardList.length && (
             <div>
-              <button className="boardPageBtn toMoreBtn" onClick={handleLoadMore}>더보기</button>
+              <button className="btn" onClick={handleLoadMore}>더보기</button>
             </div>
           )}
+
+          <div className="boardBottom">
+            <button className="boardPageBtn toWriteBtn" onClick={() => goTo('/board/write')}>게시글 작성</button>
+          </div>
 
       </div>
     </>

@@ -29,12 +29,9 @@ const MyBoards = ({userInfo}) => {
       <div className="myBoardCard" onClick={() => {
         goTo(`/board/${board.id}`);
       }}>
-        <div className="myBoardNum">
-          <h4>{i+1}</h4>
-        </div>
         <div className="myBoardText">
           <p className="myBoardTitle">{board.title}</p>
-          <p className="myBoardContent">{board.writerName}</p>
+          <p className="myBoardName">{board.writerName}</p>
         </div>
       </div>
     )
@@ -55,13 +52,16 @@ const MyBoards = ({userInfo}) => {
                 )
               })
             ) : (
-              <p>작성된 게시물이 없습니다.</p>
+              <p>
+                아직 게시글을 올리지 않으셨네요 <br />
+                테스트를 마치고 나만의 유형을 공유해보세요!
+              </p>
             )
           }
 
           {visibleCount < myList.length && (
             <div>
-              <button onClick={handleLoadMore}>더보기</button>
+              <button className="btn" onClick={handleLoadMore}>더보기</button>
             </div>
           )}
 
