@@ -9,7 +9,6 @@ const Footer = () => {
       <div className="footerMenu">
         <p onClick={() => goTo('/privacy')}>개인정보처리방침</p>
         <p onClick={() => goTo('/term')}>이용약관</p>
-        <p onClick={() => goTo('/faq')}>자주 묻는 질문</p>
       </div>
       <div className="copyright">
         <p>© 2025 GameHub. All Rights Reserved.</p>

@@ -67,7 +67,7 @@ const SurveyResult = ({topTwoGenres, surveyResultInfo, userInfo}) =>{
       if (result) {
       setResultState({title : result.title, desc : SHARE_DESC_MAP[result.title] || ""});
 
-      axiosInstance.post(`${import.meta.env.VITE_SERVER_URL}/surveyresult`,
+      axiosInstance.post(`/surveyresult`,
        {
         age : surveyResultInfo.age,
         gender : surveyResultInfo.gender,
@@ -111,7 +111,7 @@ const SurveyResult = ({topTwoGenres, surveyResultInfo, userInfo}) =>{
         }}>처음으로 돌아가기</button>
 
           <button className="btn2" onClick={() => {
-            goTo(`/recommendgame/${userInfo.id}`)
+            goTo(`/recommendgame`)
           }}>맞춤형 게임 추천</button>
         </div>
     </div>

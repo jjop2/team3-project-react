@@ -14,15 +14,18 @@ function MyPage({userInfo}) {
   const[genre, setGenre] = useState("");
   const [result, setResult] = useState(null);
   const [resultState, setResultState] = useState({title : "", desc : ""});
+  const [loading, setLoading] = useState(true);
   
     useEffect(()=>{
      axiosInstance.get(`${import.meta.env.VITE_SERVER_URL}/surveyresult`)
       .then(response =>{
+
         console.log(response.data[0])
         console.log(response.data)
         const data = response.data[0];
 
         setResult(response.data[0]);
+
         setGenre(response.data[0].combinationGenre)
 
         setResultState({
@@ -31,8 +34,11 @@ function MyPage({userInfo}) {
         })
        }).catch(error =>{
         console.error(error);
-      })
+      }).finally(() => setLoading(false))
   },[])
+
+  if(loading)
+    return <div>로딩 중...</div>
 
   return (
     <>
