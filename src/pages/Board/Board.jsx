@@ -76,7 +76,7 @@ const Board = () => {
           )}
 
           <div className="boardBottom">
-            <button className="boardPageBtn toWriteBtn" onClick={() => goTo('/board/write')}>게시글 작성</button>
+            <button className="toWriteBtn" onClick={() => goTo('/board/write')}>게시글 작성</button>
           </div>
 
       </div>

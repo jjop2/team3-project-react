@@ -19,8 +19,7 @@ const TabContents = ({tabNumber, userInfo}) => {
 
   return (
     <>
-      {
-        [
+       {tabNumber === 0? (
           <div className="tab_contents_wrap" key="genre">
             <div className="tab_contents">
               <h2>'나의 선호 장르'</h2> <br />
@@ -37,13 +36,14 @@ const TabContents = ({tabNumber, userInfo}) => {
                 )}
               </p>
             </div>
-          </div>,
-          <div>
-            <h2>나의 찜 목록</h2>
-            <p>{likeGame ? "찜하기" : "찜 목록이 없습니다."}</p>
-          </div>,
-        ][tabNumber]
-      }
+          </div>
+       ) : (
+          <div className="tab_contents">
+            <h2>내가 쓴 글</h2>
+            <MyBoards userInfo={userInfo} />
+          </div>
+       )}
+        
     </>
   );
 }

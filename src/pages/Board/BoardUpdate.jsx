@@ -109,33 +109,42 @@ const BoardUpdate = ({ userInfo, isLoading }) => {
         <h1>게시글 수정</h1>
 
         <form className="boardForm" onSubmit={onSubmitHandler}>
+          <span>작성자</span>
+          <input type="text" id="author" name="author" value={userInfo.nickname} readOnly />
           <span>제목</span>
-          <input type="text" id="title" name="title" value={update.title} onChange={onChangeHandler} /><br/>
-          <input id="content" name="content" value={update.content} onChange={onChangeHandler} /><br/>
-          <input type="file" id="imgUpload" name="file" onChange={onChangeHandler} style={{'display':'none'}} accept="image/*" />
-          <label htmlFor="imgUpload">
-            파일 업로드
-          </label>
-          {imgPreviewUrl && (
-            <div className="image_preview">
-              <img src={imgPreviewUrl} alt="미리보기"  />
-            </div>
-          )}
-          <button onClick={(e) => {
-            e.preventDefault();
-            setUpdate({...update, file : null});
-            setImgPreviewUrl(null);
-            // input file의 value를 초기화하여 같은 파일을 다시 선택할 수 있게 함
-            document.getElementById('imgUpload').value = '';
-          }}>x</button><br/>
+          <input type="text" id="title" name="title" value={update.title} onChange={onChangeHandler} />
+          <span>내용</span>
+          <input id="content" name="content" value={update.content} onChange={onChangeHandler} />
+          <span>이미지 파일</span>
+          <input type="file" id="imgUpload" name="file" onChange={onChangeHandler} style={{ 'display': 'none' }} accept="image/*" />
+          
+          <div className="labelbutton">
+            <label htmlFor="imgUpload">
+              파일 업로드
+            </label>
+            {imgPreviewUrl && (
+              <div className="image_preview">
+                <img src={imgPreviewUrl} alt="미리보기" />
+              </div>
+            )}
+            {imgPreviewUrl && (
+              <button className="delete_btn" onClick={(e) => {
+                e.preventDefault();
+                setData({ ...data, file: null });
+                setImgPreviewUrl(null);
+                // input file의 value를 초기화하여 같은 파일을 다시 선택할 수 있게 함
+                document.getElementById('imgUpload').value = '';
+              }}>업로드 삭제</button>
+            )}
+          </div>
+          
+          <div className="inputbutton">
+            <input className="board_btn input1" type="submit" value="수정" />
+            <button type="button" className="board_btn beforebutton" onClick={() => goTo(-1)}>취소</button>
+          </div>
 
-
-          <input type="submit" value="수정" />
         </form>
 
-        <button onClick={()=>goTo(-1)}>취소</button>
-
-        
 
       </div>
     </>
