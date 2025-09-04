@@ -106,7 +106,7 @@ function Header({auth, setAuth, userInfo, setUserInfo, isLoading}) {
               }}
               className="text1"
             >
-              💬결과 공유하기
+              💬커뮤니티
             </h4>
           </div>
         </div>

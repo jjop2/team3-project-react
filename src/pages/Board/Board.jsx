@@ -30,7 +30,11 @@ const Board = () => {
       <div className="boardCard" onClick={() => {
         goTo(`/board/${board.id}`);
       }}>
-        <div className="boardImg" style={{'backgroundImage':`url(${import.meta.env.VITE_SERVER_URL}/upload/file/${board.img})`}}></div>
+        <img
+          src={`${import.meta.env.VITE_SERVER_URL}/upload/file/${board.img}`}
+          
+          className="boardImg"
+        />
         <div className="boardText">
           <h3>{board.title}</h3>
           <p>{board.writer}</p>
@@ -42,8 +46,10 @@ const Board = () => {
   return (
     <>
       <div className="board">
-        <h1>자유 게시판</h1>
-        <button onClick={() => goTo('/board/write')}>게시글 작성</button>
+        <div className="boardTop">
+          <h1>커뮤니티</h1>
+          <button className="boardPageBtn toWriteBtn" onClick={() => goTo('/board/write')}>게시글 작성</button>
+        </div>
 
         <div className="boardList">
           {
@@ -59,14 +65,14 @@ const Board = () => {
               <p>등록된 게시물이 없습니다.</p>
             )
           }
+        </div>
 
           {visibleCount < boardList.length && (
             <div>
-              <button onClick={handleLoadMore}>더보기</button>
+              <button className="boardPageBtn toMoreBtn" onClick={handleLoadMore}>더보기</button>
             </div>
           )}
 
-        </div>
       </div>
     </>
   )

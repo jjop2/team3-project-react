@@ -37,7 +37,6 @@ const BoardUpdate = ({ userInfo, isLoading }) => {
           setImgPreviewUrl(`${import.meta.env.VITE_SERVER_URL}/upload/file/${response.data.img}`);
         }
         
-        console.log(response.data)
       })
       .catch(error => console.error(error))
       .finally(() => setLoading(false))
@@ -46,7 +45,7 @@ const BoardUpdate = ({ userInfo, isLoading }) => {
     if(loading)
       return <div>로딩 중...</div>
     
-    if(userInfo.nickname !== board.writer) {
+    if(userInfo.nickname !== board.writerName) {
       alert('잘못된 접근입니다');
       goTo(-1);
     }
