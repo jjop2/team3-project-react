@@ -162,7 +162,23 @@ li {
 .type_title_box {
   margin-bottom: 50px;
 }
-/* type_box 호버 트랜지션 */
+/* type_box 부분 */
+.type_title_box{
+  margin-bottom: 80px;
+  font-family: jua, sans-serif;
+}
+
+.type_title_box h1{
+  font-size: 2.3rem;
+  font-weight: 100;
+}
+.type_title_box p{
+  font-size: 1.4rem;
+  margin-top: 5px;
+  letter-spacing: 1px;
+  color: rgb(46, 46, 46);
+}
+
 .type_box {
   width: 100%;
   height: 150px;
@@ -176,25 +192,47 @@ li {
   transform: scale(1.1);
 }
 .box01 {
-  background-image: url(../images/type01bg.png);
+  background-image: url(../images/action.jpg);
   cursor: pointer;
 }
+
 .box02 {
-  background-image: url(../images/type01bg.png);
+  background-image: url(../images/simulation.jpg);
   cursor: pointer;
 }
+
 .box03 {
-  background-image: url(../images/type01bg.png);
+  background-image: url(../images/racing.jpg);
   cursor: pointer;
 }
+
 .box04 {
-  background-image: url(../images/type01bg.png);
+  background-image: url(../images/sport.jpg);
   cursor: pointer;
 }
+
 .box05 {
-  background-image: url(../images/type01bg.png);
+  background-image: url(../images/rpg.jpg);
   cursor: pointer;
 }
+
+.type_box::before{
+  content: "";
+  opacity:0.3;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: #ffffff;
+}
+
+.type_box h2, .type_box p{
+  position: relative;
+  z-index: 1;
+  color: black;
+}
+
 /* type_box_list 내부 li 요소에 순차적 애니메이션 적용 */
 .type_box_list li {
   opacity: 0;

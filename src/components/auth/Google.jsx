@@ -50,7 +50,7 @@ function Google( {setAuth} ) {
         <GoogleLogin
           onSuccess={responseGoogle}
           onError={() => console.error('구글 로그인 실패')}
-          text="signin_with"
+          text="continue_with"
           width={'280px'}
           logo_alignment="center"
         >
