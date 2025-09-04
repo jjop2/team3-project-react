@@ -1,12 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Dongle&family=Gaegu&family=Gamja+Flower&family=Jua&family=Noto+Sans+KR:wght@100..900&display=swap');
+
+@font-face {
+    font-family: 'MitmiFont';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2402_1@1.0/Ownglyph_meetme-Rg.woff2') format('woff2');
+    font-weight: normal;
+    font-display: swap;
+}
 
 #wrap{
     width: 100%;
     margin: 0 auto;
+    position: relative;
+    
 }
+
+.allnavbar{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 99;
+    background-color: white;
+}
+
 .navbar{
+    margin: 0 auto;
+    width: 80%;
+    max-width: 1100px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+    background-color: rgb(255, 255, 255);
     
 }
 
@@ -17,8 +40,13 @@
 .navbar-icons{
     display: flex;
     justify-content: space-around;
-    width: 60%;
-    margin: auto
+    width: 80%;
+    max-width: 1100px;
+    margin: auto;
+    font-family: 'MitmiFont', sans-serif;
+    font-size: 1.3rem;
+    color: rgb(34, 34, 34);
+    padding: 7px 0;
 }
 .navbar-subtitle{
     display: flex;
@@ -30,35 +58,73 @@
 .content{
     display: flex;
     flex-direction: column;
+    font-family: 'Jua', sans-serif;
+    padding: 5px 0;
+}
+
+.content h1{
+    font-size: 2.5rem;
+    font-weight: 400;
+    letter-spacing: 5px;
+}
+.content p{
+    font-size: 1rem;
+    margin-top: 0;
+    font-weight: 100;
+    letter-spacing: 1px;
+}
+
+.content p:hover{
+    color: rgb(104, 11, 190);
+}
+
+.content img{
+    height: 70px;
 }
 .navbar-right{
    display: flex;
    gap: 10px;
+   font-family: 'MitmiFont', sans-serif;
+   font-size: 1.3rem;
+   color: rgb(34, 34, 34);
 }
 .text1{
   cursor: pointer; /* 마우스 커서 변경 */
+  font-weight: 100;
 }
+
+.text1:hover{
+    color: rgb(104, 11, 190);
+}
+
 .navbar-button{
 cursor: pointer; /* 마우스 커서 변경 */
+
 }
+
+.navbar-button:hover{
+    font-weight: 400;
+     color: rgb(104, 11, 190);
+}
+
 .navbar-title{
     color: black;
     text-decoration: none;
     font-size: 1.2em;
 }
-.navbar-title:hover{
-    color: blueviolet;
+
+.logo img{
+    width: 50px;
+    padding-top: 15px;
+    margin-right: 15px;
 }
-.navbar-button:hover{
-    background-color: #e0e0e0;
+
+.navbar-title:hover {
+    color: rgb(104, 11, 190);
 }
-.text1:hover{
-    background-color: #e0e0e0;
-}
-.navbar-my:hover{
-     background-color: #e0e0e0;
-     cursor: pointer;
-}
+
+
+/* 현태님 드롭다운 메뉴 추가 */
 
 .dropdown-wrapper {
   position: relative;
@@ -71,19 +137,34 @@ cursor: pointer; /* 마우스 커서 변경 */
   left: 0;
   background: white;
   border: 1px solid #ddd;
+  border-top: none;
   list-style: none;
-  padding: 5px;
-  margin: 0;
+  margin-top: 0px;
   z-index: 100;
   width: 100%;
 }
 
 .dropdown li {
-  padding: 8px;
+  padding: 8px 0;
   font-size: 18px;
   cursor: pointer;
+  color: rgb(46, 46, 46);
 }
 
 .dropdown li:hover {
-  background-color: #f0f0f0;
+  color: rgb(104, 11, 190);
+  font-weight: 600;
+}
+
+@media (max-width: 767px) {
+  .navbar{
+    width: 100%;
+    padding: 0 10px;
+  }
+  .navbar-icons{
+    width: 100%;
+    justify-content: space-between;
+    padding: 7px 10px;
+  }
+
 }

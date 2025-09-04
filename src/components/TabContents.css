@@ -1,0 +1,25 @@
+.tab_contents {
+  padding: 0 50px;
+}
+
+.tab_contents h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-family: jua, sans-serif;
+  font-weight: 100;
+  letter-spacing: 2px;
+}
+
+.tab_contents h3 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  font-family: jua, sans-serif;
+  font-weight: 100;
+  letter-spacing: 2px;
+}
+
+.genre_img{
+  width: 100%;
+  padding: 0 20px;
+  margin: 0 auto;
+}

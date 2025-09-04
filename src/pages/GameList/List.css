@@ -1,0 +1,129 @@
+
+.list_title{
+  font-weight: 700;
+}
+
+.list_subtitle {
+  font-weight: 400;
+}
+
+
+
+.btn{
+  margin: 150px 0px 50px 0px;
+  width: 120px;
+  height: 50px;
+  border: none;
+  font-weight: 500;
+  background-color: rgb(223, 223, 223);
+  cursor: pointer;
+}
+
+.btn:hover{
+  background-color: rgb(104, 11, 190);
+  color: white;
+}
+
+.list_banner{
+  width: 100% !important;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  top: 150px;
+}
+
+.banner_cover{
+  max-width: 1400px;
+  padding: 0 50px;
+}
+
+.banner_cover::before{
+  content: "";
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  top: 25%;
+  left: 10%;
+  width: 80%;
+  height: 50%;
+  background-color: rgba(248, 248, 248, 0.438);
+  z-index: 1;
+}
+
+.list_banner h1{
+  position: relative;
+  z-index: 2;
+  color: black;
+}
+
+/* 카테고리별 배너 이미지 */
+.action_banner {
+  background-image: url(../src/images/action_banner.jpg);
+  background-size: cover;
+  background-position: 100% 30%;
+}
+
+.simulation_banner {
+  background-image: url(../src/images/simulation_banner.jpg);
+  background-size: cover;
+  background-position: 100% 30%;
+}
+
+.racing_banner {
+  background-image: url(../src/images/racing_banner.jpeg);
+  background-size: cover;
+  background-position: 100% 30%;
+}
+
+.sports_banner {
+  background-image: url(../src/images/sports_banner.jpg);
+  background-size: cover;
+  background-position: 100% 45%;
+}
+.rpg_banner {
+  background-image: url(../src/images/rpg_banner.jpg);
+  background-size: cover;
+  background-position: 100% 40%;
+}
+
+/* 베너이미지 부분 끝 */
+
+.recommendGameList-container{
+  margin-top: 250px;
+  transition: 0.5s;
+}
+
+.gameimg{
+  overflow: hidden;
+}
+
+.gameimg img{
+  width: 100%;
+}
+
+.recommendGameList-container img{
+  transition: 0.5s;
+} 
+
+.recommendGameList-container img:hover{
+  scale: 1.2;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+@media (max-width: 767px){
+  .recommendGameList-container{
+    grid-template-columns: repeat(1, 1fr);
+  }
+  
+  .list_title{
+    font-size: 1.5rem;
+  }
+
+}

@@ -7,11 +7,14 @@ import main_icon02 from "../images/main_icon02.png";
 import main_icon03 from "../images/main_icon03.png";
 import type01bg from "../images/type01bg.png";
 import useNavi from "../hooks/useNavi";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLightbulb } from "@fortawesome/free-regular-svg-icons";
 
 function MainPage({userInfo}) {
     const sectionRefs = useRef([]);
     const [visibleSections, setVisibleSections] = useState([]);
-    // ✅ 텍스트 애니메이션을 위한 새로운 ref와 상태를 추가합니다.
+
+    //  텍스트 애니메이션을 위한 새로운 ref와 상태를 추가합니다.
     const textRef = useRef(null);
     const [isTextVisible, setIsTextVisible] = useState(false);
     const {goHome, goTo} = useNavi();
@@ -76,7 +79,7 @@ function MainPage({userInfo}) {
               당신의 게임을 찾아보세요
             </h1>
             <p className={`subtitle ${isTextVisible ? "visible" : ""}`}>
-              간단한 '성향 테스트' 를 통해 당신에게 <br /> 완벽하게 맞는 게임을 추천해드립니다
+              간단한 성향 테스트 를 통해 당신에게 <br /> 완벽하게 맞는 게임을 추천해드립니다
             </p>
             <div className="main_box_content">
               <div className="main_box">
@@ -86,11 +89,16 @@ function MainPage({userInfo}) {
                 <h2>10</h2> <p>가지의 게이머 유형</p>
               </div>
             </div>
-            <button className="test_start" onClick={()=>{
-              goTo('/survey')
-            }}>
-              <img src="../src/images/Brains.png"/>
-              <p>게임성향 테스트시작</p>
+            <button
+              className="test_start"
+              onClick={() => {
+                goTo("/survey");
+              }}
+            >
+              <span className="font_icon">
+                <FontAwesomeIcon icon={faLightbulb} size="2x" />
+              </span>
+              <p className="test_text">게임성향 테스트시작</p>
             </button>
           </section>
           <section
@@ -99,21 +107,21 @@ function MainPage({userInfo}) {
           >
             <div className="main_text_box">
               <div className="text_box_img">
-                <img src="../src/images/main_icon01.png"/>
+                <img src="../src/images/main_icon01.png" />
                 <h3>정확한 분석</h3>
                 <p>12개의 과학적으로 설계된 질문으로 당신의 게임 성향을 정확하게 분석합니다.</p>
               </div>
             </div>
             <div className="main_text_box">
               <div className="text_box_img">
-                <img src="../src/images/main_icon02.png"/>
+                <img src="../src/images/main_icon02.png" />
                 <h3>맞춤 추천</h3>
                 <p>10가지 게이머 유형 중 당신에게 맞는 유형을 찾아 최적의 게임을 추천합니다.</p>
               </div>
             </div>
             <div className="main_text_box">
               <div className="text_box_img">
-                <img src="../src/images/main_icon03.png"/>
+                <img src="../src/images/main_icon03.png" />
                 <h3>결과 공유</h3>
                 <p>친구들과 테스트 결과를 공유하고 함께 게임을 즐겨보세요.</p>
               </div>
@@ -123,41 +131,56 @@ function MainPage({userInfo}) {
             ref={(el) => (sectionRefs.current[1] = el)}
             className={`main_type ${visibleSections.includes(1) ? "visible" : ""}`}
           >
-            <div  className="type_title_box">
-              <h2>장르별로 어떤 게임이 있을까요?</h2>
-              <p>장르별 다양한 게임을 미리 확인해 보세요.</p>
+            <div className="type_title_box">
+              <h1>어떤 게임이 있을까요?</h1>
+              <p>장르별 추천 게임을 확인해 보세요</p>
             </div>
             <div className="type_box_list">
               <ul>
-                <li className="type_box box01" onClick={() =>{
-                  goTo('/recommendgame/action')
-                }}>
-                  <h3>Action</h3>
-                  <p>속도와 기술로 한계를 넘는 질주의 세계</p>
+                <li
+                  className="type_box box01"
+                  onClick={() => {
+                    goTo("/recommendgame/action");
+                  }}
+                >
+                  <h2>Action</h2>
+                  <p>시원한 전투로 적을 제압하는 쾌감</p>
                 </li>
-                <li className="type_box box02" onClick={() =>{
-                  goTo('/recommendgame/simulation')
-                }}>
-                  <h3>Simulation</h3>
-                  <p>현실을 조작하며 세상을 직접 설계</p>
+                <li
+                  className="type_box box02"
+                  onClick={() => {
+                    goTo("/recommendgame/simulation");
+                  }}
+                >
+                  <h2>Simulation</h2>
+                  <p>현실을 조작하고 세상을 직접 설계하는 몰입의 경험</p>
                 </li>
-                <li className="type_box box03" onClick={() =>{
-                  goTo('/recommendgame/racing')
-                }}>
-                  <h3>Racing</h3>
-                  <p>속도와 기술로 한계를 넘는 질주의 세계</p>
+                <li
+                  className="type_box box03"
+                  onClick={() => {
+                    goTo("/recommendgame/racing");
+                  }}
+                >
+                  <h2>Racing</h2>
+                  <p>정교한 컨트롤로 트랙 위를 질주하는 스피드 경쟁</p>
                 </li>
-                <li className="type_box box04" onClick={() =>{
-                  goTo('/recommendgame/sports')
-                }}>
-                  <h3>Sports</h3>
-                  <p>전략과 컨트롤로 승부를 겨루는 e-스포츠의 정수</p>
+                <li
+                  className="type_box box04"
+                  onClick={() => {
+                    goTo("/recommendgame/sports");
+                  }}
+                >
+                  <h2>Sports</h2>
+                  <p>전략과 팀워크로 승부를 겨루는 치열한 스포츠의 세계</p>
                 </li>
-                <li className="type_box box05" onClick={() =>{
-                  goTo('/recommendgame/rpg')
-                }}>
-                  <h3>RPG</h3>
-                  <p>캐릭터와 함께 성장하며 서사를 이끄는 모험</p>
+                <li
+                  className="type_box box05"
+                  onClick={() => {
+                    goTo("/recommendgame/rpg");
+                  }}
+                >
+                  <h2>RPG</h2>
+                  <p>캐릭터와 함께 성장하며 거대한 서사를 이끄는 모험</p>
                 </li>
               </ul>
             </div>

@@ -103,7 +103,7 @@ function App() {
           <Route path="/survey" element={<Survey setTopTwoGenres={setTopTwoGenres} setSurveyResultInfo={setSurveyResultInfo} userInfo={userInfo} isLoading={isLoading} />}/>
           <Route path="/surveyresult" element={<SurveyResult topTwoGenres={topTwoGenres} surveyResultInfo={surveyResultInfo} userInfo={userInfo}/>} />
           <Route path="/usermodify" element={<UserModify userInfo={userInfo} setAuth={setAuth} setUserInfo={setUserInfo}/>}></Route>
-          <Route path="/recommendgame/" element={<RecommendGame userInfo={userInfo} topTwoGenres={topTwoGenres} isLoading={isLoading} />}/>
+          <Route path="/recommendgame" element={<RecommendGame userInfo={userInfo} topTwoGenres={topTwoGenres} isLoading={isLoading} />}/>
           <Route path='/board' element={<Board />} />
           <Route path='/board/write' element={<BoardWrite
             userInfo={userInfo}

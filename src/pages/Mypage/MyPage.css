@@ -1,43 +1,81 @@
 .mypage-container {
+  max-width: 1400px;
+  width: 90%;
+  height: 100%;
+  display: flex;
+  flex-flow: wrap;
+  margin: 0 auto;
+  
+}
+
+.left-menu {
+  width: 25%;
+  height: 100px;
+  position: sticky;
+  top: 170px;
+  padding: 0 5px;
+  cursor: pointer;
+  font-family: 'MitmiFont', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 100;
+  color: rgb(53, 53, 53);
+}
+
+.tabs{
+  text-align: center;
+  padding: 5px 0;
+}
+
+.tabs:hover{
+  color: rgb(0, 0, 0);
+  font-weight: 500;
+}
+
+.right-menu {
+  width: 75%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.profile {
+  width: 100%;
+  padding: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(219, 214, 214, 0.1);
+  margin-bottom: 30px;
+  
+}
+
+.mypage_title{
+  font-weight: 400;
+}
+
+.tab-contents {
+  padding: 50px 0px;
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: space-between;
-  margin: auto;
-}
-
-.mypage-container .left-menu {
-  margin-top: 20px;
-}
-
-.mypage-container .left-menu .tabs {
-  margin: 20px;
-  cursor: pointer;
-}
-
-
-.mypage-container .right-menu {
-  display: flex;
-  flex-direction: column;
-  margin-right: 400px;
-}
-
-.mypage-container .right-menu .profile {
-  width: 600px;
-  height: 150px;
-  margin: 2rem;
-  padding: 1rem;
   border-radius: 8px;
   background-color: #f4f6f8;
   box-shadow: 0 4px 10px rgba(219, 214, 214, 0.1);
 }
 
-.mypage-container .right-menu .tab-contents {
-  width: 600px;
-  height: 100%;
-  margin: 2rem;
-  padding: 1rem;
-  border-radius: 8px;
-  background-color: #f4f6f8;
-  box-shadow: 0 4px 10px rgba(219, 214, 214, 0.1);
+@media (max-width: 767px){
+  .mypage-container{
+    flex-direction: column;
+  }
+  .right-menu{
+    width: 100%;
+  }
+  .left-menu{
+    position: relative;
+    display: flex;
+    height: 50px;
+    width: 100%;
+    top: -50px;
+  }
+  .tabs{
+    flex: 1;
+  }
 }

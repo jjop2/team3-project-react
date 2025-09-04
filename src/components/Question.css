@@ -1,6 +1,14 @@
+
+.container-app{
+  padding-top: 130px;
+}
+
+
+
 .Question-container {
-  padding: 10px;
+  width: 100%;
   margin: 5px;
+  padding: 10px;
 }
 
 .Question-item {

@@ -55,7 +55,7 @@ function Kakao( {setAuth} ) {
               alt="Kakao icon"
               className="social-icon"
             />
-          <span>카카오 계정으로 로그인</span>
+          <span>카카오 계정으로 계속하기</span>
         </div>
       </KakaoLogin>
     </>
