@@ -35,3 +35,7 @@
 .myBoardContent {
   flex: 2;
 }
+
+.myList > p {
+  padding-top: 90px;
+}
