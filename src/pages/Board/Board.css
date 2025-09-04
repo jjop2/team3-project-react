@@ -2,6 +2,12 @@
   padding: 10px;
 }
 
+.boardTop {
+  position: relative;
+  text-align: center;
+  padding: 10px 20px 30px;
+}
+
 .boardList {
   display: grid;
   grid-template-columns: repeat(auto-fill, 300px);
@@ -31,8 +37,8 @@
 .boardImg {
   height: 300px;
   width: 100%;
-  background-size: cover;
-  background-position: center center;
+  object-fit: cover;
+  object-position: center;
 }
 
 .boardText {
@@ -52,11 +58,40 @@
   text-align: left;
 }
 
-@media (max-width: 767px) {
-  .boardList {
-    /* display: none; */
-  }
+.boardPageBtn {
+  padding: 7px 15px;
+  font-size: 16px;
+  color: white;
+  border-radius: 5px;
+  border: 0px;
+  cursor: pointer;
+  margin: 10px;
+}
 
+.toWriteBtn {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  background-color: black;
+}
+
+.toWriteBtn:hover {
+  background-color: #333;
+}
+
+.loadMoreWrapper {
+  
+}
+
+.toMoreBtn {
+  background-color: gray;
+}
+
+.toMoreBtn:hover {
+  background-color: #999;
+}
+
+@media (max-width: 767px) {
   .boardImg {
     height: 200px;
   }

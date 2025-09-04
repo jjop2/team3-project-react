@@ -53,7 +53,7 @@ const BoardWrite = ( {userInfo, isLoading} ) => {
     const formData = new FormData();
     formData.append("title", data.title);
     formData.append("content", data.content);
-    formData.append("writer", data.writer);
+    formData.append("writerId", userInfo.id);
     formData.append("file", data.file);
 
     if(!data.title) {
@@ -76,8 +76,6 @@ const BoardWrite = ( {userInfo, isLoading} ) => {
         file: 선택한 이미지 정보(name("galio.jpg"), size(25486), type("image/jpeg") 등)
       }
     */
-
-    console.log(data)
 
     axios.post(`${import.meta.env.VITE_SERVER_URL}/upload`, formData)
     .then(response => {

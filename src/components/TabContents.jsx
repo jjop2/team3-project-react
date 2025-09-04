@@ -1,14 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import axiosInstance from "../axiosInstance";
+import MyBoards from "./MyBoards";
 
-const TabContents = ({tabNumber}) => {
+const TabContents = ({tabNumber, userInfo}) => {
 
   const[genre, setGenre] = useState("");
-  const[likeGame, setLikeGame] = useState("");
 
   useEffect(()=>{
-     axiosInstance.get(`${import.meta.env.VITE_SERVER_URL}/surveyresult`)
+     axiosInstance.get('/surveyresult')
       .then(response =>{
         setGenre(response.data[0].combinationGenre)
        }).catch(error =>{
@@ -18,8 +18,8 @@ const TabContents = ({tabNumber}) => {
 
   return(
     <>
- {[
-        <div key="genre">
+      {tabNumber === 0? (
+        <div>
           <h2>나의 선호 장르</h2> <br />
           <h3>{genre}</h3>
           <p>
@@ -29,19 +29,13 @@ const TabContents = ({tabNumber}) => {
               "아직 결과가 없습니다. 성향테스트를 진행해주세요."
             )}
           </p>
-        </div>,
-        <div>
-          <h2>나의 찜 목록</h2>
-          <p>
-           {likeGame ? (
-              "찜하기"
-            ) : (
-              "찜 목록이 없습니다."
-            )}
-          </p>
         </div>
-      ][tabNumber]
-    }
+      ) : (
+        <div>
+          <h2>내가 쓴 글</h2>
+          <MyBoards userInfo={userInfo} />
+        </div>
+      )}
     </>
   )
 }

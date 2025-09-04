@@ -11,7 +11,7 @@ const Footer = () => {
         <p onClick={() => goTo('/term')}>이용약관</p>
       </div>
       <div className="copyright">
-        <p>© 2025 GameHub. All Rights Reserved.</p>
+        <p>© 2025 GAMBTI. All Rights Reserved.</p>
       </div>
     </div>
   )
