@@ -68,7 +68,7 @@ const SurveyResult = ({topTwoGenres, surveyResultInfo}) =>{
       if (result) {
       setResultState({title : result.title, desc : SHARE_DESC_MAP[result.title] || ""});
 
-      axiosInstance.post(`/surveyresult`,
+      axiosInstance.post('/surveyresult',
        {
         age : surveyResultInfo.age,
         gender : surveyResultInfo.gender,
