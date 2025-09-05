@@ -84,6 +84,7 @@ function UserModify({userInfo, setAuth, setUserInfo}) {
       .then(infoReponse=>{
         setUserInfo(infoReponse.data); // app.jsx에서 관리되는 userinfo업데이트
       });
+      goHome();
     })
     .catch((error)=>{
       console.log("Axios Error",error);
@@ -110,6 +111,9 @@ function UserModify({userInfo, setAuth, setUserInfo}) {
       });
     }
   };
+
+  if(!userInfo)
+    return <div>로딩 중...</div>
 
   return (
     <>

@@ -37,12 +37,16 @@ const RecommendGameList = ({userInfo}) =>{
   return(
   <div>
     {gameList.length > 0 ? (
-     <h1 style={{marginTop:"20px"}}> {genre} {userInfo.nickname}님을 위한 게임 추천</h1>
+     <h1 className="recommend_title" >
+        {" "}
+        {genre} {userInfo.nickname}
+        <br></br><span className="listsub_title"> 님을 위한 게임 추천</span>
+      </h1>
      ): (
        <div></div>
       )}
 
-    <div className="recommendGameList-container">
+    <div className="recommendGameList-container" id="member_recommend">
       {gameList.length > 0 ? (
         gameList.slice(0, visibleCount).map((game, i) => (
           <div key={i} className="game-card">
