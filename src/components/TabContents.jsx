@@ -29,7 +29,7 @@ const TabContents = ({tabNumber, userInfo}) => {
                   <img
                     src={`../src/images/${genre}.PNG`}
                     alt={genre}
-                    style={{width: "100%", margin: "auto"}}
+                    style={{margin: "auto"}}
                   />
                 ) : (
                   "아직 결과가 없습니다. 성향테스트를 진행해주세요."
