@@ -1,5 +1,8 @@
 .myList {
   margin-top: 10px;
+}
+
+.myList:first-child {
   border-top: 1px solid lightgray;
 }
 

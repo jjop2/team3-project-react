@@ -7,10 +7,10 @@ const MyBoards = ({userInfo}) => {
   const {goTo} = useNavi();
   const [loading, setLoading] = useState(true);
   const [myList, seMyList] = useState([]); // 게시글 전체 목록
-  const [visibleCount, setVisibleCount] = useState(8); // 화면에 보여줄 개수
+  const [visibleCount, setVisibleCount] = useState(5); // 화면에 보여줄 개수
 
   const handleLoadMore = () => {
-    setVisibleCount(prev => prev + 8); // 8개씩 늘리기
+    setVisibleCount(prev => prev + 5); // 8개씩 늘리기
   };
 
   useEffect(() => {
